@@ -903,12 +903,44 @@ updateHeightDisplay();
 applyInputTypeVisibility();
 renderResult();
 
-/* ===== PWA: daftarkan Service Worker (untuk offline & "Add to Home Screen") ===== */
+/* ===== PWA: daftarkan Service Worker + auto-update tanpa uninstall manual ===== */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(() => console.log('Service Worker terdaftar.'))
-      .catch((err) => console.warn('Gagal mendaftarkan Service Worker:', err));
+    navigator.serviceWorker.register('service-worker.js').then((reg) => {
+      console.log('Service Worker terdaftar.');
+
+      // Cek update setiap kali app dibuka
+      reg.update();
+
+      // Jika ada Service Worker baru yang sedang menunggu, aktifkan langsung
+      if (reg.waiting) {
+        reg.waiting.postMessage('SKIP_WAITING');
+      }
+
+      // Deteksi Service Worker baru yang baru selesai di-install
+      reg.addEventListener('updatefound', () => {
+        const newWorker = reg.installing;
+        if (!newWorker) return;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            // Versi baru siap -> minta langsung aktif
+            newWorker.postMessage('SKIP_WAITING');
+          }
+        });
+      });
+
+      // Cek ulang berkala (setiap 5 menit) selama app terbuka, untuk PWA yang jarang ditutup
+      setInterval(() => reg.update(), 5 * 60 * 1000);
+    }).catch((err) => console.warn('Gagal mendaftarkan Service Worker:', err));
+
+    // Begitu Service Worker baru mengambil alih kontrol, reload otomatis
+    // supaya pengguna langsung melihat versi terbaru tanpa aksi manual.
+    let hasReloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (hasReloaded) return;
+      hasReloaded = true;
+      window.location.reload();
+    });
   });
 }
 </script>
