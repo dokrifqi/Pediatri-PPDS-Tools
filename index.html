@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Pediatri & PPDS Tools</title>
+
+<!-- ═══ PWA: manifest & theme ═══ -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#C62828">
+<meta name="description" content="Kumpulan alat bantu klinis untuk residen Ilmu Kesehatan Anak (PPDS), mengacu pada guideline resmi AAP/WHO/IDAI.">
+
+<!-- ═══ PWA: iOS (Add to Home Screen) ═══ -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PPDS Tools">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+
+<!-- ═══ PWA: Android / Chrome icons ═══ -->
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F0F0;
+  --card:#fff;
+  --text:#1F2937;
+  --text-soft:#6B7280;
+  --text-faint:#9CA3AF;
+  --border:#E5E7EB;
+  --hero1:#7A1414;
+  --hero2:#C62828;
+  --hero3:#E85454;
+  --warn-bg:#FFFBEB;
+  --warn-border:#FDE68A;
+  --warn-text:#92400E;
+  --tip-border:#C62828;
+  --bnav-bg:#fff;
+  --input-bg:#fff;
+  --info-bg:#f4f6f8;
+}
+body.dark{
+  --bg:#15100F;
+  --card:#241C1B;
+  --text:#F3EDEC;
+  --text-soft:#B9ACAA;
+  --text-faint:#8A7C7A;
+  --border:#3A2E2C;
+  --hero1:#4A0D0D;
+  --hero2:#8A1E1E;
+  --hero3:#B23A3A;
+  --warn-bg:#3A2E14;
+  --warn-border:#6B551F;
+  --warn-text:#F2D98A;
+  --tip-border:#E85454;
+  --bnav-bg:#241C1B;
+  --input-bg:#2E2422;
+  --info-bg:#2A211F;
+}
+*{font-family:'Plus Jakarta Sans',sans-serif;-webkit-tap-highlight-color:transparent;box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);min-height:100vh;transition:background .2s}
+body{max-width:430px;margin:0 auto;padding-bottom:76px}
+.hidden{display:none !important}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,var(--hero1) 0%,var(--hero2) 50%,var(--hero3) 100%);padding:0 16px 26px}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px}
+.brand{display:flex;align-items:center;gap:8px}
+.brand .badge{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:17px}
+.brand .b-name{font-size:13px;font-weight:800;color:#fff;line-height:1.2;max-width:150px}
+.brand .b-sub{font-size:9.5px;color:rgba(255,255,255,.65)}
+.top-actions{display:flex;gap:8px}
+.icon-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;color:#fff}
+.share-btn{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);border-radius:20px;padding:6px 11px;color:#fff;font-size:11px;font-weight:700;cursor:pointer}
+
+/* ── PROFILE CARD ── */
+.profile{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:13px;display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.pf-avatar{width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;border:2.5px solid rgba(255,255,255,.6);overflow:hidden;object-fit:cover}
+.pf-name{font-size:14px;font-weight:800;color:#fff;line-height:1.2}
+.pf-role{font-size:10px;color:rgba(255,255,255,.75);margin-top:2px}
+.pf-chip{display:inline-flex;align-items:center;gap:5px;margin-top:6px;background:#25D366;border-radius:20px;padding:4px 10px}
+.pf-chip span{font-size:9.5px;font-weight:800;color:#fff}
+
+/* ── STAT CHIPS ── */
+.chips{display:flex;gap:9px}
+.chip{flex:1;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:11px 6px 9px;text-align:center}
+.chip-val{font-size:15px;font-weight:800;color:#fff;line-height:1.2}
+.chip-key{font-size:9px;font-weight:600;color:rgba(255,255,255,.65);margin-top:3px;letter-spacing:.04em;text-transform:uppercase}
+
+/* ── TIP CARD ── */
+.tip-card{background:var(--card);border-radius:18px;box-shadow:0 4px 20px rgba(0,0,0,.08);border-left:4px solid var(--tip-border);margin:-14px 16px 0;padding:13px 15px;position:relative;z-index:10}
+.tip-t{font-size:12.5px;font-weight:800;color:var(--tip-border);line-height:1.3}
+.tip-b{margin-top:3px;font-size:11.5px;color:var(--text-soft);line-height:1.5}
+
+/* ── SECTION HEAD ── */
+.sec-head{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:var(--text-soft);letter-spacing:.07em;text-transform:uppercase;margin:20px 16px 10px}
+
+/* ── WARNING ── */
+.warn{margin:16px 16px 0;background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:14px;padding:10px 13px;display:flex;gap:8px;align-items:flex-start}
+.warn p{font-size:10.5px;color:var(--warn-text);line-height:1.5}
+
+/* ── GRID MENU ── */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 16px}
+.box{background:var(--card);border-radius:16px;padding:14px 6px 12px;text-align:center;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);border:2px solid transparent;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:5px}
+.box:active{transform:scale(.93)}
+.box.featured{border-color:#C62828}
+.ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.lbl{font-size:10.5px;font-weight:700;color:var(--text);line-height:1.25}
+.sub{font-size:9px;color:var(--text-faint);font-weight:600}
+
+/* ── BOTTOM NAV ── */
+.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:var(--bnav-bg);border-top:1px solid var(--border);display:flex;z-index:100}
+.bnav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px 7px;cursor:pointer;gap:2px;font-size:10px;font-weight:700;color:var(--text-faint)}
+.bnav-item svg{width:20px;height:20px}
+.bnav-item.active{color:#C62828}
+
+/* ── SETTINGS SCREEN ── */
+#screen-settings{background:var(--bg);min-height:100vh;max-width:430px;margin:0 auto}
+.settings-topbar{background:linear-gradient(135deg,var(--hero2),var(--hero3));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.settings-topbar .back-btn{background:rgba(255,255,255,.2);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.settings-topbar .title{font-weight:800;font-size:15px}
+.settings-body{padding:18px 16px 32px}
+.set-card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.set-card h4{font-size:13px;color:var(--text);margin-bottom:12px}
+.avatar-edit{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.avatar-preview{width:64px;height:64px;border-radius:50%;background:#f2f2f2;display:flex;align-items:center;justify-content:center;font-size:28px;overflow:hidden;flex-shrink:0;border:2px solid var(--border)}
+.avatar-preview img{width:100%;height:100%;object-fit:cover}
+.set-btn{background:#C62828;color:#fff;border:none;border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer}
+.set-btn.secondary{background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
+.set-label{display:block;font-size:12px;font-weight:700;color:var(--text-soft);margin-bottom:5px;margin-top:12px}
+.set-input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:13.5px}
+.save-row{margin-top:16px;display:flex;gap:10px}
+.emoji-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.emoji-opt{width:38px;height:38px;border-radius:10px;background:var(--input-bg);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:19px;cursor:pointer}
+.emoji-opt.selected{border-color:#C62828}
+
+/* Dark mode toggle row */
+.mode-row{display:flex;align-items:center;justify-content:space-between}
+.mode-row .mode-label{font-size:13px;font-weight:700;color:var(--text)}
+.switch{position:relative;display:inline-block;width:50px;height:27px}
+.switch input{display:none}
+.slider-toggle{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#ccc;border-radius:30px;transition:.2s}
+.slider-toggle:before{position:absolute;content:"";height:21px;width:21px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+input:checked + .slider-toggle{background:#C62828}
+input:checked + .slider-toggle:before{transform:translateX(23px)}
+
+/* ── BP TOOL SCREEN ── */
+#screen-bp{background:var(--card);min-height:100vh;max-width:430px;margin:0 auto;color:var(--text)}
+.bp-topbar{background:linear-gradient(135deg,#C62828,#E85454);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.bp-topbar .back-btn{background:rgba(255,255,255,.2);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bp-topbar .title{font-weight:800;font-size:15px}
+
+.bp-tabs{display:flex;background:var(--info-bg)}
+.bp-tabs button{flex:1;padding:9px 4px;border:none;background:none;font-size:11.5px;font-weight:700;color:#C66;cursor:pointer;border-bottom:3px solid transparent}
+.bp-tabs button.active{color:#C62828;border-bottom-color:#C62828}
+.bp-page{display:none;padding:16px 16px 32px 16px}
+.bp-page.active{display:block}
+
+.row-center{display:flex;align-items:center;justify-content:center;gap:12px;margin:14px 0;font-weight:600;font-size:13px;color:var(--text)}
+
+label.field-label{display:block;font-weight:700;margin-bottom:5px;margin-top:14px;font-size:13px;color:var(--text)}
+.value-badge{font-weight:400;color:var(--text-soft);font-size:12px}
+input[type="range"]{width:100%;accent-color:#C62828}
+input[type="number"]{width:100%;padding:9px;font-size:14px;border:1px solid var(--border);border-radius:8px;background:var(--input-bg);color:var(--text)}
+
+table.result{width:100%;border-collapse:collapse;margin-top:16px}
+table.result th{text-align:left;padding:7px 4px;border-bottom:2px solid var(--border);font-size:11.5px;color:var(--text-soft)}
+table.result td{padding:9px 4px;font-size:19px;font-weight:800;border-bottom:1px solid var(--border)}
+table.result td.label{font-size:13px;font-weight:700;color:var(--text)}
+.mmhg-note{font-size:10px;color:var(--text-faint);font-weight:400;display:block}
+
+.bp-disclaimer{font-size:11.5px;color:var(--text-faint);margin-top:14px;text-align:center}
+.bp-warning{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:11px;font-size:12.5px;color:var(--warn-text);margin-top:12px}
+.bp-info{background:var(--info-bg);border-left:4px solid #C62828;padding:11px 13px;border-radius:6px;margin:12px 0;font-size:12.5px;line-height:1.55;color:var(--text)}
+.legend-item{display:flex;align-items:center;gap:9px;margin:9px 0;font-size:12.5px;color:var(--text)}
+.dot{width:13px;height:13px;border-radius:50%;flex-shrink:0}
+a.link-btn{display:block;text-decoration:none;color:#111;background:#eee;padding:14px;border-radius:8px;text-align:center;font-weight:700;margin-bottom:9px;font-size:13.5px}
+body.dark a.link-btn{color:#F3EDEC}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ SCREEN: HOME ═══════════════ -->
+<div id="screen-home">
+  <div class="hero">
+    <div class="topbar">
+      <div class="brand">
+        <div class="badge">🩺</div>
+        <div>
+          <div class="b-name">Pediatri & PPDS Tools</div>
+          <div class="b-sub">Program PPDS · Ilmu Kesehatan Anak</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <div class="icon-btn" onclick="openSettings()" title="Pengaturan">⚙️</div>
+        <div class="share-btn">🔗 Bagikan</div>
+      </div>
+    </div>
+
+    <div class="profile">
+      <div class="pf-avatar" id="pfAvatar">🧑‍⚕️</div>
+      <div style="flex:1">
+        <div class="pf-name" id="pfName">dr. Residen PPDS</div>
+        <div class="pf-role" id="pfRole">Peserta Didik · Ilmu Kesehatan Anak</div>
+        <div class="pf-chip"><span>💬 Hubungi Supervisor</span></div>
+      </div>
+    </div>
+
+    <div class="chips">
+      <div class="chip"><div class="chip-val">8</div><div class="chip-key">Alat Bantu</div></div>
+      <div class="chip"><div class="chip-val">1</div><div class="chip-key">Aktif</div></div>
+      <div class="chip"><div class="chip-val">0</div><div class="chip-key">Riwayat</div></div>
+    </div>
+  </div>
+
+  <div class="tip-card">
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      <span style="font-size:19px;flex-shrink:0">💡</span>
+      <div>
+        <p class="tip-t">Apa itu Alat Bantu PPDS?</p>
+        <p class="tip-b">Kumpulan kalkulator klinis cepat untuk menunjang praktik harian residen Ilmu Kesehatan Anak, mengacu pada guideline resmi (AAP, WHO, IDAI).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn">
+    <span style="font-size:14px;flex-shrink:0">⚠️</span>
+    <p><strong>Penting:</strong> Semua hasil alat bantu ini adalah <strong>alat bantu interpretasi awal</strong>, bukan pengganti keputusan klinis. Keputusan akhir tetap pada DPJP / supervisor.</p>
+  </div>
+
+  <div class="sec-head" style="margin-top:18px">🧩 Alat Bantu PPDS</div>
+  <div class="grid">
+    <div class="box featured" onclick="openTool('bp')">
+      <div class="ico" style="background:#FDEAEA">❤️</div>
+      <div class="lbl">Blood Pressure</div>
+      <div class="sub">Pediatri</div>
+    </div>
+    <div class="box" onclick="comingSoon('Growth Chart')">
+      <div class="ico" style="background:#ECFEFF">📈</div>
+      <div class="lbl">Growth Chart</div>
+      <div class="sub">Status Gizi</div>
+    </div>
+    <div class="box" onclick="comingSoon('Dosis Obat')">
+      <div class="ico" style="background:#EFF6FF">💊</div>
+      <div class="lbl">Dosis Obat</div>
+      <div class="sub">Farmakologi</div>
+    </div>
+    <div class="box" onclick="comingSoon('APGAR Score')">
+      <div class="ico" style="background:#FFF7ED">👶</div>
+      <div class="lbl">APGAR</div>
+      <div class="sub">Neonatus</div>
+    </div>
+    <div class="box" onclick="comingSoon('Cairan & Elektrolit')">
+      <div class="ico" style="background:#EBF3FC">💧</div>
+      <div class="lbl">Cairan</div>
+      <div class="sub">Elektrolit</div>
+    </div>
+    <div class="box" onclick="comingSoon('Milestone Tumbuh Kembang')">
+      <div class="ico" style="background:#F5F3FF">🧩</div>
+      <div class="lbl">Milestone</div>
+      <div class="sub">Tumbang</div>
+    </div>
+    <div class="box" onclick="comingSoon('Skor Nyeri Anak')">
+      <div class="ico" style="background:#FFF1F2">😣</div>
+      <div class="lbl">Skor Nyeri</div>
+      <div class="sub">FLACC</div>
+    </div>
+    <div class="box" onclick="comingSoon('Kalkulator Nutrisi')">
+      <div class="ico" style="background:#ECFDF5">🍽️</div>
+      <div class="lbl">Nutrisi</div>
+      <div class="sub">Kalori</div>
+    </div>
+  </div>
+
+  <p style="text-align:center;font-size:10px;color:var(--text-faint);padding:16px 16px 4px">Pediatri & PPDS Tools · Program PPDS Ilmu Kesehatan Anak</p>
+</div>
+
+<!-- ═══════════════ SCREEN: SETTINGS ═══════════════ -->
+<div id="screen-settings" class="hidden">
+  <div class="settings-topbar">
+    <button class="back-btn" onclick="closeSettings()">←</button>
+    <div class="title">Pengaturan</div>
+  </div>
+
+  <div class="settings-body">
+
+    <div class="set-card">
+      <h4>👤 Profil Peserta Didik</h4>
+      <div class="avatar-edit">
+        <div class="avatar-preview" id="avatarPreview">🧑‍⚕️</div>
+        <div>
+          <button class="set-btn secondary" onclick="document.getElementById('avatarFile').click()">Unggah Foto</button>
+          <input type="file" id="avatarFile" accept="image/*" style="display:none">
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text-soft);margin-bottom:4px">atau pilih ikon:</div>
+      <div class="emoji-row" id="emojiRow">
+        <div class="emoji-opt" data-emoji="🧑‍⚕️">🧑‍⚕️</div>
+        <div class="emoji-opt" data-emoji="👩‍⚕️">👩‍⚕️</div>
+        <div class="emoji-opt" data-emoji="👨‍⚕️">👨‍⚕️</div>
+        <div class="emoji-opt" data-emoji="🩺">🩺</div>
+        <div class="emoji-opt" data-emoji="⚕️">⚕️</div>
+      </div>
+
+      <label class="set-label">Nama</label>
+      <input type="text" class="set-input" id="inputName" placeholder="dr. Residen PPDS">
+
+      <label class="set-label">Keterangan Peserta Didik</label>
+      <input type="text" class="set-input" id="inputRole" placeholder="Peserta Didik · Ilmu Kesehatan Anak">
+
+      <div class="save-row">
+        <button class="set-btn" onclick="saveProfile()">💾 Simpan</button>
+        <button class="set-btn secondary" onclick="resetProfile()">Reset</button>
+      </div>
+    </div>
+
+    <div class="set-card">
+      <h4>🎨 Tampilan</h4>
+      <div class="mode-row">
+        <span class="mode-label">Mode Gelap</span>
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider-toggle"></span>
+        </label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ SCREEN: BLOOD PRESSURE TOOL ═══════════════ -->
+<div id="screen-bp" class="hidden">
+  <div class="bp-topbar">
+    <button class="back-btn" onclick="closeTool()">←</button>
+    <div class="title">Blood Pressure Pediatri</div>
+  </div>
+
+  <div class="bp-tabs">
+    <button class="bp-tab-btn active" data-page="bp-home">🏠 Home</button>
+    <button class="bp-tab-btn" data-page="bp-about">ℹ️ About</button>
+    <button class="bp-tab-btn" data-page="bp-links">🔗 Links</button>
+    <button class="bp-tab-btn" data-page="bp-settings">⚙️ Settings</button>
+  </div>
+
+  <section id="bp-home" class="bp-page active">
+    <h3 style="text-align:center;margin-top:4px;font-size:15px">Clinical Practice Guideline Tool</h3>
+
+    <div class="row-center">
+      <span>Boy</span>
+      <label class="switch">
+        <input type="checkbox" id="genderToggle">
+        <span class="slider-toggle"></span>
+      </label>
+      <span>Girl</span>
+    </div>
+
+    <label class="field-label">Age <span class="value-badge" id="ageValue">1 y</span></label>
+    <div id="ageSliderWrap">
+      <input type="range" id="ageSlider" min="1" max="17" step="1" value="1">
+    </div>
+    <div id="ageNumberWrap" style="display:none;">
+      <input type="number" id="ageNumber" min="1" max="17" step="1" value="1">
+    </div>
+
+    <label class="field-label">Height <span class="value-badge" id="heightValue">82.4 cm</span></label>
+    <div id="heightSliderWrap">
+      <input type="range" id="heightSlider" min="65" max="195" step="0.1" value="82.4">
+    </div>
+    <div id="heightNumberWrap" style="display:none;">
+      <input type="number" id="heightNumber" min="65" max="195" step="0.1" value="82.4">
+    </div>
+
+    <table class="result">
+      <thead><tr><th>Percentiles</th><th>Systolic</th><th>Diastolic</th></tr></thead>
+      <tbody id="resultBody"></tbody>
+    </table>
+
+    <div id="noDataWarning" class="bp-warning" style="display:none;">
+      Data tabel untuk kombinasi usia/tinggi ini belum tersedia. Silakan lengkapi objek <code>BP_DATA</code> di &lt;script&gt; untuk usia tersebut.
+    </div>
+
+    <p class="bp-disclaimer">⚠️ Tidak berlaku untuk anak dengan BMI ≥ persentil ke-85 (overweight/obesitas). Lihat tab <b>About</b>.</p>
+  </section>
+
+  <section id="bp-about" class="bp-page">
+    <h3 style="text-align:center;margin-top:4px;font-size:15px">About</h3>
+    <p style="font-size:13px;line-height:1.6;">Look up table utility for the 2017
+    <b>"Clinical Practice Guideline for Screening and Management of High Blood
+    Pressure in Children and Adolescents"</b> (American Academy of Pediatrics).</p>
+
+    <div class="bp-info">
+      Per the guidelines, BP values do not include children and adolescents with
+      overweight and obesity (ie, those with a BMI ≥ 85th percentile).
+    </div>
+
+    <p style="font-size:13px;line-height:1.6;">Every attempt has been made to ensure the data presented is identical
+    to the published values. Please review the source guideline for full details.</p>
+
+    <h4 style="margin-bottom:4px;font-size:13.5px;">Percentile Colors</h4>
+    <div class="legend-item"><span class="dot" style="background:#2e9e44"></span>
+      <span><b>50th</b> — Normal (SBP &amp; DBP &lt; 90th percentile)</span></div>
+    <div class="legend-item"><span class="dot" style="background:#E8A33D"></span>
+      <span><b>90th</b> — Elevated (90th–95th percentile)</span></div>
+    <div class="legend-item"><span class="dot" style="background:#d33"></span>
+      <span><b>95th</b> — Stage 1 HTN</span></div>
+    <div class="legend-item"><span class="dot" style="background:#111"></span>
+      <span><b>95th + 12mm</b> — Stage 2 HTN</span></div>
+  </section>
+
+  <section id="bp-links" class="bp-page">
+    <h3 style="text-align:center;margin-top:4px;font-size:15px">Links</h3>
+    <a class="link-btn" style="background:#C62828;color:#fff" target="_blank"
+       href="https://publications.aap.org/pediatrics/article/140/3/e20171904/38358">
+       📄 Pediatrics Aug 2017 source paper</a>
+    <a class="link-btn" style="background:#F49B9B;color:#111" target="_blank"
+       href="https://www.aap.org/">🌐 AAP Implementation Guide</a>
+    <a class="link-btn" style="background:#FBDADA;color:#111" target="_blank"
+       href="mailto:support@example.com">❓ Help / Support</a>
+    <a class="link-btn" style="background:#3B9CF2;color:#fff" target="_blank"
+       href="https://example.com">🌐 Developer Homepage</a>
+    <a class="link-btn" style="background:#0A66C2;color:#fff" target="_blank"
+       href="https://linkedin.com/">in LinkedIn Profile</a>
+  </section>
+
+  <section id="bp-settings" class="bp-page">
+    <h3 style="text-align:center;margin-top:4px;font-size:15px">Settings</h3>
+    <label class="field-label">Units of Measure</label>
+    <div class="row-center" style="justify-content:flex-start;">
+      <span>Inches</span>
+      <label class="switch">
+        <input type="checkbox" id="unitToggle">
+        <span class="slider-toggle"></span>
+      </label>
+      <span>Centimeters</span>
+    </div>
+
+    <label class="field-label">Input</label>
+    <div class="row-center" style="justify-content:flex-start;">
+      <span>Slider</span>
+      <label class="switch">
+        <input type="checkbox" id="inputTypeToggle">
+        <span class="slider-toggle"></span>
+      </label>
+      <span>NumberPicker</span>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ BOTTOM NAV (screen Home) ═══════════════ -->
+<nav class="bnav" id="mainNav">
+  <div class="bnav-item active" data-page="home" onclick="navHome(this)">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg>
+    Beranda
+  </div>
+  <div class="bnav-item" data-page="alat" onclick="navHome(this)">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+    Alat
+  </div>
+  <div class="bnav-item" data-page="riwayat" onclick="navHome(this)">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    Riwayat
+  </div>
+  <div class="bnav-item" data-page="info" onclick="openSettings()">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+    Pengaturan
+  </div>
+  <div class="bnav-item" data-page="kontak" onclick="navHome(this)">
+    <svg viewBox="0 0 24 24" fill="#9CA3AF"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Kontak
+  </div>
+</nav>
+
+<script>
+/* ===== NAVIGASI ANTAR SCREEN ===== */
+function openTool(id){
+  if(id==='bp'){
+    document.getElementById('screen-home').classList.add('hidden');
+    document.getElementById('screen-bp').classList.remove('hidden');
+    document.getElementById('mainNav').classList.add('hidden');
+    window.scrollTo(0,0);
+  }
+}
+function closeTool(){
+  document.getElementById('screen-bp').classList.add('hidden');
+  document.getElementById('screen-home').classList.remove('hidden');
+  document.getElementById('mainNav').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+function openSettings(){
+  document.getElementById('screen-home').classList.add('hidden');
+  document.getElementById('screen-settings').classList.remove('hidden');
+  document.getElementById('mainNav').classList.add('hidden');
+  window.scrollTo(0,0);
+}
+function closeSettings(){
+  document.getElementById('screen-settings').classList.add('hidden');
+  document.getElementById('screen-home').classList.remove('hidden');
+  document.getElementById('mainNav').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+function comingSoon(name){
+  alert(`"${name}" akan segera tersedia. Untuk saat ini, silakan gunakan alat "Blood Pressure Pediatri".`);
+}
+function navHome(el){
+  document.querySelectorAll('.bnav-item').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  if(el.dataset.page!=='home'){
+    alert('Menu ini akan segera tersedia.');
+    document.querySelectorAll('.bnav-item').forEach(b=>b.classList.remove('active'));
+    document.querySelector('.bnav-item[data-page="home"]').classList.add('active');
+  }
+}
+document.querySelectorAll('.bp-tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.bp-tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.bp-page').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.page).classList.add('active');
+  });
+});
+
+/* ===== PROFIL PESERTA DIDIK (editable, tersimpan di localStorage) ===== */
+const DEFAULT_PROFILE = {
+  name: "dr. Residen PPDS",
+  role: "Peserta Didik · Ilmu Kesehatan Anak",
+  avatar: "🧑‍⚕️",       // bisa emoji ATAU data-URL foto
+  avatarIsImage: false
+};
+
+function loadProfile(){
+  try{
+    const saved = JSON.parse(localStorage.getItem('ppds_profile'));
+    return saved || DEFAULT_PROFILE;
+  }catch(e){ return DEFAULT_PROFILE; }
+}
+function applyProfileToHero(p){
+  document.getElementById('pfName').textContent = p.name;
+  document.getElementById('pfRole').textContent = p.role;
+  const av = document.getElementById('pfAvatar');
+  if(p.avatarIsImage){
+    av.innerHTML = `<img src="${p.avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+  } else {
+    av.textContent = p.avatar;
+  }
+}
+function applyProfileToForm(p){
+  document.getElementById('inputName').value = p.name;
+  document.getElementById('inputRole').value = p.role;
+  const prev = document.getElementById('avatarPreview');
+  if(p.avatarIsImage){
+    prev.innerHTML = `<img src="${p.avatar}">`;
+  } else {
+    prev.textContent = p.avatar;
+  }
+  document.querySelectorAll('.emoji-opt').forEach(e=>{
+    e.classList.toggle('selected', !p.avatarIsImage && e.dataset.emoji === p.avatar);
+  });
+}
+
+let currentProfile = loadProfile();
+applyProfileToHero(currentProfile);
+applyProfileToForm(currentProfile);
+
+document.querySelectorAll('.emoji-opt').forEach(el=>{
+  el.addEventListener('click', ()=>{
+    currentProfile.avatar = el.dataset.emoji;
+    currentProfile.avatarIsImage = false;
+    applyProfileToForm(currentProfile);
+  });
+});
+
+document.getElementById('avatarFile').addEventListener('change', (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    currentProfile.avatar = reader.result;
+    currentProfile.avatarIsImage = true;
+    applyProfileToForm(currentProfile);
+  };
+  reader.readAsDataURL(file);
+});
+
+function saveProfile(){
+  currentProfile.name = document.getElementById('inputName').value.trim() || DEFAULT_PROFILE.name;
+  currentProfile.role = document.getElementById('inputRole').value.trim() || DEFAULT_PROFILE.role;
+  localStorage.setItem('ppds_profile', JSON.stringify(currentProfile));
+  applyProfileToHero(currentProfile);
+  alert('Profil tersimpan.');
+}
+function resetProfile(){
+  currentProfile = JSON.parse(JSON.stringify(DEFAULT_PROFILE));
+  localStorage.removeItem('ppds_profile');
+  applyProfileToForm(currentProfile);
+  applyProfileToHero(currentProfile);
+}
+
+/* ===== MODE GELAP / TERANG ===== */
+function applyDarkMode(isDark){
+  document.body.classList.toggle('dark', isDark);
+  document.getElementById('darkModeToggle').checked = isDark;
+  localStorage.setItem('ppds_dark', isDark ? '1' : '0');
+}
+const savedDark = localStorage.getItem('ppds_dark') === '1';
+applyDarkMode(savedDark);
+document.getElementById('darkModeToggle').addEventListener('change', (e)=>{
+  applyDarkMode(e.target.checked);
+});
+
+/* ===== LOGIKA KALKULATOR BLOOD PRESSURE PEDIATRI (AAP 2017) ===== */
+const IN_TO_CM = 2.54;
+const BP_DATA = {
+  Boy: {
+    1: { height_cm:[77.2,78.3,80.2,82.4,84.6,86.7,87.9],
+      SBP:{ "50":[85,85,86,86,87,88,88], "90":[98,99,99,100,100,101,101],
+            "95":[102,102,103,103,104,105,105], "95+12":[114,114,115,115,116,117,117]},
+      DBP:{ "50":[40,40,40,41,41,42,42], "90":[52,52,53,53,54,54,54],
+            "95":[54,54,55,55,56,57,57], "95+12":[66,66,67,67,68,69,69]}},
+    2: { height_cm:[86.1,87.4,89.6,92.1,94.7,97.1,98.5],
+      SBP:{ "50":[87,87,88,89,89,90,91], "90":[100,100,101,102,103,103,104],
+            "95":[104,105,106,107,107,108,108], "95+12":[116,117,117,118,119,119,120]},
+      DBP:{ "50":[43,43,44,44,45,46,46], "90":[55,55,56,56,57,58,58],
+            "95":[57,58,58,59,60,61,61], "95+12":[69,70,70,71,72,73,73]}},
+    3: { height_cm:[92.5,93.9,96.3,99.0,101.8,104.3,105.8],
+      SBP:{ "50":[88,89,89,90,91,92,92], "90":[101,102,102,103,104,105,105],
+            "95":[106,106,107,107,108,109,109], "95+12":[118,118,119,119,120,121,121]},
+      DBP:{ "50":[45,46,46,47,48,49,49], "90":[58,58,59,59,60,61,61],
+            "95":[60,61,61,62,63,64,64], "95+12":[72,73,73,74,75,76,76]}},
+    4: { height_cm:[98.5,100.2,102.9,105.9,108.9,111.5,113.2],
+      SBP:{ "50":[90,90,91,92,93,94,94], "90":[102,103,104,105,106,107,107],
+            "95":[107,107,108,108,109,110,110], "95+12":[119,119,120,120,121,122,122]},
+      DBP:{ "50":[48,49,49,50,51,52,52], "90":[60,61,62,62,63,64,64],
+            "95":[63,64,65,66,67,67,68], "95+12":[75,76,77,78,79,79,80]}},
+    5: { height_cm:[104.4,106.2,109.1,112.4,115.7,118.6,120.3],
+      SBP:{ "50":[91,92,93,94,95,96,96], "90":[103,104,105,106,107,108,108],
+            "95":[107,108,109,109,110,111,112], "95+12":[119,120,121,121,122,123,124]},
+      DBP:{ "50":[51,51,52,53,54,55,55], "90":[63,64,65,65,66,67,67],
+            "95":[66,67,68,69,70,70,71], "95+12":[78,79,80,81,82,82,83]}},
+    6: { height_cm:[110.3,112.2,115.3,118.9,122.4,125.6,127.5],
+      SBP:{ "50":[93,93,94,95,96,97,98], "90":[105,105,106,107,109,110,110],
+            "95":[108,109,110,111,112,113,114], "95+12":[120,121,122,123,124,125,126]},
+      DBP:{ "50":[54,54,55,56,57,57,58], "90":[66,66,67,68,68,69,69],
+            "95":[69,70,70,71,72,72,73], "95+12":[81,82,82,83,84,84,85]}},
+    7: { height_cm:[116.1,118.0,121.4,125.1,128.9,132.4,134.5],
+      SBP:{ "50":[94,94,95,97,98,98,99], "90":[106,107,108,109,110,111,111],
+            "95":[110,110,111,112,114,115,116], "95+12":[122,122,123,124,126,127,128]},
+      DBP:{ "50":[56,56,57,58,58,59,59], "90":[68,68,69,70,70,71,71],
+            "95":[71,71,72,73,73,74,74], "95+12":[83,83,84,85,85,86,86]}},
+    8: { height_cm:[121.4,123.5,127.0,131.0,135.1,138.8,141.0],
+      SBP:{ "50":[95,96,97,98,99,99,100], "90":[107,108,109,110,111,112,112],
+            "95":[111,112,112,114,115,116,117], "95+12":[123,124,124,126,127,128,129]},
+      DBP:{ "50":[57,57,58,59,59,60,60], "90":[69,70,70,71,72,72,73],
+            "95":[72,73,73,74,75,75,75], "95+12":[84,85,85,86,87,87,87]}},
+    9: { height_cm:[126.0,128.3,132.1,136.3,140.7,144.7,147.1],
+      SBP:{ "50":[96,97,98,99,100,101,101], "90":[107,108,109,110,112,113,114],
+            "95":[112,112,113,115,116,118,119], "95+12":[124,124,125,127,128,130,131]},
+      DBP:{ "50":[57,58,59,60,61,62,62], "90":[70,71,72,73,74,74,74],
+            "95":[74,74,75,76,76,77,77], "95+12":[86,86,87,88,88,89,89]}}
+    // TODO: lengkapi usia 10–17
+  },
+  Girl: {
+    1: { height_cm:[75.4,76.6,78.6,80.8,83.0,84.9,86.1],
+      SBP:{ "50":[84,85,86,86,87,88,88], "90":[98,99,99,100,101,102,102],
+            "95":[101,102,102,103,104,105,105], "95+12":[113,114,114,115,116,117,117]},
+      DBP:{ "50":[41,42,42,43,44,45,46], "90":[54,55,56,56,57,58,58],
+            "95":[59,59,60,60,61,62,62], "95+12":[71,71,72,72,73,74,74]}},
+    2: { height_cm:[84.9,86.3,88.6,91.1,93.7,96.0,97.4],
+      SBP:{ "50":[87,87,88,89,90,91,91], "90":[101,101,102,103,104,105,106],
+            "95":[104,105,106,106,107,108,109], "95+12":[116,117,118,118,119,120,121]},
+      DBP:{ "50":[45,46,46,47,48,49,50], "90":[58,58,59,60,61,62,62],
+            "95":[62,63,63,64,65,66,66], "95+12":[74,75,75,76,77,78,78]}},
+    3: { height_cm:[91.0,92.4,94.9,97.6,100.5,103.1,104.6],
+      SBP:{ "50":[88,89,89,90,91,92,93], "90":[102,103,104,105,106,107,107],
+            "95":[106,106,107,108,109,110,110], "95+12":[118,118,119,120,121,122,122]},
+      DBP:{ "50":[48,48,49,50,51,53,53], "90":[60,61,61,62,63,64,64],
+            "95":[64,65,65,66,67,68,68], "95+12":[76,77,77,78,79,80,80]}},
+    4: { height_cm:[97.2,98.8,101.4,104.5,107.6,110.5,112.2],
+      SBP:{ "50":[89,90,91,92,93,94,94], "90":[103,104,105,106,107,108,108],
+            "95":[107,107,108,109,110,111,112], "95+12":[119,119,120,121,122,123,124]},
+      DBP:{ "50":[50,51,51,53,54,55,55], "90":[62,63,64,65,66,67,67],
+            "95":[66,67,68,69,70,70,71], "95+12":[78,79,80,81,82,82,83]}},
+    5: { height_cm:[103.6,105.3,108.2,111.5,114.9,118.1,120.0],
+      SBP:{ "50":[90,91,92,93,94,95,96], "90":[104,105,106,107,108,109,110],
+            "95":[108,109,109,110,111,112,113], "95+12":[120,121,121,122,123,124,125]},
+      DBP:{ "50":[52,52,53,55,56,57,57], "90":[64,65,66,67,68,69,70],
+            "95":[68,69,70,71,72,73,73], "95+12":[80,81,82,83,84,85,85]}},
+    6: { height_cm:[110.0,111.8,114.9,118.4,122.1,125.6,127.7],
+      SBP:{ "50":[92,92,93,94,96,97,97], "90":[105,106,107,108,109,110,111],
+            "95":[109,109,110,111,112,113,114], "95+12":[121,121,122,123,124,125,126]},
+      DBP:{ "50":[54,54,55,56,57,58,59], "90":[67,67,68,69,70,71,71],
+            "95":[70,71,72,72,73,74,74], "95+12":[82,83,84,84,85,86,86]}},
+    7: { height_cm:[115.9,117.8,121.1,124.9,128.8,132.5,134.7],
+      SBP:{ "50":[92,93,94,95,97,98,99], "90":[106,106,107,109,110,111,112],
+            "95":[109,110,111,112,113,114,115], "95+12":[121,122,123,124,125,126,127]},
+      DBP:{ "50":[55,55,56,57,58,59,60], "90":[68,68,69,70,71,72,72],
+            "95":[72,72,73,73,74,74,75], "95+12":[84,84,85,85,86,86,87]}},
+    8: { height_cm:[121.0,123.0,126.5,130.6,134.7,138.5,140.9],
+      SBP:{ "50":[93,94,95,97,98,99,100], "90":[107,107,108,110,111,112,113],
+            "95":[110,111,112,113,115,116,117], "95+12":[122,123,124,125,127,128,129]},
+      DBP:{ "50":[56,56,57,59,60,61,61], "90":[69,70,71,72,72,73,73],
+            "95":[72,73,74,74,75,75,75], "95+12":[84,85,86,86,87,87,87]}},
+    9: { height_cm:[125.3,127.6,131.3,135.6,140.1,144.1,146.6],
+      SBP:{ "50":[95,95,97,98,99,100,101], "90":[108,108,109,111,112,113,114],
+            "95":[112,112,113,114,116,117,118], "95+12":[124,124,125,126,128,129,130]},
+      DBP:{ "50":[57,58,59,60,60,61,61], "90":[71,71,72,73,73,73,73],
+            "95":[74,74,75,75,75,75,75], "95+12":[86,86,87,87,87,87,87]}}
+    // TODO: lengkapi usia 10–17
+  }
+};
+
+function interpolate(x, xs, ys){
+  if (x <= xs[0]) return ys[0];
+  if (x >= xs[xs.length-1]) return ys[ys.length-1];
+  let i = 0;
+  while (i < xs.length-2 && x > xs[i+1]) i++;
+  const x0=xs[i], x1=xs[i+1], y0=ys[i], y1=ys[i+1];
+  if (x1===x0) return y0;
+  return y0 + ((x-x0)/(x1-x0))*(y1-y0);
+}
+function getBpPercentiles(gender, age, heightCm){
+  const table = BP_DATA[gender];
+  if (!table || !table[age]) return null;
+  const row = table[age];
+  const xs = row.height_cm;
+  const result = { SBP:{}, DBP:{} };
+  ["SBP","DBP"].forEach(type=>{
+    Object.keys(row[type]).forEach(pctKey=>{
+      result[type][pctKey] = Math.round(interpolate(heightCm, xs, row[type][pctKey]));
+    });
+  });
+  return result;
+}
+
+const state = { unit:"Centimeters", inputType:"Slider", gender:"Boy", age:1, heightCm:82.4 };
+const genderToggle    = document.getElementById("genderToggle");
+const ageSlider        = document.getElementById("ageSlider");
+const ageNumber        = document.getElementById("ageNumber");
+const ageValueLabel    = document.getElementById("ageValue");
+const heightSlider     = document.getElementById("heightSlider");
+const heightNumber     = document.getElementById("heightNumber");
+const heightValueLabel = document.getElementById("heightValue");
+const resultBody       = document.getElementById("resultBody");
+const noDataWarning    = document.getElementById("noDataWarning");
+const unitToggle       = document.getElementById("unitToggle");
+const inputTypeToggle  = document.getElementById("inputTypeToggle");
+const ageSliderWrap    = document.getElementById("ageSliderWrap");
+const ageNumberWrap    = document.getElementById("ageNumberWrap");
+const heightSliderWrap = document.getElementById("heightSliderWrap");
+const heightNumberWrap = document.getElementById("heightNumberWrap");
+
+function renderResult(){
+  const result = getBpPercentiles(state.gender, state.age, state.heightCm);
+  resultBody.innerHTML = "";
+  if (!result){ noDataWarning.style.display = "block"; return; }
+  noDataWarning.style.display = "none";
+  const rows = [
+    { key:"50",    label:"50th",         color:"#2e9e44" },
+    { key:"90",    label:"90th",         color:"#E8A33D" },
+    { key:"95",    label:"95th",         color:"#d33" },
+    { key:"95+12", label:"95th + 12mm",  color:"var(--text)", note:"mm Hg" },
+  ];
+  rows.forEach(r=>{
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="label">${r.label}</td>
+      <td style="color:${r.color}">${result.SBP[r.key]}</td>
+      <td style="color:${r.color}">${result.DBP[r.key]}${r.note ? `<span class="mmhg-note">${r.note}</span>`:""}</td>
+    `;
+    resultBody.appendChild(tr);
+  });
+}
+function refreshHeightInputsRange(){
+  const useInches = state.unit === "Inches";
+  const minCm=65, maxCm=195;
+  const min = useInches ? (minCm/IN_TO_CM).toFixed(1) : minCm;
+  const max = useInches ? (maxCm/IN_TO_CM).toFixed(1) : maxCm;
+  [heightSlider, heightNumber].forEach(el=>{ el.min = min; el.max = max; });
+}
+function updateHeightDisplay(){
+  const useInches = state.unit === "Inches";
+  const val = useInches ? (state.heightCm/IN_TO_CM) : state.heightCm;
+  const rounded = Math.round(val*10)/10;
+  heightSlider.value = rounded;
+  heightNumber.value = rounded;
+  heightValueLabel.textContent = `${rounded} ${useInches ? "in" : "cm"}`;
+}
+function onHeightInputChanged(rawValue){
+  const useInches = state.unit === "Inches";
+  const val = parseFloat(rawValue);
+  if (isNaN(val)) return;
+  state.heightCm = useInches ? val*IN_TO_CM : val;
+  updateHeightDisplay();
+  renderResult();
+}
+genderToggle.addEventListener("change", ()=>{
+  state.gender = genderToggle.checked ? "Girl" : "Boy";
+  renderResult();
+});
+ageSlider.addEventListener("input", ()=>{
+  state.age = parseInt(ageSlider.value);
+  ageNumber.value = state.age;
+  ageValueLabel.textContent = `${state.age} y`;
+  renderResult();
+});
+ageNumber.addEventListener("input", ()=>{
+  let v = parseInt(ageNumber.value);
+  if (isNaN(v)) return;
+  v = Math.min(17, Math.max(1, v));
+  state.age = v;
+  ageSlider.value = v;
+  ageValueLabel.textContent = `${v} y`;
+  renderResult();
+});
+heightSlider.addEventListener("input", ()=> onHeightInputChanged(heightSlider.value));
+heightNumber.addEventListener("input", ()=> onHeightInputChanged(heightNumber.value));
+unitToggle.addEventListener("change", ()=>{
+  state.unit = unitToggle.checked ? "Centimeters" : "Inches";
+  refreshHeightInputsRange();
+  updateHeightDisplay();
+});
+inputTypeToggle.addEventListener("change", ()=>{
+  state.inputType = inputTypeToggle.checked ? "NumberPicker" : "Slider";
+  applyInputTypeVisibility();
+});
+function applyInputTypeVisibility(){
+  const useNumber = state.inputType === "NumberPicker";
+  ageSliderWrap.style.display    = useNumber ? "none" : "block";
+  ageNumberWrap.style.display    = useNumber ? "block" : "none";
+  heightSliderWrap.style.display = useNumber ? "none" : "block";
+  heightNumberWrap.style.display = useNumber ? "block" : "none";
+}
+refreshHeightInputsRange();
+updateHeightDisplay();
+applyInputTypeVisibility();
+renderResult();
+
+/* ===== PWA: daftarkan Service Worker (untuk offline & "Add to Home Screen") ===== */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('Service Worker terdaftar.'))
+      .catch((err) => console.warn('Gagal mendaftarkan Service Worker:', err));
+  });
+}
+</script>
+</body>
+</html>
