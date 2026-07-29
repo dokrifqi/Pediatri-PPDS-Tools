@@ -177,6 +177,115 @@ table.result td.label{font-size:13px;font-weight:700;color:var(--text)}
 .dot{width:13px;height:13px;border-radius:50%;flex-shrink:0}
 a.link-btn{display:block;text-decoration:none;color:#111;background:#eee;padding:14px;border-radius:8px;text-align:center;font-weight:700;margin-bottom:9px;font-size:13.5px}
 body.dark a.link-btn{color:#F3EDEC}
+/* ── DOSIS OBAT TOOL (diadaptasi dari Catatan Pediatri, tema merah) ── */
+#screen-drug{ background:var(--bg); min-height:100vh; max-width:430px; margin:0 auto; color:var(--text); }
+.drug-topbar{ background:linear-gradient(135deg,#C62828,#E85454); color:#fff; padding:14px 16px 16px; display:flex; align-items:center; gap:12px; }
+.drug-topbar .back-btn{ background:rgba(255,255,255,.2); border:none; color:#fff; width:32px;height:32px; border-radius:50%; font-size:16px; cursor:pointer; display:flex;align-items:center;justify-content:center; flex-shrink:0; }
+.drug-topbar .title{ font-weight:800; font-size:15px; }
+.drug-header-sub{ font-size:10.5px; color:rgba(255,255,255,.75); margin-top:2px; }
+
+.drug-bb-wrap{ background:var(--card); margin:12px 14px 0; border-radius:16px; padding:12px 14px; border:1px solid var(--border); box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.drug-bb-label{ font-size:10.5px; font-weight:700; color:var(--text-soft); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
+.drug-bb-row{ display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.drug-bb-input{ flex:1; background:var(--input-bg); border:2px solid #C62828; border-radius:12px; color:var(--text); font-size:24px; font-weight:700; padding:8px 12px; outline:none; -moz-appearance:textfield; }
+.drug-bb-input::-webkit-outer-spin-button, .drug-bb-input::-webkit-inner-spin-button{ -webkit-appearance:none; }
+.drug-bb-unit{ font-size:15px; font-weight:700; color:var(--text-soft); }
+.drug-bb-clear{ background:var(--info-bg); border:none; color:var(--text-soft); width:30px;height:30px; border-radius:10px; cursor:pointer; font-size:13px; display:flex;align-items:center;justify-content:center; }
+.drug-bb-presets{ display:flex; gap:6px; flex-wrap:wrap; }
+.drug-bb-presets button{ background:var(--info-bg); border:1px solid var(--border); color:#C62828; border-radius:8px; padding:5px 11px; font-size:12.5px; font-weight:700; cursor:pointer; }
+.drug-bb-presets button:active{ background:#C62828; color:#fff; }
+
+.drug-search-wrap{ display:flex; align-items:center; gap:10px; margin:10px 14px 0; background:var(--card); border:1px solid var(--border); border-radius:14px; padding:10px 14px; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.drug-search-icon{ font-size:15px; flex-shrink:0; }
+.drug-search-input{ flex:1; border:none; outline:none; background:transparent; font-size:13.5px; color:var(--text); }
+.drug-search-input::placeholder{ color:var(--text-faint); }
+.drug-search-clear{ background:var(--info-bg); border:none; color:var(--text-faint); width:24px;height:24px; border-radius:8px; cursor:pointer; font-size:11px; display:flex;align-items:center;justify-content:center; }
+
+.drug-cats{ display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:10px 14px 2px; scrollbar-width:none; }
+.drug-cats::-webkit-scrollbar{ display:none; }
+.drug-cat-chip{ flex-shrink:0; background:var(--card); border:1px solid var(--border); color:var(--text-soft); border-radius:20px; padding:5px 12px; font-size:11.5px; font-weight:700; cursor:pointer; white-space:nowrap; }
+.drug-cat-active{ box-shadow:0 2px 8px rgba(0,0,0,.15); }
+
+.drug-list{ padding:8px 14px 0; display:flex; flex-direction:column; gap:8px; }
+.drug-card{ background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.drug-card-header{ display:flex; align-items:flex-start; justify-content:space-between; padding:12px 12px 8px; gap:8px; }
+.drug-name-wrap{ flex:1; min-width:0; display:flex; flex-direction:column; gap:4px; }
+.drug-name{ font-size:13.5px; font-weight:800; color:var(--text); line-height:1.25; }
+.drug-cat-tag{ display:inline-block; font-size:9.5px; font-weight:700; border:1px solid; border-radius:6px; padding:2px 7px; letter-spacing:.03em; width:fit-content; }
+.drug-route-badge{ flex-shrink:0; background:var(--info-bg); color:var(--text-soft); border-radius:8px; padding:4px 9px; font-size:10.5px; font-weight:700; white-space:nowrap; }
+
+.drug-indications{ border-top:1px solid var(--border); }
+.drug-multi .drug-indication-item{ border-bottom:1px solid var(--border); }
+.drug-multi .drug-indication-item:last-child{ border-bottom:none; }
+.drug-ind-label-wrap{ padding:8px 12px 4px; }
+.drug-ind-label{ display:inline-flex; align-items:center; gap:6px; border:1px solid; border-radius:20px; padding:4px 10px; font-size:11px; font-weight:700; line-height:1.4; flex-wrap:wrap; }
+.drug-ind-solo{ font-size:10.5px; font-weight:600; }
+.drug-ind-dot{ width:7px;height:7px; border-radius:50%; flex-shrink:0; }
+.drug-ind-days{ background:rgba(0,0,0,.08); border-radius:10px; padding:1px 7px; font-size:9.5px; font-weight:800; margin-left:2px; white-space:nowrap; }
+.drug-ind-sep{ height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); margin:0 12px; }
+
+.drug-formula-row{ padding:6px 12px 8px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:3px; }
+.drug-formula-label{ font-size:9.5px; font-weight:700; color:var(--text-faint); text-transform:uppercase; letter-spacing:.05em; }
+.drug-formula-val{ font-size:11.5px; color:var(--text-soft); line-height:1.5; }
+
+.drug-result-row{ margin:0 10px 8px; border:1px solid; border-radius:12px; padding:10px 12px; }
+.drug-result-maxed-label{ font-size:9.5px; font-weight:800; color:#dc2626; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
+.drug-result-dose{ font-size:26px; font-weight:800; line-height:1.1; }
+.drug-result-unit{ font-size:13px; font-weight:600; opacity:.7; }
+.drug-result-freq{ font-size:11.5px; color:var(--text-soft); margin-top:4px; font-weight:600; }
+.drug-result-fixed, .drug-result-nobbw{ background:var(--info-bg) !important; border-color:var(--border) !important; }
+.drug-result-fixed-label, .drug-nobb-label{ font-size:11.5px; color:var(--text-faint); font-weight:600; }
+
+.drug-note{ font-size:11px; color:var(--text-soft); line-height:1.55; padding:0 12px 12px; border-top:1px solid var(--border); padding-top:8px; }
+
+.drug-empty{ display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px; text-align:center; }
+.drug-empty-icon{ font-size:36px; opacity:.4; margin-bottom:12px; }
+.drug-empty-text{ font-size:12.5px; color:var(--text-faint); line-height:1.6; }
+
+/* ── TINDAKAN MEDIS TOOL (kartu SOAP: Indikasi/Alat/Langkah/Komplikasi) ── */
+#screen-tindakan{ background:var(--bg); min-height:100vh; max-width:430px; margin:0 auto; color:var(--text); }
+.tindakan-topbar{ background:linear-gradient(135deg,#8A1E1E,#C62828); padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px; display:flex; align-items:center; gap:12px; }
+.tindakan-topbar .back-btn{ background:rgba(255,255,255,.2); border:none; color:#fff; width:32px;height:32px; border-radius:50%; font-size:16px; cursor:pointer; display:flex;align-items:center;justify-content:center; flex-shrink:0; }
+.tindakan-topbar .title{ font-weight:800; font-size:17px; color:#fff; }
+.tindakan-topbar .sub{ font-size:10.5px; color:rgba(255,255,255,.75); margin-top:3px; line-height:1.4; }
+
+.tindakan-cats{ display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:10px 14px; scrollbar-width:none; background:var(--card); border-bottom:1px solid var(--border); }
+.tindakan-cats::-webkit-scrollbar{ display:none; }
+.tindakan-cat-chip{ flex-shrink:0; display:flex; align-items:center; gap:5px; background:var(--bg); border:1px solid var(--border); color:var(--text-soft); border-radius:20px; padding:6px 13px; font-size:11.5px; font-weight:700; cursor:pointer; white-space:nowrap; }
+.tindakan-cat-chip.active{ background:#8A1E1E; color:#fff; border-color:#8A1E1E; }
+
+.tindakan-search-wrap{ display:flex; align-items:center; gap:10px; margin:10px 14px 0; background:var(--card); border:1px solid var(--border); border-radius:14px; padding:10px 14px; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.tindakan-search-input{ flex:1; border:none; outline:none; background:transparent; font-size:13.5px; color:var(--text); }
+.tindakan-search-input::placeholder{ color:var(--text-faint); }
+.tindakan-search-clear{ background:var(--info-bg); border:none; color:var(--text-faint); width:24px;height:24px; border-radius:8px; cursor:pointer; font-size:11px; display:flex;align-items:center;justify-content:center; }
+
+.tindakan-list{ padding:12px 14px 4px; display:flex; flex-direction:column; gap:10px; }
+.tindakan-card{ background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.tindakan-card-header{ display:flex; align-items:center; gap:12px; padding:14px; cursor:pointer; }
+.tindakan-ico{ width:40px;height:40px; border-radius:12px; background:#FBE9E9; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.tindakan-title-wrap{ flex:1; min-width:0; }
+.tindakan-title{ font-size:14px; font-weight:800; color:var(--text); line-height:1.3; }
+.tindakan-cat-tag{ font-size:10px; font-weight:700; color:#8A1E1E; margin-top:2px; }
+.tindakan-chevron{ font-size:13px; color:var(--text-faint); transition:transform .2s; flex-shrink:0; }
+.tindakan-card.open .tindakan-chevron{ transform:rotate(180deg); }
+
+.tindakan-body{ display:none; padding:0 14px 16px; }
+.tindakan-card.open .tindakan-body{ display:block; }
+.soap-section{ margin-top:10px; }
+.soap-head{ display:flex; align-items:center; gap:6px; font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:var(--text-faint); margin-bottom:6px; }
+.soap-box{ background:var(--info-bg); border-radius:10px; padding:10px 12px; }
+.soap-box ul{ margin:0; padding-left:18px; }
+.soap-box li{ font-size:12.5px; color:var(--text); line-height:1.6; }
+.soap-box.komplikasi{ background:#FFF1F0; }
+.soap-box.komplikasi li{ color:#7a1f1f; }
+.soap-box.langkah ol{ margin:0; padding-left:18px; }
+.soap-box.langkah li{ font-size:12.5px; color:var(--text); line-height:1.7; }
+.soap-note{ font-size:11.5px; color:var(--text-soft); line-height:1.55; margin-top:10px; padding:8px 10px; border-left:3px solid #C62828; background:var(--info-bg); border-radius:0 8px 8px 0; }
+
+.tindakan-empty{ display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px; text-align:center; }
+.tindakan-empty-icon{ font-size:36px; opacity:.4; margin-bottom:12px; }
+.tindakan-empty-text{ font-size:12.5px; color:var(--text-faint); line-height:1.6; }
+
 </style>
 </head>
 <body>
@@ -208,8 +317,8 @@ body.dark a.link-btn{color:#F3EDEC}
     </div>
 
     <div class="chips">
-      <div class="chip"><div class="chip-val">8</div><div class="chip-key">Alat Bantu</div></div>
-      <div class="chip"><div class="chip-val">1</div><div class="chip-key">Aktif</div></div>
+      <div class="chip"><div class="chip-val">16</div><div class="chip-key">Alat Bantu</div></div>
+      <div class="chip"><div class="chip-val">3</div><div class="chip-key">Aktif</div></div>
       <div class="chip"><div class="chip-val">0</div><div class="chip-key">Riwayat</div></div>
     </div>
   </div>
@@ -236,15 +345,20 @@ body.dark a.link-btn{color:#F3EDEC}
       <div class="lbl">Blood Pressure</div>
       <div class="sub">Pediatri</div>
     </div>
+    <div class="box featured" onclick="openTool('tindakan')">
+      <div class="ico" style="background:#FBE9E9">🩺</div>
+      <div class="lbl">Tindakan</div>
+      <div class="sub">Prosedur SOAP</div>
+    </div>
+    <div class="box featured" onclick="openTool('drug')">
+      <div class="ico" style="background:#EFF6FF">💊</div>
+      <div class="lbl">Dosis Obat</div>
+      <div class="sub">Farmakologi</div>
+    </div>
     <div class="box" onclick="comingSoon('Growth Chart')">
       <div class="ico" style="background:#ECFEFF">📈</div>
       <div class="lbl">Growth Chart</div>
       <div class="sub">Status Gizi</div>
-    </div>
-    <div class="box" onclick="comingSoon('Dosis Obat')">
-      <div class="ico" style="background:#EFF6FF">💊</div>
-      <div class="lbl">Dosis Obat</div>
-      <div class="sub">Farmakologi</div>
     </div>
     <div class="box" onclick="comingSoon('APGAR Score')">
       <div class="ico" style="background:#FFF7ED">👶</div>
@@ -270,6 +384,41 @@ body.dark a.link-btn{color:#F3EDEC}
       <div class="ico" style="background:#ECFDF5">🍽️</div>
       <div class="lbl">Nutrisi</div>
       <div class="sub">Kalori</div>
+    </div>
+    <div class="box" onclick="comingSoon('Downes Score')">
+      <div class="ico" style="background:#FEF2F2">🌬️</div>
+      <div class="lbl">Downes Score</div>
+      <div class="sub">Distres Napas</div>
+    </div>
+    <div class="box" onclick="comingSoon('PEWS')">
+      <div class="ico" style="background:#FFFBEB">📟</div>
+      <div class="lbl">PEWS</div>
+      <div class="sub">Early Warning</div>
+    </div>
+    <div class="box" onclick="comingSoon('Status Gizi Z-Score')">
+      <div class="ico" style="background:#F0FDF4">📏</div>
+      <div class="lbl">Status Gizi</div>
+      <div class="sub">Z-Score WHO</div>
+    </div>
+    <div class="box" onclick="comingSoon('Jadwal Imunisasi')">
+      <div class="ico" style="background:#EEF2FF">💉</div>
+      <div class="lbl">Imunisasi</div>
+      <div class="sub">Jadwal IDAI</div>
+    </div>
+    <div class="box" onclick="comingSoon('Skor Dehidrasi')">
+      <div class="ico" style="background:#F0F9FF">🚰</div>
+      <div class="lbl">Dehidrasi</div>
+      <div class="sub">Skor WHO</div>
+    </div>
+    <div class="box" onclick="comingSoon('Kalkulator BSA')">
+      <div class="ico" style="background:#FDF4FF">📐</div>
+      <div class="lbl">BSA</div>
+      <div class="sub">Luas Tubuh</div>
+    </div>
+    <div class="box" onclick="comingSoon('Red Flags Rujukan')">
+      <div class="ico" style="background:#FFF1F0">🚩</div>
+      <div class="lbl">Red Flags</div>
+      <div class="sub">Rujukan</div>
     </div>
   </div>
 
@@ -447,6 +596,88 @@ body.dark a.link-btn{color:#F3EDEC}
   </section>
 </div>
 
+<!-- ═══════════════ SCREEN: DOSIS OBAT TOOL ═══════════════ -->
+<div id="screen-drug" class="hidden">
+  <div class="drug-topbar">
+    <button class="back-btn" onclick="closeDrugTool()">←</button>
+    <div>
+      <div class="title">💊 Kalkulator Dosis Obat</div>
+      <div class="drug-header-sub" id="drugCount">82 obat pediatri — cari, masukkan BB, hitung dosis</div>
+    </div>
+  </div>
+
+  <div class="drug-bb-wrap">
+    <div class="drug-bb-label">👶 Berat Badan Pasien</div>
+    <div class="drug-bb-row">
+      <input type="number" id="drug-bb-input" inputmode="decimal"
+             step="0.1" min="0.1" max="200" placeholder="0.0"
+             class="drug-bb-input" oninput="onDrugBBChange(this.value)">
+      <span class="drug-bb-unit">kg</span>
+      <button class="drug-bb-clear" id="drug-bb-clear" onclick="clearDrugBB()" style="display:none">✕</button>
+    </div>
+    <div class="drug-bb-presets">
+      <button onclick="setDrugBB(3)">3</button>
+      <button onclick="setDrugBB(5)">5</button>
+      <button onclick="setDrugBB(10)">10</button>
+      <button onclick="setDrugBB(15)">15</button>
+      <button onclick="setDrugBB(20)">20</button>
+      <button onclick="setDrugBB(30)">30</button>
+      <button onclick="setDrugBB(50)">50</button>
+    </div>
+  </div>
+
+  <div class="drug-search-wrap">
+    <div class="drug-search-icon">🔍</div>
+    <input type="text" id="drug-search-input" class="drug-search-input"
+           placeholder="Cari nama obat... (amoksisilin, parasetamol...)"
+           oninput="onDrugSearch(this.value)" autocomplete="off">
+    <button class="drug-search-clear" id="drug-search-clear"
+            onclick="clearDrugSearch()" style="display:none">✕</button>
+  </div>
+
+  <div class="drug-cats" id="drug-cats"></div>
+
+  <div id="drug-list" class="drug-list"></div>
+
+  <div id="drug-empty" class="drug-empty" style="display:none">
+    <div class="drug-empty-icon">🔍</div>
+    <div class="drug-empty-text">Obat tidak ditemukan.<br>Coba kata kunci lain.</div>
+  </div>
+
+  <div style="height:24px"></div>
+</div>
+
+<!-- ═══════════════ SCREEN: TINDAKAN MEDIS (SOAP) ═══════════════ -->
+<div id="screen-tindakan" class="hidden">
+  <div class="tindakan-topbar">
+    <button class="back-btn" onclick="closeTindakanTool()">←</button>
+    <div>
+      <div class="title">🩺 Tindakan Medis</div>
+      <div class="sub" id="tindakanCount">Prosedur klinis PPDS · Indikasi, alat, langkah kerja, komplikasi</div>
+    </div>
+  </div>
+
+  <div class="tindakan-cats" id="tindakan-cats"></div>
+
+  <div class="tindakan-search-wrap">
+    <div class="drug-search-icon">🔍</div>
+    <input type="text" id="tindakan-search-input" class="tindakan-search-input"
+           placeholder="Cari tindakan... (ET, CPAP, umbilikal...)"
+           oninput="onTindakanSearch(this.value)" autocomplete="off">
+    <button class="tindakan-search-clear" id="tindakan-search-clear"
+            onclick="clearTindakanSearch()" style="display:none">✕</button>
+  </div>
+
+  <div id="tindakan-list" class="tindakan-list"></div>
+
+  <div id="tindakan-empty" class="tindakan-empty" style="display:none">
+    <div class="tindakan-empty-icon">🔍</div>
+    <div class="tindakan-empty-text">Tindakan tidak ditemukan.<br>Coba kata kunci lain.</div>
+  </div>
+
+  <div style="height:24px"></div>
+</div>
+
 <!-- ═══════════════ BOTTOM NAV (screen Home) ═══════════════ -->
 <nav class="bnav" id="mainNav">
   <div class="bnav-item active" data-page="home" onclick="navHome(this)">
@@ -480,9 +711,35 @@ function openTool(id){
     document.getElementById('mainNav').classList.add('hidden');
     window.scrollTo(0,0);
   }
+  if(id==='drug'){
+    document.getElementById('screen-home').classList.add('hidden');
+    document.getElementById('screen-drug').classList.remove('hidden');
+    document.getElementById('mainNav').classList.add('hidden');
+    window.scrollTo(0,0);
+    initDrugCalculator();
+  }
+  if(id==='tindakan'){
+    document.getElementById('screen-home').classList.add('hidden');
+    document.getElementById('screen-tindakan').classList.remove('hidden');
+    document.getElementById('mainNav').classList.add('hidden');
+    window.scrollTo(0,0);
+    initTindakanTool();
+  }
+}
+function closeTindakanTool(){
+  document.getElementById('screen-tindakan').classList.add('hidden');
+  document.getElementById('screen-home').classList.remove('hidden');
+  document.getElementById('mainNav').classList.remove('hidden');
+  window.scrollTo(0,0);
 }
 function closeTool(){
   document.getElementById('screen-bp').classList.add('hidden');
+  document.getElementById('screen-home').classList.remove('hidden');
+  document.getElementById('mainNav').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+function closeDrugTool(){
+  document.getElementById('screen-drug').classList.add('hidden');
   document.getElementById('screen-home').classList.remove('hidden');
   document.getElementById('mainNav').classList.remove('hidden');
   window.scrollTo(0,0);
@@ -652,6 +909,11 @@ const BP_DATA = {
             "95":[111,112,112,114,115,116,117], "95+12":[123,124,124,126,127,128,129]},
       DBP:{ "50":[57,57,58,59,59,60,60], "90":[69,70,70,71,72,72,73],
             "95":[72,73,73,74,75,75,75], "95+12":[84,85,85,86,87,87,87]}},
+    9: { height_cm:[126.0,128.3,132.1,136.3,140.7,144.7,147.1],
+      SBP:{ "50":[96,97,98,99,100,101,101], "90":[107,108,109,110,112,113,114],
+            "95":[112,112,113,115,116,118,119], "95+12":[124,124,125,127,128,130,131]},
+      DBP:{ "50":[57,58,59,60,61,62,62], "90":[70,71,72,73,74,74,74],
+            "95":[74,74,75,76,76,77,77], "95+12":[86,86,87,88,88,89,89]}},
     10: { height_cm:[130.2,132.7,136.7,141.3,145.9,150.1,152.7],
       SBP:{ "50":[97,98,99,100,101,102,103], "90":[108,109,111,112,113,115,116],
             "95":[112,113,114,116,118,120,121], "95+12":[124,125,126,128,130,132,133]},
@@ -734,6 +996,11 @@ const BP_DATA = {
             "95":[110,111,112,113,115,116,117], "95+12":[122,123,124,125,127,128,129]},
       DBP:{ "50":[56,56,57,59,60,61,61], "90":[69,70,71,72,72,73,73],
             "95":[72,73,74,74,75,75,75], "95+12":[84,85,86,86,87,87,87]}},
+    9: { height_cm:[125.3,127.6,131.3,135.6,140.1,144.1,146.6],
+      SBP:{ "50":[95,95,97,98,99,100,101], "90":[108,108,109,111,112,113,114],
+            "95":[112,112,113,114,116,117,118], "95+12":[124,124,125,126,128,129,130]},
+      DBP:{ "50":[57,58,59,60,60,61,61], "90":[71,71,72,73,73,73,73],
+            "95":[74,74,75,75,75,75,75], "95+12":[86,86,87,87,87,87,87]}},
     10: { height_cm:[129.7,132.2,136.3,141.0,145.8,150.2,152.8],
       SBP:{ "50":[96,97,98,99,101,102,103], "90":[109,110,111,112,113,115,116],
             "95":[113,114,114,116,117,119,120], "95+12":[125,126,126,128,129,131,132]},
@@ -902,6 +1169,1263 @@ refreshHeightInputsRange();
 updateHeightDisplay();
 applyInputTypeVisibility();
 renderResult();
+
+
+/* =====================================================================
+   KALKULATOR DOSIS OBAT — diadaptasi dari "Catatan Pediatri"
+   (dr. Mochamad Rifqie Nugraha Kamal), logika & 82 data obat dipakai
+   apa adanya (formula, cap dosis maksimal, interval, durasi terapi).
+   ===================================================================== */
+
+var DRUG_DB = [
+
+// ══════════════════════════════════════════
+// ANTIBIOTIK
+// ══════════════════════════════════════════
+{slug:"amoksisilin",name:"Amoksisilin",cat:"Antibiotik",route:"oral",
+ indications:[
+  {label:"ISPA / Faringitis / Tonsilitis",dose:"50 mg/kg/hari ÷ 3 dosis",mult:50/3,cap:500,interval:8,days:7,tag:"info",note:"Maks 500 mg/dosis. Berikan 7–10 hari penuh meski gejala membaik."},
+  {label:"Otitis Media Akut",dose:"80–90 mg/kg/hari ÷ 3 dosis (dosis tinggi)",mult:80/3,cap:500,interval:8,days:10,tag:"warning",note:"Dosis tinggi untuk daerah resistensi S.pneumoniae tinggi atau usia < 2 tahun."},
+  {label:"ISK tidak komplikata",dose:"50 mg/kg/hari ÷ 3 dosis",mult:50/3,cap:500,interval:8,days:7,tag:"info",note:"Sesuaikan dengan hasil kultur. Untuk ISK komplikata: gunakan parenteral."},
+  {label:"Pencegahan SBE (Endokarditis)",dose:"50 mg/kg dosis tunggal 1 jam sebelum prosedur",mult:50,cap:2000,interval:0,days:1,tag:"danger",note:"Dosis tunggal pre-prosedur gigi / bedah. Maks 2g."},
+ ]},
+
+{slug:"amoksiklav",name:"Amoksisilin-Klavulanat",cat:"Antibiotik",route:"oral",
+ indications:[
+  {label:"Otitis Media Akut berat / gagal amoksisilin",dose:"45–90 mg/kg/hari ÷ 2–3 dosis (komponen amoksisilin)",mult:45/2,cap:875,interval:12,days:10,tag:"warning",note:"Formulasi 7:1 (amoksisilin:klavulanat). Maks 875 mg amoksisilin/dosis. Kurangi diare: beri dengan makan."},
+  {label:"Infeksi kulit dan jaringan lunak",dose:"25–45 mg/kg/hari ÷ 3 dosis",mult:25/3,cap:500,interval:8,days:7,tag:"info",note:"Efektif untuk S.aureus penghasil beta-laktamase. Maks 500 mg/dosis."},
+  {label:"Pneumonia komunitas (ringan)",dose:"45 mg/kg/hari ÷ 2 dosis",mult:45/2,cap:875,interval:12,days:10,tag:"warning",note:"Step-down setelah IV bila klinis membaik. Berikan dengan makan."},
+  {label:"Gigitan hewan / manusia",dose:"25 mg/kg/dosis tiap 8 jam",mult:25,cap:500,interval:8,days:5,tag:"danger",note:"Spektrum luas termasuk Pasteurella multocida (gigitan kucing/anjing) dan flora mulut manusia."},
+ ]},
+
+{slug:"sefaleksin",name:"Sefaleksin (Cefalexin)",cat:"Antibiotik",route:"oral",
+ indications:[
+  {label:"Infeksi kulit — Impetigo / Selulitis",dose:"25–50 mg/kg/hari ÷ 3 dosis",mult:25/3,cap:500,interval:8,days:7,tag:"info",note:"Maks 500 mg/dosis. Efektif vs S.aureus dan S.pyogenes (MSSA). Tidak untuk MRSA."},
+  {label:"ISK tidak komplikata",dose:"25 mg/kg/hari ÷ 2–4 dosis",mult:25/4,cap:500,interval:6,days:7,tag:"info",note:"Sesuaikan dengan kultur. 3 hari untuk ISK wanita dewasa; 7–10 hari anak."},
+  {label:"Faringitis Streptokokus",dose:"25 mg/kg/hari ÷ 2 dosis",mult:25/2,cap:500,interval:12,days:10,tag:"info",note:"Alternatif amoksisilin bila ada indikasi cephalosporin. 10 hari penuh."},
+ ]},
+
+{slug:"seftriakson",name:"Seftriakson",cat:"Antibiotik",route:"IV/IM",
+ indications:[
+  {label:"Meningitis Bakterial",dose:"100 mg/kg/hari ÷ 2 dosis",mult:50,cap:2000,interval:12,days:14,tag:"danger",note:"Maks 2g/dosis. Durasi: S.pneumoniae 10–14 hr, N.meningitidis 5–7 hr, H.influenzae 7–10 hr, Listeria 21 hr."},
+  {label:"Sepsis / Bacteremia",dose:"50–75 mg/kg/hari 1× dosis",mult:50,cap:2000,interval:24,days:14,tag:"danger",note:"Dosis tunggal harian cukup untuk kebanyakan infeksi berat. Kultur darah sebelum mulai."},
+  {label:"Pneumonia berat",dose:"50–75 mg/kg/hari 1× dosis",mult:50,cap:2000,interval:24,days:10,tag:"warning",note:"Step-down ke oral bila demam reda dan bisa minum. Maks 2g/dosis."},
+  {label:"ISK pielonefritis",dose:"50 mg/kg/hari 1× dosis",mult:50,cap:2000,interval:24,days:10,tag:"info",note:"Step-down ke oral (kotrimoksazol / sefaleksin) setelah klinis membaik dan sensitivitas diketahui."},
+  {label:"Demam Tifoid",dose:"75–100 mg/kg/hari 1× dosis",mult:75,cap:3000,interval:24,days:14,tag:"warning",note:"Obat pilihan untuk tifoid berat. Maks 3g/hari. 10–14 hari untuk eradikasi."},
+  {label:"Gonore (Neisseria gonorrhoeae)",dose:"125 mg dosis tunggal IM (< 45 kg) / 250 mg (≥ 45 kg)",mult:null,cap:250,interval:0,days:1,tag:"info",note:"Dosis tetap. Kombinasi azithromisin untuk klamidia. Skrining IMS lain."},
+ ]},
+
+{slug:"ampisilin",name:"Ampisilin",cat:"Antibiotik",route:"IV",
+ indications:[
+  {label:"Meningitis Neonatus (+ Listeria)",dose:"100–200 mg/kg/hari ÷ 3–4 dosis",mult:200/4,cap:2000,interval:6,days:21,tag:"danger",note:"Wajib dikombinasi dengan gentamisin atau sefotaksim. Listeria tidak ter-cover sefalosporin."},
+  {label:"Sepsis Neonatus (usia 0–7 hari)",dose:"50 mg/kg/dosis tiap 12 jam",mult:50,cap:2000,interval:12,days:10,tag:"danger",note:"Neonatus < 7 hari: tiap 12 jam. > 7 hari: tiap 8 jam. Kombinasi dengan gentamisin."},
+  {label:"Sepsis Anak > 1 bulan",dose:"50 mg/kg/dosis tiap 6 jam",mult:50,cap:2000,interval:6,days:14,tag:"warning",note:"Maks 2g/dosis. Sesuaikan dengan hasil kultur dan sensitivitas."},
+ ]},
+
+{slug:"gentamisin",name:"Gentamisin",cat:"Antibiotik",route:"IV",
+ indications:[
+  {label:"Sepsis Neonatus (kombinasi)",dose:"4 mg/kg/hari dosis tunggal harian",mult:4,cap:300,interval:24,days:10,tag:"danger",note:"Dosis tunggal harian lebih efektif. Neonatus prematur: 3–4 mg/kg tiap 36–48 jam. Monitor kadar bila > 7 hari."},
+  {label:"Sepsis Anak",dose:"5–7.5 mg/kg/hari dosis tunggal",mult:5,cap:400,interval:24,days:10,tag:"warning",note:"Dosis tunggal harian (extended interval dosing). Kadar puncak target > 10 mcg/mL, trough < 1 mcg/mL."},
+  {label:"ISK Pielonefritis (berat)",dose:"5 mg/kg/hari 1× dosis",mult:5,cap:400,interval:24,days:10,tag:"warning",note:"Kombinasi dengan ampisilin untuk cakupan enterokokus. Step-down ke oral setelah klinis membaik."},
+ ]},
+
+{slug:"azitromisin",name:"Azitromisin",cat:"Antibiotik",route:"oral",
+ indications:[
+  {label:"Community-Acquired Pneumonia (Atipik)",dose:"10 mg/kg/hari × 5 hari",mult:10,cap:500,interval:24,days:5,tag:"info",note:"Hari 1: 10 mg/kg, hari 2–5: 5 mg/kg (atau 10 mg/kg/hari × 3 hari). Mycoplasma, Chlamydia."},
+  {label:"Pertusis (Batuk Rejan)",dose:"10 mg/kg/hari × 5 hari",mult:10,cap:500,interval:24,days:5,tag:"danger",note:"Mengurangi penularan bila diberikan dalam 3 minggu pertama. Profilaksis kontak: dosis sama 5 hari."},
+  {label:"Diare Kolerik / Shigella",dose:"20 mg/kg dosis tunggal",mult:20,cap:1000,interval:0,days:1,tag:"warning",note:"Dosis tunggal 20 mg/kg (maks 1g) untuk kolera. Shigella: 10–20 mg/kg/hari × 3 hari."},
+  {label:"Klamidia / Ureaplasma",dose:"10 mg/kg dosis tunggal",mult:10,cap:1000,interval:0,days:1,tag:"info",note:"Dosis tunggal untuk klamidia genitourinari. Alternatif: doksisiklin (usia > 8 tahun)."},
+  {label:"Profilaksis MAC (HIV)",dose:"20 mg/kg 1× seminggu",mult:20,cap:1200,interval:168,days:0,tag:"info",note:"Profilaksis Mycobacterium avium complex pada HIV CD4 < 50. Maks 1200 mg/minggu."},
+ ]},
+
+{slug:"klaritromisin",name:"Klaritromisin",cat:"Antibiotik",route:"oral",
+ indications:[
+  {label:"Pneumonia Atipik",dose:"15 mg/kg/hari ÷ 2 dosis",mult:7.5,cap:500,interval:12,days:10,tag:"info",note:"Maks 500 mg/dosis. Mycoplasma, Chlamydia, Legionella. Lebih efektif dari azitromisin untuk Legionella."},
+  {label:"Eradikasi H. pylori (triple therapy)",dose:"15 mg/kg/hari ÷ 2 dosis + amoksisilin + PPI",mult:7.5,cap:500,interval:12,days:14,tag:"warning",note:"Kombinasi: Klaritromisin + Amoksisilin + PPI × 14 hari. Periksa sensitivitas bila daerah resistensi tinggi."},
+  {label:"Infeksi Kulit & Jaringan Lunak",dose:"15 mg/kg/hari ÷ 2 dosis",mult:7.5,cap:500,interval:12,days:7,tag:"info",note:"Alternatif eritromisin. Lebih baik ditoleransi GI dari eritromisin."},
+ ]},
+
+{slug:"kotrimoksazol",name:"Kotrimoksazol (TMP-SMX)",cat:"Antibiotik",route:"oral",
+ indications:[
+  {label:"ISK Tidak Komplikata",dose:"8 mg/kg/hari TMP ÷ 2 dosis",mult:4,cap:320,interval:12,days:7,tag:"info",note:"Berdasarkan komponen TMP. Maks 160 mg TMP/dosis (320 mg/hari). Cek sensitivitas lokal E.coli."},
+  {label:"Diare Shigella",dose:"8 mg/kg/hari TMP ÷ 2 dosis",mult:4,cap:320,interval:12,days:5,tag:"warning",note:"Resistensi Shigella tinggi di beberapa daerah. Alternatif: azitromisin atau siprofloksasin."},
+  {label:"Profilaksis PCP (HIV/Imunosupresi)",dose:"5 mg/kg/hari TMP 3× seminggu (Senin/Rabu/Jumat)",mult:5,cap:160,interval:48,days:0,tag:"danger",note:"Dosis profilaksis 3× seminggu. Atau: dosis penuh 5 mg/kg TMP 1× sehari."},
+  {label:"Pneumonia PCP (terapi)",dose:"15–20 mg/kg/hari TMP ÷ 3–4 dosis",mult:15/3,cap:320,interval:8,days:21,tag:"danger",note:"Dosis terapi PCP: 15–20 mg/kg/hari TMP. IV bila berat. Tambah prednison bila PaO₂ < 70 mmHg."},
+ ]},
+
+{slug:"metronidazol",name:"Metronidazol",cat:"Antibiotik",route:"oral/IV",
+ indications:[
+  {label:"Giardiasis",dose:"15 mg/kg/dosis tiap 8 jam × 5–7 hari",mult:15,cap:500,interval:8,days:7,tag:"info",note:"Maks 500 mg/dosis. Atau Tinidazol 50 mg/kg dosis tunggal (maks 2g) — lebih nyaman."},
+  {label:"Amoebiasis Intestinal",dose:"10 mg/kg/dosis tiap 8 jam × 10 hari",mult:10,cap:750,interval:8,days:10,tag:"warning",note:"Lanjutkan dengan diloksanid furoat 20 hari untuk eradikasi kista. Maks 750 mg/dosis."},
+  {label:"Abses Hati Amuba",dose:"15 mg/kg/dosis tiap 8 jam × 10 hari",mult:15,cap:750,interval:8,days:10,tag:"danger",note:"Dosis lebih tinggi untuk abses. Lanjutkan dengan diloksanid. Drainase bila diperlukan."},
+  {label:"Infeksi Anaerob / Peritonitis",dose:"7.5 mg/kg/dosis tiap 8 jam",mult:7.5,cap:500,interval:8,days:14,tag:"warning",note:"Kombinasi dengan sefalosporin atau aminoglikosida. IV untuk infeksi berat."},
+  {label:"C. difficile (CDAD)",dose:"10 mg/kg/dosis tiap 8 jam × 10 hari",mult:10,cap:500,interval:8,days:10,tag:"warning",note:"Lini pertama infeksi C. difficile ringan-sedang. Lini kedua vankomisin oral."},
+  {label:"Vaginosis Bakterial / Trikomoniasis",dose:"15 mg/kg/dosis tiap 12 jam × 7 hari",mult:15,cap:500,interval:12,days:7,tag:"info",note:"Atau dosis tunggal 2g (remaja/dewasa). Obati pasangan."},
+ ]},
+
+{slug:"klindamisin",name:"Klindamisin",cat:"Antibiotik",route:"oral/IV",
+ indications:[
+  {label:"Infeksi Kulit MRSA-Komunitas",dose:"10 mg/kg/dosis tiap 8 jam",mult:10,cap:450,interval:8,days:7,tag:"warning",note:"Maks 450 mg oral / 600 mg IV per dosis. Periksa D-zone test sebelum pakai (resistensi induksi)."},
+  {label:"Osteomielitis Akut (step-down)",dose:"10 mg/kg/dosis tiap 8 jam",mult:10,cap:450,interval:8,days:21,tag:"warning",note:"Step-down setelah IV. Total durasi osteomielitis 3–6 minggu. Monitor CRP untuk respons terapi."},
+  {label:"Pneumonia Aspirasi",dose:"10 mg/kg/dosis tiap 8 jam",mult:10,cap:600,interval:8,days:10,tag:"warning",note:"Spektrum baik untuk anaerob. Maks 600 mg IV/dosis. Kombinasi dengan beta-laktam."},
+  {label:"Malaria Falciparum (kombinasi)",dose:"10 mg/kg/dosis tiap 8 jam × 7 hari",mult:10,cap:450,interval:8,days:7,tag:"danger",note:"Kombinasi dengan kina. Tidak boleh monoterapi malaria. IV untuk malaria berat."},
+ ]},
+
+{slug:"vankomisin",name:"Vankomisin",cat:"Antibiotik",route:"IV",
+ indications:[
+  {label:"MRSA Bacteremia / Sepsis",dose:"15 mg/kg/dosis tiap 6 jam",mult:15,cap:750,interval:6,days:14,tag:"danger",note:"Target trough 10–20 mcg/mL (AUC/MIC > 400 lebih direkomendasikan). Infus 60–90 menit (VRE > 90 mnt)."},
+  {label:"Meningitis S. pneumoniae Resisten",dose:"15 mg/kg/dosis tiap 6 jam",mult:15,cap:750,interval:6,days:14,tag:"danger",note:"Kombinasi dengan seftriakson. Deksametason SEBELUM AB untuk kurangi inflamasi."},
+  {label:"MRSA Osteomielitis / Artritis",dose:"15 mg/kg/dosis tiap 6 jam",mult:15,cap:750,interval:6,days:42,tag:"danger",note:"Osteomielitis: 4–6 minggu IV atau step-down oral setelah kadar CRP normal dan klinis membaik."},
+  {label:"C. difficile Berat (oral)",dose:"10 mg/kg/dosis tiap 6 jam oral",mult:10,cap:125,interval:6,days:10,tag:"warning",note:"ORAL vankomisin untuk CDI berat/rekuren. Maks 125 mg/dosis oral. Tidak diserap sistemik."},
+ ]},
+
+{slug:"sefadroksil",name:"Sefadroksil",cat:"Antibiotik",route:"oral",
+ indications:[
+  {label:"Faringitis Streptokokus",dose:"30 mg/kg/hari 1× dosis",mult:30,cap:1000,interval:24,days:10,tag:"info",note:"Dosis tunggal harian setara efektivitas dengan 2–3× sehari. Maks 1g/hari. Pilihan nyaman."},
+  {label:"Infeksi Kulit Ringan",dose:"30 mg/kg/hari ÷ 1–2 dosis",mult:30,cap:1000,interval:24,days:7,tag:"info",note:"Impetigo ringan, furunkel, folikulitis. Maks 1g/hari."},
+ ]},
+
+{slug:"siprofloksasin",name:"Siprofloksasin",cat:"Antibiotik",route:"oral/IV",
+ indications:[
+  {label:"Disentri Shigella",dose:"10–15 mg/kg/dosis tiap 12 jam × 3 hari",mult:10,cap:500,interval:12,days:3,tag:"warning",note:"Fluorokuinolon — gunakan bila resistensi kotrimoksazol/azitromisin tinggi. Maks 500 mg/dosis."},
+  {label:"ISK Komplikata / Pielonefritis",dose:"10 mg/kg/dosis tiap 12 jam",mult:10,cap:500,interval:12,days:10,tag:"warning",note:"Gram negatif. Sesuaikan dengan sensitivitas. Tidak untuk gram positif (buruk vs S.pneumoniae)."},
+  {label:"Profilaksis Antraks Pasca Pajanan",dose:"10–15 mg/kg/dosis tiap 12 jam × 60 hari",mult:15,cap:500,interval:12,days:60,tag:"danger",note:"Dosis profilaksis pasca pajanan antraks. Durasi 60 hari."},
+  {label:"Infeksi Pseudomonas (CF/neutropenia)",dose:"10–20 mg/kg/dosis tiap 8–12 jam IV",mult:10,cap:400,interval:8,days:14,tag:"danger",note:"Pseudomonas aeruginosa. IV dosis lebih tinggi. Kombinasi dengan aminoglikosida untuk berat."},
+ ]},
+
+{slug:"doksisiklin",name:"Doksisiklin",cat:"Antibiotik",route:"oral",
+ indications:[
+  {label:"Pneumonia Atipik (≥ 8 tahun)",dose:"2–4 mg/kg/hari ÷ 2 dosis",mult:2,cap:100,interval:12,days:10,tag:"info",note:"HANYA ≥ 8 tahun (gigi permanen). Maks 100 mg/dosis. Hindari produk susu ± 2 jam pemberian."},
+  {label:"Penyakit Lyme",dose:"2 mg/kg/dosis tiap 12 jam × 21 hari",mult:2,cap:100,interval:12,days:21,tag:"warning",note:"HANYA ≥ 8 tahun. Stadium II/III: IV seftriakson."},
+  {label:"Malaria Falciparum (> 8 thn)",dose:"2 mg/kg/dosis tiap 12 jam × 7 hari",mult:2,cap:100,interval:12,days:7,tag:"danger",note:"Kombinasi dengan kina. TIDAK monoterapi. Bukan lini pertama anak."},
+  {label:"Rickettsial / RMSF",dose:"2.2 mg/kg/dosis tiap 12 jam",mult:2.2,cap:100,interval:12,days:7,tag:"danger",note:"Untuk RMSF/Rickettsia: doksisiklin adalah pilihan SEMUA USIA karena penyakit berpotensi fatal. Jangan tunda."},
+ ]},
+
+{slug:"meropenem",name:"Meropenem",cat:"Antibiotik",route:"IV",
+ indications:[
+  {label:"Sepsis Berat / Gram Negatif Resisten",dose:"20 mg/kg/dosis tiap 8 jam",mult:20,cap:1000,interval:8,days:14,tag:"danger",note:"Karbapenem untuk ESBL/KPC. Maks 1g/dosis (2g untuk meningitis). Culture-guided therapy."},
+  {label:"Meningitis Bakterial (lini kedua/resisten)",dose:"40 mg/kg/dosis tiap 8 jam",mult:40,cap:2000,interval:8,days:21,tag:"danger",note:"Dosis tinggi untuk penetrasi SSP. Maks 2g/dosis. Lini kedua bila seftriakson gagal."},
+  {label:"Peritonitis / Infeksi Abdominal Berat",dose:"20–40 mg/kg/dosis tiap 8 jam",mult:20,cap:1000,interval:8,days:14,tag:"danger",note:"Polimikrobial. Kombinasi dengan metronidazol untuk anaerob. Durasi sesuai klinis."},
+  {label:"Cystic Fibrosis — Eksaserbasi Pseudomonas",dose:"40 mg/kg/dosis tiap 8 jam",mult:40,cap:2000,interval:8,days:14,tag:"danger",note:"CF butuh dosis lebih tinggi (klirens lebih cepat). Kombinasi tobramycin. Maks 2g/dosis."},
+ ]},
+
+// ══════════════════════════════════════════
+// ANTIVIRAL
+// ══════════════════════════════════════════
+{slug:"asiklovir-oral",name:"Asiklovir oral",cat:"Antiviral",route:"oral",
+ indications:[
+  {label:"Varisela Primer (Cacar Air)",dose:"20 mg/kg/dosis tiap 6 jam × 5 hari",mult:20,cap:800,interval:6,days:5,tag:"info",note:"Mulai dalam 24 jam timbulnya lesi. Maks 800 mg/dosis. Dewasa/remaja ≥ 40 kg: 800 mg 5×/hari."},
+  {label:"Herpes Zoster (Shingles)",dose:"20 mg/kg/dosis tiap 6 jam × 7 hari",mult:20,cap:800,interval:6,days:7,tag:"warning",note:"Mulai dalam 72 jam rash. Maks 800 mg/dosis. Durasi lebih panjang untuk zoster."},
+  {label:"Herpes Labialis (Cold Sore)",dose:"10–20 mg/kg/dosis tiap 4 jam × 5–7 hari",mult:15,cap:800,interval:4,days:5,tag:"info",note:"5× sehari (tiap 4 jam, skip malam). Atau topikal asiklovir 5% 5× sehari."},
+  {label:"Profilaksis Herpes (Rekuren)",dose:"10–20 mg/kg/dosis tiap 12 jam",mult:10,cap:400,interval:12,days:0,tag:"info",note:"Profilaksis jangka panjang untuk rekurensi sering (> 6×/tahun). Re-evaluasi tiap 6–12 bulan."},
+ ]},
+
+{slug:"asiklovir-iv",name:"Asiklovir IV",cat:"Antiviral",route:"IV",
+ indications:[
+  {label:"Ensefalitis HSV",dose:"10–15 mg/kg/dosis tiap 8 jam × 14–21 hari",mult:15,cap:500,interval:8,days:21,tag:"danger",note:"Mulai empiris pada SEMUA suspek ensefalitis. Infus 1 jam. Hidrasi adekuat (nefrotoksik)."},
+  {label:"Varisela Berat / Imunosupresi",dose:"10 mg/kg/dosis tiap 8 jam × 7–10 hari",mult:10,cap:500,interval:8,days:10,tag:"danger",note:"Varisela pada pasien imunosupresi, neonatus, atau dengan komplikasi paru/SSP."},
+  {label:"HSV Neonatus",dose:"20 mg/kg/dosis tiap 8 jam × 14–21 hari",mult:20,cap:null,interval:8,days:21,tag:"danger",note:"Neonatus: dosis lebih tinggi. Durasi: SEM 14 hari, diseminata/SSP 21 hari. Lanjut supresi oral 6 bulan."},
+ ]},
+
+{slug:"oseltamivir",name:"Oseltamivir (Tamiflu)",cat:"Antiviral",route:"oral",
+ indications:[
+  {label:"Influenza Terapi (≤ 40 kg)",dose:"BB-based tiap 12 jam × 5 hari",mult:2,cap:75,interval:12,days:5,tag:"info",note:"< 15 kg: 30 mg 2×. 15–23 kg: 45 mg 2×. 23–40 kg: 60 mg 2×. > 40 kg: 75 mg 2×. Mulai dalam 48 jam."},
+  {label:"Influenza Berat / Rawat Inap",dose:"BB-based tiap 12 jam × 10 hari",mult:2,cap:75,interval:12,days:10,tag:"warning",note:"Durasi dapat diperpanjang hingga 10 hari untuk kasus berat atau imunosupresi."},
+  {label:"Profilaksis Pascapajanan",dose:"BB-based 1× sehari × 10 hari",mult:2,cap:75,interval:24,days:10,tag:"info",note:"Mulai dalam 48 jam setelah pajanan. < 15 kg: 30 mg. 15–23 kg: 45 mg. > 40 kg: 75 mg."},
+ ]},
+
+{slug:"gansiklovir",name:"Gansiklovir",cat:"Antiviral",route:"IV",
+ indications:[
+  {label:"CMV Retinitis / Penyakit CMV Invasif",dose:"5 mg/kg/dosis tiap 12 jam (induksi) × 14–21 hari",mult:5,cap:250,interval:12,days:21,tag:"danger",note:"Induksi 5 mg/kg tiap 12 jam. Maintenance 5 mg/kg 1×/hari. Monitor CBC (neutropenia). Imunosupresi/HIV."},
+  {label:"CMV Kongenital Simtomatik",dose:"6 mg/kg/dosis tiap 12 jam × 6 minggu",mult:6,cap:300,interval:12,days:42,tag:"danger",note:"Neonatus dengan CMV kongenital simtomatik (SSP, korioretinitis). Lanjut valgansiklovir oral."},
+ ]},
+
+// ══════════════════════════════════════════
+// ANTIPARASIT & ANTIJAMUR
+// ══════════════════════════════════════════
+{slug:"albendazol",name:"Albendazol",cat:"Antiparasit",route:"oral",
+ indications:[
+  {label:"Cacingan STH (Ascaris, Cacing Tambang, Trichuris)",dose:"400 mg dosis tunggal (> 2 thn) / 200 mg (1–2 thn)",mult:null,cap:400,interval:0,days:1,tag:"info",note:"Dosis TETAP tidak bergantung BB. > 2 thn: 400 mg. 1–2 thn: 200 mg. Berikan dengan makan."},
+  {label:"Strongiloidiasis",dose:"400 mg/hari × 3 hari",mult:null,cap:400,interval:24,days:3,tag:"warning",note:"Atau ivermektin 200 mcg/kg/hari × 2 hari (lebih efektif). Ulangi 2 minggu kemudian."},
+  {label:"Hidatidosis (Kista Echinococcus)",dose:"15 mg/kg/hari ÷ 2 dosis, siklus 4 minggu",mult:7.5,cap:400,interval:12,days:28,tag:"danger",note:"Terapi adjuvant pra/pasca bedah. Siklus 4 minggu minum — 2 minggu istirahat. 3 siklus total."},
+  {label:"Neurosistiserkosis",dose:"15 mg/kg/hari ÷ 2 dosis × 8–30 hari",mult:7.5,cap:400,interval:12,days:14,tag:"danger",note:"Kombinasi dengan deksametason/prednison untuk kontrol reaksi inflamasi. Monitor kejang."},
+  {label:"Enterobiasis (Cacing Kremi)",dose:"400 mg dosis tunggal, ulangi 2 minggu",mult:null,cap:400,interval:0,days:1,tag:"info",note:"Obati seluruh keluarga bersamaan. Ulangi 14 hari. Cuci sprei air panas."},
+ ]},
+
+{slug:"ivermektin",name:"Ivermektin",cat:"Antiparasit",route:"oral",
+ indications:[
+  {label:"Skabies (≥ 15 kg)",dose:"200 mcg/kg dosis tunggal",mult:0.2,cap:12,interval:0,days:1,tag:"info",note:"Berikan dengan makan. Ulangi hari ke-14. Obati seluruh kontak serumah bersamaan."},
+  {label:"Skabies Krustosa (Norwegian Scabies)",dose:"200 mcg/kg hari 1,2,8,9,15",mult:0.2,cap:12,interval:24,days:15,tag:"danger",note:"Kombinasi dengan permethrin topikal. Lebih banyak dosis untuk kasus berat. Isolasi pasien."},
+  {label:"Strongiloidiasis",dose:"200 mcg/kg/hari × 2 hari",mult:0.2,cap:12,interval:24,days:2,tag:"warning",note:"Lebih efektif dari albendazol untuk Strongyloides. Ulangi 2 minggu bila imunosupresi."},
+  {label:"Onkoserkiasis (River Blindness)",dose:"150 mcg/kg dosis tunggal tiap tahun",mult:0.15,cap:12,interval:0,days:1,tag:"warning",note:"Program massal. Dosis tahunan 1× selama 10–15 tahun."},
+ ]},
+
+{slug:"metronidazol-anti",name:"Metronidazol (Antiparasit)",cat:"Antiparasit",route:"oral",
+ indications:[
+  {label:"Giardiasis",dose:"15 mg/kg/dosis tiap 8 jam × 5–7 hari",mult:15,cap:500,interval:8,days:7,tag:"info",note:"Atau Tinidazol 50 mg/kg dosis tunggal (maks 2g) — lebih nyaman dan efektif."},
+  {label:"Trikomoniasis",dose:"15 mg/kg/dosis tiap 8 jam × 7 hari",mult:15,cap:500,interval:8,days:7,tag:"info",note:"Atau dosis tunggal 2g pada remaja. Obati pasangan seksual."},
+ ]},
+
+{slug:"klorokuin",name:"Klorokuin",cat:"Antiparasit",route:"oral",
+ indications:[
+  {label:"Malaria Vivax / Ovale (non-falciparum)",dose:"10 mg/kg hari 1–2, lalu 5 mg/kg hari 3",mult:10,cap:620,interval:0,days:3,tag:"warning",note:"Total 3 hari. Lanjutkan primakuin 14 hari untuk eradikasi hipnozoit (cek G6PD dulu)."},
+  {label:"Profilaksis Malaria",dose:"5 mg/kg 1× seminggu",mult:5,cap:300,interval:168,days:0,tag:"info",note:"Mulai 1–2 minggu sebelum pergi, lanjut 4 minggu setelah pulang. Maks 300 mg/minggu."},
+ ]},
+
+{slug:"primakuin",name:"Primakuin",cat:"Antiparasit",route:"oral",
+ indications:[
+  {label:"Eradikasi P. vivax / ovale (Hipnozoit)",dose:"0.25–0.5 mg/kg/hari × 14 hari",mult:0.25,cap:30,interval:24,days:14,tag:"warning",note:"Harus cek G6PD sebelum pemberian. Hemolisis fatal pada G6PD defisiensi. Maks 30 mg/hari."},
+  {label:"Malaria Falciparum (gametosidal)",dose:"0.25 mg/kg dosis tunggal",mult:0.25,cap:30,interval:0,days:1,tag:"info",note:"Dosis tunggal untuk cegah transmisi (gametosidal). Bukan terapi aktif."},
+ ]},
+
+{slug:"flukonazol",name:"Flukonazol",cat:"Antijamur",route:"oral/IV",
+ indications:[
+  {label:"Kandidiasis Oral (Thrush)",dose:"3–6 mg/kg/hari 1× sehari × 7–14 hari",mult:3,cap:100,interval:24,days:14,tag:"info",note:"Dosis loading 6 mg/kg hari pertama. Maks 100 mg/hari untuk kandidiasis oral."},
+  {label:"Kandidemia / Kandidiasis Invasif",dose:"12 mg/kg/hari 1× sehari",mult:12,cap:800,interval:24,days:14,tag:"danger",note:"Maks 800 mg/hari untuk invasif. Minimal 14 hari setelah kultur darah negatif."},
+  {label:"Meningitis Kriptokokus",dose:"12 mg/kg/hari 1× sehari",mult:12,cap:800,interval:24,days:56,tag:"danger",note:"Fase konsolidasi 8 minggu setelah terapi induksi amfoterisin B. Lanjut maintenance 6–12 bulan."},
+  {label:"Tinea Korporis / Kuris (Sistemik)",dose:"6 mg/kg/minggu × 4–6 minggu",mult:6,cap:150,interval:168,days:42,tag:"info",note:"Dosis mingguan lebih nyaman dari harian. Maks 150 mg/minggu."},
+ ]},
+
+{slug:"griseofulvin",name:"Griseofulvin",cat:"Antijamur",route:"oral",
+ indications:[
+  {label:"Tinea Kapitis (Ringworm Kepala)",dose:"15–20 mg/kg/hari 1× sehari × 6–8 minggu",mult:20,cap:500,interval:24,days:56,tag:"warning",note:"WAJIB sistemik. Berikan dengan makanan berlemak (meningkatkan absorpsi 47%). Monitor LFT bila > 8 minggu."},
+  {label:"Tinea Kapitis — Kerion",dose:"20 mg/kg/hari + prednison 0.5 mg/kg/hari × 2 minggu",mult:20,cap:500,interval:24,days:42,tag:"warning",note:"Tambah prednison untuk kurangi reaksi inflamasi dan cegah alopesia permanen. Griseofulvin 6 minggu."},
+ ]},
+
+// ══════════════════════════════════════════
+// ANALGESIK & ANTIPIRETIK
+// ══════════════════════════════════════════
+{slug:"parasetamol",name:"Parasetamol",cat:"Analgesik/Antipiretik",route:"oral/rektal/IV",
+ indications:[
+  {label:"Demam / Nyeri Ringan",dose:"10–15 mg/kg/dosis tiap 4–6 jam",mult:12.5,cap:1000,interval:5,days:0,tag:"info",note:"Maks 1g/dosis, 4g/hari, maksimal 5 dosis/24 jam. Dosis rektal sama. Aman semua usia."},
+  {label:"Nyeri Pasca Operasi (IV)",dose:"15 mg/kg/dosis tiap 6 jam IV",mult:15,cap:1000,interval:6,days:0,tag:"info",note:"Infus 15 menit. Maks 1g/dosis (anak > 10 kg). Hindari pemberian terlalu cepat (hipotensi)."},
+  {label:"Demam Pasca Vaksinasi",dose:"10 mg/kg/dosis tiap 4 jam",mult:10,cap:500,interval:4,days:1,tag:"info",note:"Dosis prophylactic sebelum vaksin tidak dianjurkan (mengurangi respons antibodi). Berikan bila demam muncul."},
+ ]},
+
+{slug:"ibuprofen",name:"Ibuprofen",cat:"Analgesik/Antipiretik",route:"oral",
+ indications:[
+  {label:"Demam / Nyeri Ringan-Sedang",dose:"5–10 mg/kg/dosis tiap 6–8 jam",mult:7,cap:400,interval:7,days:0,tag:"info",note:"Maks 400 mg/dosis, 40 mg/kg/hari. Tidak untuk < 3 bulan, dehidrasi, penyakit ginjal, atau BB < 5 kg."},
+  {label:"JIA — Anti-Inflamasi",dose:"30–40 mg/kg/hari ÷ 3–4 dosis",mult:30/3,cap:800,interval:8,days:0,tag:"warning",note:"Dosis anti-inflamasi lebih tinggi dari antipiretik. Maks 800 mg/dosis, 2400 mg/hari. Berikan dengan makan."},
+  {label:"Dismenore",dose:"10 mg/kg/dosis tiap 6–8 jam",mult:10,cap:400,interval:6,days:3,tag:"info",note:"Mulai saat nyeri muncul. Berikan dengan makan atau susu untuk kurangi iritasi lambung."},
+  {label:"Penutupan PDA (Neonatus)",dose:"10 mg/kg dosis 1, lalu 5 mg/kg dosis 2–3",mult:10,cap:null,interval:24,days:3,tag:"danger",note:"Dosis IV neonatus. Dosis 1: 10 mg/kg; dosis 2–3 (24 jam kemudian): 5 mg/kg. Alternatif indometasin."},
+ ]},
+
+{slug:"asam-mefenamat",name:"Asam Mefenamat",cat:"Analgesik",route:"oral",
+ indications:[
+  {label:"Nyeri Sedang / Dismenore",dose:"10 mg/kg/dosis tiap 8 jam",mult:10,cap:500,interval:8,days:5,tag:"info",note:"Maks 500 mg/dosis. Tidak untuk < 6 bulan. Berikan dengan makan. Tidak lebih dari 7 hari."},
+  {label:"Menorrhagia (Perdarahan Haid Berlebih)",dose:"500 mg tiap 8 jam (remaja)",mult:null,cap:500,interval:8,days:5,tag:"info",note:"Dosis tetap pada remaja. Mulai saat hari pertama haid. Berikan 3–5 hari."},
+ ]},
+
+{slug:"tramadol",name:"Tramadol",cat:"Analgesik",route:"oral/IV",
+ indications:[
+  {label:"Nyeri Sedang-Berat (oral)",dose:"1–2 mg/kg/dosis tiap 6 jam",mult:1.5,cap:100,interval:6,days:0,tag:"warning",note:"Maks 100 mg/dosis, 400 mg/hari. Tidak untuk < 1 tahun. Risiko kejang dosis tinggi."},
+  {label:"Nyeri Pasca Operasi (IV)",dose:"1–2 mg/kg/dosis tiap 6 jam IV pelan",mult:1,cap:100,interval:6,days:0,tag:"warning",note:"Infus perlahan 15 menit. Risiko mual/muntah lebih tinggi dari morfin. Antiemetik profilaktik."},
+ ]},
+
+{slug:"morfin",name:"Morfin",cat:"Analgesik Opioid",route:"IV/SC",
+ indications:[
+  {label:"Nyeri Berat Akut (IV)",dose:"0.05–0.1 mg/kg/dosis tiap 3–4 jam",mult:0.1,cap:10,interval:4,days:0,tag:"danger",note:"Titrasi hati-hati. Maks 10 mg/dosis. Monitor: depresi napas, sedasi. Nalokson tersedia."},
+  {label:"Nyeri Kanker (SC infus kontinu)",dose:"0.01–0.03 mg/kg/jam SC infus kontinu",mult:0.01,cap:null,interval:0,days:0,tag:"danger",note:"Titrasi sesuai respon nyeri. Breakthrough dose: 1/6 dari dosis harian total. Konsul paliatif."},
+  {label:"Edema Paru Akut",dose:"0.1 mg/kg IV pelan",mult:0.1,cap:5,interval:0,days:0,tag:"danger",note:"Dosis tunggal untuk edema paru akut. Vasodilator + anxiolytic. Maks 5 mg/dosis. Monitor napas."},
+ ]},
+
+{slug:"nalokson",name:"Nalokson",cat:"Antidot",route:"IV/IM/SC/intranasal",
+ indications:[
+  {label:"Overdosis Opioid",dose:"0.01 mg/kg/dosis tiap 2–3 mnt",mult:0.01,cap:0.4,interval:0,days:0,tag:"danger",note:"Maks 0.4 mg/dosis. Dapat diulang tiap 2–3 menit. Onset IV 1–2 mnt. Durasi lebih pendek dari opioid — awasi rekurensi."},
+  {label:"Depresi Napas Neonatus (Ibu Opioid)",dose:"0.1 mg/kg dosis tunggal IM/IV",mult:0.1,cap:0.4,interval:0,days:0,tag:"danger",note:"Neonatus dengan ibu mendapat opioid intrapartum. IM lebih lama kerjanya dari IV."},
+ ]},
+
+// ══════════════════════════════════════════
+// KORTIKOSTEROID
+// ══════════════════════════════════════════
+{slug:"prednison",name:"Prednison / Prednisolon",cat:"Kortikosteroid",route:"oral",
+ indications:[
+  {label:"Asma Akut (short course)",dose:"1–2 mg/kg/hari 1× pagi × 3–5 hari",mult:1,cap:60,interval:24,days:5,tag:"warning",note:"Maks 60 mg/hari. Tidak perlu tapering bila < 7 hari. Berikan pagi untuk kurangi supresi aksis HPA."},
+  {label:"Croup Sedang-Berat",dose:"0.6 mg/kg dosis tunggal",mult:0.6,cap:10,interval:0,days:1,tag:"warning",note:"Dosis tunggal. Maks 10 mg. Onset dalam 30–60 menit. Efek bertahan 12–24 jam."},
+  {label:"Sindrom Nefrotik",dose:"60 mg/m²/hari (atau 2 mg/kg/hari) × 6 minggu",mult:2,cap:60,interval:24,days:42,tag:"warning",note:"Berdasarkan BSA atau BB. Fase remisi: 40 mg/m² selang sehari × 6 minggu. Tapering perlahan."},
+  {label:"Alergi / Urtikaria Berat",dose:"1 mg/kg/hari × 5–7 hari",mult:1,cap:60,interval:24,days:7,tag:"warning",note:"Tapering tidak perlu bila < 7 hari. Berikan dengan antihistamin."},
+  {label:"Meningitis H. influenzae (adjuvant)",dose:"0.15 mg/kg/dosis tiap 6 jam × 4 hari",mult:0.15,cap:10,interval:6,days:4,tag:"warning",note:"Berikan 15–30 menit SEBELUM antibiotik. Terbukti kurangi kehilangan pendengaran."},
+  {label:"PCP / Pneumonia P. jirovecii (adjuvant)",dose:"1–2 mg/kg/hari × 5–11 hari, tapering",mult:1,cap:80,interval:24,days:21,tag:"danger",note:"Bila PaO₂ < 70 mmHg. Tapering setelah 5–11 hari."},
+ ]},
+
+{slug:"deksametason",name:"Deksametason",cat:"Kortikosteroid",route:"IV/IM/oral",
+ indications:[
+  {label:"Croup (Laringotrakeitis)",dose:"0.6 mg/kg dosis tunggal",mult:0.6,cap:10,interval:0,days:1,tag:"warning",note:"Pilihan terbaik untuk croup — onset 30 mnt, efek 24–48 jam. IM/IV sama efektif dengan oral."},
+  {label:"Meningitis Bakterial",dose:"0.15 mg/kg/dosis tiap 6 jam × 4 hari",mult:0.15,cap:8,interval:6,days:4,tag:"danger",note:"Berikan 15–30 mnt SEBELUM antibiotik. Maks 8 mg/dosis. Terbukti kurangi sekuele."},
+  {label:"Asma Berat / Status Asmatikus",dose:"0.3–0.6 mg/kg/dosis tiap 6–24 jam",mult:0.3,cap:10,interval:6,days:5,tag:"danger",note:"Potensí 7× prednison. Untuk asma yang tidak respons kortikosteroid oral."},
+  {label:"Edema Otak Peritumor",dose:"0.25–0.5 mg/kg/dosis tiap 6 jam",mult:0.25,cap:8,interval:6,days:0,tag:"danger",note:"Efektif hanya untuk edema vasogenik (tumor/abses). TIDAK untuk edema sitotoksik (stroke)."},
+  {label:"Anti-Muntah Pasca Operasi",dose:"0.15 mg/kg dosis tunggal IV",mult:0.15,cap:8,interval:0,days:1,tag:"info",note:"Profilaksis PONV. Berikan saat induksi anestesi. Kombinasi ondansetron lebih efektif."},
+ ]},
+
+{slug:"metilprednisolon",name:"Metilprednisolon",cat:"Kortikosteroid",route:"IV",
+ indications:[
+  {label:"Asma Akut Berat (rawat inap)",dose:"1–2 mg/kg/dosis tiap 6 jam",mult:1,cap:125,interval:6,days:5,tag:"danger",note:"Maks 125 mg/dosis. Step-down ke prednison oral bila membaik."},
+  {label:"Pulse Lupus (SLE Organ-Threatening)",dose:"30 mg/kg/hari × 3 hari (pulse)",mult:30,cap:1000,interval:24,days:3,tag:"danger",note:"Maks 1g/hari. Infus 30–60 menit. Hipertensi, hiperglikemia — pantau ketat selama infus."},
+  {label:"Spinal Cord Injury Akut",dose:"30 mg/kg bolus, lalu 5.4 mg/kg/jam × 23 jam",mult:30,cap:1000,interval:0,days:1,tag:"danger",note:"Kontroversial — hanya dalam 8 jam pertama cedera. Banyak panduan tidak lagi rekomendasikan."},
+  {label:"Kawasaki Resisten IVIG",dose:"30 mg/kg/hari × 3 hari",mult:30,cap:1000,interval:24,days:3,tag:"danger",note:"Untuk Kawasaki yang tidak respons 2 dosis IVIG. Dilanjutkan prednison oral tapering."},
+ ]},
+
+{slug:"hidrokortison",name:"Hidrokortison",cat:"Kortikosteroid",route:"IV/IM",
+ indications:[
+  {label:"Krisis Adrenal",dose:"2 mg/kg bolus IV, lalu 1–2 mg/kg tiap 6 jam",mult:2,cap:100,interval:6,days:0,tag:"danger",note:"Jangan tunda! Setelah stabil tapering ke oral. Stress dosing jangka panjang: 2–3× dosis rumatan."},
+  {label:"Anafilaksis (setelah Epinefrin)",dose:"5–10 mg/kg IV pelan",mult:5,cap:200,interval:0,days:0,tag:"danger",note:"BUKAN pengganti epinefrin — berikan setelah epinefrin. Onset lambat 4–6 jam. Cegah reaksi bifasik."},
+  {label:"Syok Sepsis Refrakter",dose:"1–2 mg/kg/hari infus kontinu",mult:1,cap:200,interval:24,days:0,tag:"danger",note:"Hanya bila tidak respons vasopresor. 50 mg tiap 6 jam atau infus kontinu. Tapering cepat."},
+ ]},
+
+// ══════════════════════════════════════════
+// BRONKODILATOR & RESPIROLOGI
+// ══════════════════════════════════════════
+{slug:"salbutamol",name:"Salbutamol (Albuterol)",cat:"Bronkodilator",route:"nebulisasi/MDI",
+ indications:[
+  {label:"Asma Akut — Eksaserbasi Ringan-Sedang",dose:"0.15 mg/kg/nebulisasi (min 2.5 mg, maks 5 mg)",mult:0.15,cap:5,interval:4,days:0,tag:"warning",note:"Tiap 20 menit × 3 dosis di IGD (continuous nebulisasi untuk berat). MDI + spacer: 2–4 puff tiap 20 mnt."},
+  {label:"Bronkospasme / Wheezing Virus",dose:"0.15 mg/kg tiap 4–6 jam sesuai kebutuhan",mult:0.15,cap:5,interval:4,days:3,tag:"info",note:"Min 2.5 mg. Kurangi frekuensi saat membaik. Stop bila tanpa gejala 24 jam."},
+  {label:"Asma — Preventif Olahraga",dose:"2 puff MDI 15–30 menit sebelum olahraga",mult:null,cap:null,interval:0,days:0,tag:"info",note:"2 puff (200 mcg) pre-exercise. Tidak efektif bila dipakai > 3× seminggu (pertanda kontrol buruk)."},
+ ]},
+
+{slug:"ipratropium",name:"Ipratropium Bromida",cat:"Bronkodilator",route:"nebulisasi",
+ indications:[
+  {label:"Asma Akut Berat (tambahan salbutamol)",dose:"< 12 thn: 250 mcg; ≥ 12 thn: 500 mcg",mult:null,cap:500,interval:0,days:0,tag:"warning",note:"Tiap 20 menit × 3 dosis awal (bersamaan salbutamol), lalu tiap 4–6 jam bila diperlukan. TIDAK untuk maintenance."},
+  {label:"PPOK Eksaserbasi (remaja)",dose:"500 mcg tiap 6–8 jam",mult:null,cap:500,interval:6,days:0,tag:"info",note:"Antikolinergik bronkodilator. Kombinasi dengan beta-2 agonis untuk bronkospasme berat."},
+ ]},
+
+{slug:"aminofilin",name:"Aminofilin",cat:"Bronkodilator",route:"IV",
+ indications:[
+  {label:"Status Asmatikus Berat (lini tambahan)",dose:"Loading 5–6 mg/kg dalam 20 mnt, maintenance 0.5–1 mg/kg/jam",mult:5,cap:600,interval:0,days:0,tag:"danger",note:"Kadar terapeutik 10–20 mcg/mL. Monitor HR (takikardia), kejang, mual. Kurangi dosis bila teofilin sudah diminum."},
+ ]},
+
+{slug:"magnesium-asma",name:"Magnesium Sulfat IV",cat:"Bronkodilator",route:"IV",
+ indications:[
+  {label:"Asma Berat Tidak Respons Beta-2 & Steroid",dose:"25–75 mg/kg dalam 20 menit",mult:50,cap:2000,interval:0,days:0,tag:"danger",note:"Maks 2g/dosis. Infus 20 menit. Efek bronkodilasi dalam 30–60 menit. Monitor TD dan HR."},
+ ]},
+
+{slug:"budesonid",name:"Budesonid",cat:"Kortikosteroid Inhaler",route:"nebulisasi",
+ indications:[
+  {label:"Croup Sedang-Berat",dose:"2 mg nebulisasi dosis tunggal",mult:null,cap:2,interval:0,days:1,tag:"warning",note:"Efektif sebanding dengan deksametason IM/oral. Onset 30 menit. Ulangi bila diperlukan setelah 12 jam."},
+  {label:"Asma — Controller Terapi",dose:"0.5–1 mg tiap 12 jam",mult:null,cap:1,interval:12,days:0,tag:"info",note:"Maintenance asma. Bilas mulut setelah inhaler untuk cegah kandidiasis oral."},
+ ]},
+
+// ══════════════════════════════════════════
+// ANTIHISTAMIN
+// ══════════════════════════════════════════
+{slug:"setirizin",name:"Setirizin",cat:"Antihistamin",route:"oral",
+ indications:[
+  {label:"Rinitis Alergi / Urtikaria",dose:"< 2 thn: 2.5 mg/hari; 2–5 thn: 5 mg/hari; ≥ 6 thn: 10 mg/hari",mult:0.25,cap:10,interval:24,days:0,tag:"info",note:"Non-sedatif. 1× sehari malam. Maks 10 mg/hari. Aman jangka panjang."},
+  {label:"Alergi Kronis — Kontrol Gejala",dose:"0.25 mg/kg/hari",mult:0.25,cap:10,interval:24,days:0,tag:"info",note:"Terapi harian untuk alergi kronik. Evaluasi respons setelah 2–4 minggu."},
+ ]},
+
+{slug:"loratadin",name:"Loratadin",cat:"Antihistamin",route:"oral",
+ indications:[
+  {label:"Rinitis Alergi",dose:"< 30 kg: 5 mg/hari; ≥ 30 kg: 10 mg/hari",mult:0.2,cap:10,interval:24,days:0,tag:"info",note:"Non-sedatif. 1× sehari. Tidak efektif untuk urtikaria akut berat (gunakan difenhidramin)."},
+ ]},
+
+{slug:"difenhidramin",name:"Difenhidramin",cat:"Antihistamin",route:"oral/IV",
+ indications:[
+  {label:"Alergi Akut / Reaksi Anafilaksis (tambahan)",dose:"1 mg/kg/dosis tiap 6 jam",mult:1,cap:50,interval:6,days:0,tag:"warning",note:"SEDATIF. Maks 50 mg/dosis. Setelah epinefrin pada anafilaksis. IV pelan 15 menit."},
+  {label:"Mabuk Perjalanan (Antivertigo)",dose:"1 mg/kg/dosis 30 mnt sebelum perjalanan",mult:1,cap:50,interval:6,days:0,tag:"info",note:"Maks 50 mg. Efek sedatif membantu mabuk perjalanan. Hindari mengemudi."},
+  {label:"Antidot Reaksi Ekstrapiramidal",dose:"1–2 mg/kg IV pelan",mult:1,cap:50,interval:0,days:0,tag:"danger",note:"Reaksi akut metoklopramid/antipsikotik. Maks 50 mg. Onset dalam 5 menit IV."},
+  {label:"Insomnia Jangka Pendek",dose:"0.5–1 mg/kg malam hari",mult:0.5,cap:50,interval:0,days:3,tag:"info",note:"Tidak untuk penggunaan rutin (toleransi cepat). Hindari < 2 tahun."},
+ ]},
+
+{slug:"feksofenadin",name:"Feksofenadin",cat:"Antihistamin",route:"oral",
+ indications:[
+  {label:"Rinitis Alergi (≥ 6 tahun)",dose:"30 mg tiap 12 jam (6–11 thn) / 60–180 mg/hari (≥ 12 thn)",mult:null,cap:180,interval:12,days:0,tag:"info",note:"Non-sedatif, non-antikolinergik. Tidak ada efek jantung. Maks 60 mg/dosis anak."},
+  {label:"Urtikaria Kronik (≥ 6 tahun)",dose:"30 mg tiap 12 jam",mult:null,cap:60,interval:12,days:0,tag:"info",note:"Dosis 2× bila perlu untuk urtikaria kronik. Aman jangka panjang."},
+ ]},
+
+// ══════════════════════════════════════════
+// ANTIEMETIK
+// ══════════════════════════════════════════
+{slug:"ondansetron",name:"Ondansetron",cat:"Antiemetik",route:"oral/IV",
+ indications:[
+  {label:"Muntah Akut — Gastroenteritis",dose:"0.15 mg/kg/dosis (maks 4–8 mg)",mult:0.15,cap:8,interval:8,days:0,tag:"info",note:"Dosis tunggal ODT (oral dissolvable tablet) sangat efektif untuk AGE anak. Hindari penggunaan berulang bila muntah berhenti."},
+  {label:"Mual Pasca Kemoterapi",dose:"0.15 mg/kg/dosis tiap 4–8 jam",mult:0.15,cap:8,interval:4,days:0,tag:"warning",note:"Dikombinasi dengan deksametason untuk kemoterapi emetogenik tinggi. Maks 8 mg/dosis."},
+  {label:"Mual Pasca Operasi (Profilaksis)",dose:"0.1 mg/kg IV saat akhir operasi",mult:0.1,cap:4,interval:0,days:1,tag:"info",note:"Berikan saat penutupan luka. Maks 4 mg. Kombinasi deksametason lebih efektif."},
+ ]},
+
+{slug:"domperidon",name:"Domperidon",cat:"Antiemetik",route:"oral",
+ indications:[
+  {label:"Mual / Muntah / GERD — Prokinetik",dose:"0.25 mg/kg/dosis tiap 8 jam",mult:0.25,cap:10,interval:8,days:0,tag:"warning",note:"Maks 10 mg/dosis. Tidak untuk < 12 tahun kecuali indikasi khusus (risiko aritmia). Jangan > 30 hari."},
+ ]},
+
+{slug:"metoklopramid",name:"Metoklopramid",cat:"Antiemetik",route:"oral/IV",
+ indications:[
+  {label:"Mual Pasca Kemoterapi",dose:"0.1–0.15 mg/kg/dosis tiap 8 jam",mult:0.1,cap:10,interval:8,days:0,tag:"warning",note:"Risiko reaksi ekstrapiramidal pada anak — premedikasi difenhidramin 1 mg/kg IV. Maks 10 mg/dosis."},
+  {label:"Gastroparesis / Refluks",dose:"0.1 mg/kg/dosis tiap 8 jam",mult:0.1,cap:10,interval:8,days:0,tag:"warning",note:"Jangka pendek saja. Risiko tardive dyskinesia bila > 12 minggu. Pantau tanda EPS."},
+ ]},
+
+// ══════════════════════════════════════════
+// GI — Lambung & Usus
+// ══════════════════════════════════════════
+{slug:"omeprazol",name:"Omeprazol",cat:"GI — PPI",route:"oral/IV",
+ indications:[
+  {label:"GERD — Terapi Empiris",dose:"1–2 mg/kg/hari 1× pagi",mult:1,cap:20,interval:24,days:56,tag:"info",note:"30 menit sebelum makan pertama. Maks 20 mg/hari (< 20 kg), 40 mg/hari (≥ 20 kg). Evaluasi 4–8 minggu."},
+  {label:"Tukak Lambung / Ulkus Peptik",dose:"1–2 mg/kg/hari 1× pagi",mult:1,cap:40,interval:24,days:42,tag:"warning",note:"4–8 minggu untuk ulkus lambung, 4 minggu untuk ulkus duodenum. Eradikasi H.pylori bila positif."},
+  {label:"Esofagitis Erosif",dose:"1–2 mg/kg/hari 1× pagi",mult:1,cap:40,interval:24,days:56,tag:"warning",note:"8 minggu awal, lanjut maintenance bila rekuren. Endoskopi konfirmasi penyembuhan."},
+  {label:"Perdarahan GI Atas (Profilaksis Stres Ulkus IV)",dose:"1–2 mg/kg/hari IV",mult:1,cap:40,interval:24,days:0,tag:"danger",note:"Untuk pasien kritis di ICU dengan risiko tinggi perdarahan. Step-down ke oral bila toleransi GI."},
+ ]},
+
+{slug:"esomeprazol",name:"Esomeprazol",cat:"GI — PPI",route:"oral/IV",
+ indications:[
+  {label:"GERD Berat / Esofagitis",dose:"1–2 mg/kg/hari 1× pagi",mult:1,cap:40,interval:24,days:56,tag:"warning",note:"Isomer-S omeprazol. Maks 20 mg (1–11 thn), 40 mg (≥ 12 thn). Lebih stabil dari omeprazol."},
+ ]},
+
+{slug:"ranitidin",name:"Ranitidin (H2 Blocker)",cat:"GI — H2RA",route:"oral",
+ indications:[
+  {label:"GERD Ringan (alternatif PPI)",dose:"2–4 mg/kg/dosis tiap 12 jam",mult:2,cap:150,interval:12,days:56,tag:"info",note:"Maks 150 mg/dosis. CATATAN: Ranitidin telah ditarik di banyak negara karena NDMA. Gunakan PPI sebagai pilihan utama."},
+ ]},
+
+{slug:"laktulosa",name:"Laktulosa",cat:"GI — Laksatif",route:"oral",
+ indications:[
+  {label:"Konstipasi Fungsional",dose:"1–3 mL/kg/hari ÷ 1–2 dosis",mult:1,cap:30,interval:24,days:0,tag:"info",note:"Maks 30 mL/hari. Mulai dosis rendah, naik bertahap. Efek 24–48 jam. Bisa menyebabkan kembung."},
+  {label:"Ensefalopati Hepatik",dose:"0.5–1 mL/kg/dosis tiap 6–8 jam",mult:0.5,cap:30,interval:6,days:0,tag:"warning",note:"Target 2–3 BAB lunak per hari (pH feses < 6). Dosis lebih tinggi dan lebih sering dari untuk konstipasi."},
+ ]},
+
+{slug:"peg-3350",name:"Polietilen Glikol 3350 (PEG)",cat:"GI — Laksatif",route:"oral",
+ indications:[
+  {label:"Konstipasi — Disimpaksi",dose:"1–1.5 g/kg/hari × 3–6 hari",mult:1.5,cap:100,interval:24,days:6,tag:"warning",note:"Disimpaksi: dosis tinggi 3–6 hari. Bisa dicampur dengan jus. Maks 100g/hari."},
+  {label:"Konstipasi — Pemeliharaan",dose:"0.5–0.8 g/kg/hari",mult:0.5,cap:35,interval:24,days:0,tag:"info",note:"Maintenance jangka panjang. Titrasi hingga BAB lunak 1–2× sehari. Tidak menimbulkan ketergantungan."},
+ ]},
+
+// ══════════════════════════════════════════
+// DIURETIK
+// ══════════════════════════════════════════
+{slug:"furosemid",name:"Furosemid",cat:"Diuretik",route:"oral/IV",
+ indications:[
+  {label:"Edema — Gagal Jantung Kongestif",dose:"1–2 mg/kg/dosis tiap 6–12 jam",mult:1,cap:80,interval:8,days:0,tag:"warning",note:"Maks 80 mg/dosis oral, 40 mg/dosis IV. Monitor elektrolit (hipokalemia). Kombinasi spironolakton."},
+  {label:"Edema Paru Akut",dose:"1 mg/kg IV bolus, dapat diulang",mult:1,cap:40,interval:0,days:0,tag:"danger",note:"Maks 40 mg/dosis IV. Efek dalam 5–15 menit IV. Pantau diuresis dan elektrolit ketat."},
+  {label:"Hipertensi (tambahan)",dose:"0.5–1 mg/kg/dosis tiap 12–24 jam",mult:0.5,cap:40,interval:12,days:0,tag:"info",note:"Dosis lebih rendah untuk hipertensi. Kombinasi dengan ACEI atau ARB."},
+  {label:"BPD / Edema Paru Neonatus",dose:"1–2 mg/kg/dosis tiap 12–24 jam",mult:1,cap:40,interval:12,days:0,tag:"warning",note:"Neonatus dan prematur: tiap 12–24 jam. Monitor Na, K, Cl, Ca. Risiko nefrolitiasis bila lama."},
+ ]},
+
+{slug:"spironolakton",name:"Spironolakton",cat:"Diuretik",route:"oral",
+ indications:[
+  {label:"Gagal Jantung / Diuretik Hemat Kalium",dose:"1–3.3 mg/kg/hari ÷ 1–2 dosis",mult:1.5,cap:100,interval:24,days:0,tag:"warning",note:"Maks 100 mg/hari. Onset lambat 48–72 jam. Monitor kalium (hiperkalemia bila dengan ACEI)."},
+  {label:"Asites Sirosis Hepatis",dose:"3.3–6.6 mg/kg/hari ÷ 1–2 dosis",mult:3.3,cap:200,interval:24,days:0,tag:"warning",note:"Rasio furosemid:spironolakton = 2:5 (contoh: furosemid 40 mg + spironolakton 100 mg)."},
+  {label:"Hiperaldosteronisme",dose:"1–2 mg/kg/hari",mult:1,cap:100,interval:24,days:0,tag:"info",note:"Diagnosis dan terapi hiperaldosteronisme primer. Pemeriksaan aldosteron dan renin sebelum terapi."},
+ ]},
+
+// ══════════════════════════════════════════
+// ANTIEPILEPSI & ANTIKONVULSAN
+// ══════════════════════════════════════════
+{slug:"fenitoin",name:"Fenitoin (Dilantin)",cat:"Antiepilepsi",route:"IV/oral",
+ indications:[
+  {label:"Status Epileptikus (Loading IV)",dose:"20 mg/kg IV dalam 20 menit (maks 1 mg/kg/mnt)",mult:20,cap:1000,interval:0,days:0,tag:"danger",note:"HANYA dalam NS (tidak dalam dextrose — presipitasi). Monitor EKG kontinyu. Maks 1mg/kgBB/mnt. Risiko kardiotoksik."},
+  {label:"Epilepsi Fokal — Oral Maintenance",dose:"5–10 mg/kg/hari ÷ 2–3 dosis",mult:5,cap:300,interval:8,days:0,tag:"warning",note:"Kadar terapeutik 10–20 mcg/mL. Induksi enzim hepar (interaksi obat banyak). Monitor CBC, kadar."},
+ ]},
+
+{slug:"fenobarbital",name:"Fenobarbital",cat:"Antiepilepsi",route:"oral/IV",
+ indications:[
+  {label:"Epilepsi Maintenance (oral)",dose:"3–5 mg/kg/hari 1× malam",mult:4,cap:200,interval:24,days:0,tag:"info",note:"Kadar terapeutik 15–40 mcg/mL. Sedasi, gangguan kognitif — pertimbangkan pada anak sekolah."},
+  {label:"Status Epileptikus (Loading IV)",dose:"20 mg/kg IV perlahan (maks 2 mg/kg/mnt)",mult:20,cap:1000,interval:0,days:0,tag:"danger",note:"Maks 1000 mg/dosis. Berikan perlahan (depresi napas). Siapkan bag-mask. Efek dalam 20–30 mnt."},
+  {label:"Kejang Neonatus",dose:"20 mg/kg IV loading, tambah 5–10 mg/kg bila perlu",mult:20,cap:400,interval:0,days:0,tag:"danger",note:"Lini pertama kejang neonatus. Maks 40 mg/kg total. Monitor napas dan GD."},
+  {label:"Kejang Demam — Rumatan (1 tahun)",dose:"3–5 mg/kg/hari 1× malam",mult:4,cap:200,interval:24,days:365,tag:"warning",note:"Hanya bila ada indikasi rumatan. Kadar terapeutik 15–40 mcg/mL. Evaluasi tiap 6 bulan."},
+ ]},
+
+{slug:"valproat",name:"Asam Valproat",cat:"Antiepilepsi",route:"oral/IV",
+ indications:[
+  {label:"Epilepsi Umum / Absence",dose:"15–30 mg/kg/hari ÷ 2 dosis",mult:15,cap:1000,interval:12,days:0,tag:"warning",note:"Mulai 10 mg/kg/hari, naik 5 mg/kgBB tiap minggu. Kadar terapeutik 50–100 mcg/mL. Monitor LFT, trombosit, amonia."},
+  {label:"Status Epileptikus (IV)",dose:"40 mg/kg IV dalam 10 menit",mult:40,cap:3000,interval:0,days:0,tag:"danger",note:"Maks 3000 mg/dosis. Infus 10 menit. Lini kedua SE. Pantau: LFT, amonia, trombosit."},
+  {label:"Kejang Demam Kompleks (Rumatan)",dose:"15–20 mg/kg/hari ÷ 2 dosis",mult:15,cap:800,interval:12,days:365,tag:"warning",note:"1 tahun bila ada indikasi kuat. Lebih aman dari fenobarbital untuk fungsi kognitif."},
+  {label:"Migrain Profilaksis",dose:"15 mg/kg/hari ÷ 2 dosis",mult:15,cap:500,interval:12,days:0,tag:"info",note:"Untuk migrain frekuensi tinggi. Evaluasi setelah 3 bulan. Hindari pada perempuan usia subur."},
+ ]},
+
+{slug:"karbamazepin",name:"Karbamazepin",cat:"Antiepilepsi",route:"oral",
+ indications:[
+  {label:"Epilepsi Fokal",dose:"10–20 mg/kg/hari ÷ 2–3 dosis",mult:10,cap:400,interval:8,days:0,tag:"warning",note:"Mulai 5 mg/kgBB/hari. Kadar terapeutik 4–12 mcg/mL. Monitor: CBC (agranulositosis), Na (SIADH). HINDARI bila ada absans/mioklonik."},
+  {label:"Neuralgia Trigeminal",dose:"10–20 mg/kg/hari ÷ 2–3 dosis",mult:10,cap:400,interval:8,days:0,tag:"info",note:"Maks 400 mg/dosis. Efektif untuk nyeri neuropatik lancip seperti trigeminal."},
+ ]},
+
+{slug:"levetiracetam",name:"Levetiracetam",cat:"Antiepilepsi",route:"oral/IV",
+ indications:[
+  {label:"Epilepsi Fokal / Umum — Maintenance",dose:"20–40 mg/kg/hari ÷ 2 dosis",mult:20,cap:1500,interval:12,days:0,tag:"info",note:"Mulai 10 mg/kgBB/hari. Maks 3g/hari. Tidak perlu monitoring kadar. Efek: iritabilitas, perubahan perilaku."},
+  {label:"Status Epileptikus (IV)",dose:"40–60 mg/kg IV dalam 15 menit",mult:40,cap:3000,interval:0,days:0,tag:"danger",note:"Maks 3000 mg/dosis. Infus 15 menit. Pilihan karena aman (tidak perlu monitor EKG seperti fenitoin)."},
+ ]},
+
+{slug:"diazepam",name:"Diazepam",cat:"Antikonvulsan",route:"oral/IV/rektal",
+ indications:[
+  {label:"Kejang Aktif (IV)",dose:"0.3 mg/kg IV pelan 2 menit",mult:0.3,cap:10,interval:0,days:0,tag:"danger",note:"Maks 10 mg/dosis. Dapat diulang 1× setelah 5 menit. Monitor depresi napas. Siapkan bag-mask."},
+  {label:"Kejang Aktif (Rektal)",dose:"0.5 mg/kg rektal",mult:0.5,cap:10,interval:0,days:0,tag:"warning",note:"Maks 10 mg/dosis. Sediaan rektal tube 5 mg/2.5 mL dan 10 mg/2.5 mL. Onset 5–10 menit."},
+  {label:"Profilaksis Kejang Demam (Intermiten)",dose:"0.3 mg/kg tiap 8 jam oral saat demam",mult:0.3,cap:7.5,interval:8,days:0,tag:"info",note:"Hanya saat demam ≥ 38.5°C. Tiap 8 jam maksimal 48–72 jam. Maks 7.5 mg/dosis."},
+  {label:"Spasme Otot / Sedasi",dose:"0.1–0.3 mg/kg tiap 6–8 jam",mult:0.1,cap:5,interval:6,days:0,tag:"warning",note:"Maks 5 mg/dosis oral. Sedatif dan amnesik. Tidak untuk penggunaan jangka panjang."},
+ ]},
+
+{slug:"midazolam",name:"Midazolam",cat:"Antikonvulsan",route:"IV/IM/bukal/intranasal",
+ indications:[
+  {label:"Status Epileptikus (IM/Bukal)",dose:"0.2 mg/kg IM atau 0.3 mg/kg bukal",mult:0.2,cap:10,interval:0,days:0,tag:"danger",note:"Maks 10 mg. IM paha anterolateral. Bukal: tuangkan di antara gusi dan pipi. Onset 5–10 menit."},
+  {label:"Sedasi Prosedur",dose:"0.05–0.1 mg/kg IV titrasi",mult:0.05,cap:5,interval:0,days:0,tag:"warning",note:"Maks 5 mg/dosis. Efek dalam 2–3 menit. Monitor SpO₂. Flumazenil sebagai antidot."},
+  {label:"Sedasi ICU — Infus",dose:"0.05–0.2 mg/kg/jam infus kontinu",mult:0.05,cap:null,interval:0,days:0,tag:"danger",note:"Titrasi sesuai skala sedasi (Ramsay/RASS). Kumulasi pada gagal ginjal/hati."},
+ ]},
+
+// ══════════════════════════════════════════
+// KARDIOVASKULAR
+// ══════════════════════════════════════════
+{slug:"propranolol",name:"Propranolol",cat:"Kardiovaskular",route:"oral",
+ indications:[
+  {label:"Hipertiroid — Kontrol Gejala Adrenergik",dose:"0.5–2 mg/kg/hari ÷ 3–4 dosis",mult:0.5,cap:40,interval:8,days:0,tag:"warning",note:"Mulai dosis rendah, naik perlahan. Maks 40 mg/dosis. Jangan hentikan tiba-tiba."},
+  {label:"Aritmia Supraventrikuler",dose:"1–4 mg/kg/hari ÷ 3–4 dosis",mult:1,cap:40,interval:8,days:0,tag:"warning",note:"Mulai 1 mg/kgBB/hari, naik tiap 3–7 hari. Monitor HR (bradikardi), TD."},
+  {label:"Hemangioma Infantil",dose:"1–3 mg/kg/hari ÷ 2–3 dosis",mult:1,cap:30,interval:12,days:180,tag:"info",note:"Mulai 1 mg/kgBB/hari × 1 minggu, naik ke 2–3 mg/kg. Durasi 3–6 bulan. Monitor: HR, GD (hipoglikemia), bronkospasme."},
+  {label:"Migrain Profilaksis",dose:"0.5–1 mg/kg/hari ÷ 2–3 dosis",mult:0.5,cap:40,interval:8,days:0,tag:"info",note:"Evaluasi setelah 2–3 bulan. Frekuensi migrain harus berkurang > 50% untuk dianggap efektif."},
+ ]},
+
+{slug:"captopril",name:"Kaptopril",cat:"Kardiovaskular",route:"oral",
+ indications:[
+  {label:"Hipertensi Anak",dose:"0.1–0.5 mg/kg/dosis tiap 8 jam",mult:0.1,cap:12.5,interval:8,days:0,tag:"warning",note:"Mulai 0.1 mg/kgBB/dosis. Naik bertahap tiap 1–2 minggu. Maks 6 mg/kgBB/hari. Monitor kreatinin + K."},
+  {label:"Gagal Jantung Kongestif",dose:"0.5–1 mg/kg/hari ÷ 3 dosis",mult:0.5/3,cap:6.25,interval:8,days:0,tag:"warning",note:"Mulai sangat rendah (0.1 mg/kgBB/dosis). Naikkan tiap 1–2 minggu. Monitor TD, kreatinin."},
+ ]},
+
+{slug:"amlodipin",name:"Amlodipin",cat:"Kardiovaskular",route:"oral",
+ indications:[
+  {label:"Hipertensi Kronik",dose:"0.1–0.3 mg/kg/hari 1× sehari",mult:0.1,cap:10,interval:24,days:0,tag:"info",note:"Maks 10 mg/hari. Onset bertahap 2–4 minggu. Efek samping: edema pergelangan kaki, flushing."},
+  {label:"Angina / Vasospasme Koroner",dose:"0.1–0.2 mg/kg/hari",mult:0.1,cap:10,interval:24,days:0,tag:"info",note:"Untuk pasca Kawasaki dengan aneurisma koroner (anti-spasme). Maks 10 mg/hari."},
+ ]},
+
+{slug:"digoksin",name:"Digoksin",cat:"Kardiovaskular",route:"oral/IV",
+ indications:[
+  {label:"Gagal Jantung / SVT (Loading)",dose:"Total loading: 25–35 mcg/kg oral (÷ 3 dosis 8 jam)",mult:25/3,cap:500,interval:8,days:1,tag:"danger",note:"Loading: 50% segera, 25% tiap 8 jam × 2 dosis. Monitor EKG, K, kreatinin. Kadar terapeutik 0.8–2 ng/mL."},
+  {label:"Gagal Jantung (Maintenance oral)",dose:"5–8 mcg/kg/hari 1× sehari",mult:5,cap:250,interval:24,days:0,tag:"warning",note:"Maks 250 mcg/hari. Mulai 24 jam setelah loading. Monitor toksisitas: muntah, bradikardi, aritmia."},
+ ]},
+
+{slug:"atenolol",name:"Atenolol",cat:"Kardiovaskular",route:"oral",
+ indications:[
+  {label:"Hipertensi",dose:"0.5–1 mg/kg/hari 1× sehari",mult:0.5,cap:50,interval:24,days:0,tag:"info",note:"Maks 50 mg/hari (anak), 100 mg/hari (remaja). Beta-bloker kardioselektif. Monitor HR dan TD."},
+  {label:"SVT — Profilaksis",dose:"0.5–1 mg/kg/hari 1× sehari",mult:0.5,cap:50,interval:24,days:0,tag:"warning",note:"Pemeliharaan pasca SVT. Jangan hentikan tiba-tiba."},
+ ]},
+
+// ══════════════════════════════════════════
+// NUTRISI & SUPLEMENTASI
+// ══════════════════════════════════════════
+{slug:"zinc",name:"Zinc Elemental",cat:"Suplementasi",route:"oral",
+ indications:[
+  {label:"Diare Akut / Persisten",dose:"< 6 bln: 10 mg/hari × 14 hari; ≥ 6 bln: 20 mg/hari × 14 hari",mult:null,cap:20,interval:24,days:14,tag:"info",note:"Berikan 14 hari penuh meski diare berhenti. Berikan dengan makan untuk kurangi mual."},
+  {label:"Defisiensi Zinc / Malnutrisi",dose:"1–2 mg/kg/hari × 2–3 bulan",mult:1,cap:40,interval:24,days:90,tag:"warning",note:"Untuk defisiensi zinc yang terbukti atau risiko tinggi (malnutrisi, diare kronik)."},
+  {label:"Stunting — Suplementasi",dose:"≥ 6 bln: 20 mg/hari × 2–3 bulan",mult:null,cap:20,interval:24,days:90,tag:"info",note:"Program suplementasi stunting berdasarkan Kemenkes. Kombinasi dengan perbaikan nutrisi."},
+ ]},
+
+{slug:"besi",name:"Besi Elemental",cat:"Suplementasi",route:"oral",
+ indications:[
+  {label:"Anemia Defisiensi Besi — Terapi",dose:"3–6 mg/kg elemental iron/hari ÷ 1–3 dosis",mult:4,cap:120,interval:24,days:90,tag:"warning",note:"1 jam sebelum makan atau dengan vitamin C (meningkatkan absorpsi). Efek samping GI sering. Pantau Hb tiap 1 bulan."},
+  {label:"Suplementasi Pencegahan",dose:"1–2 mg/kg/hari",mult:1,cap:30,interval:24,days:0,tag:"info",note:"Profilaksis: 1 mg/kgBB/hari untuk prematur dan BBLR mulai usia 2–4 minggu."},
+ ]},
+
+{slug:"asam-folat",name:"Asam Folat",cat:"Suplementasi",route:"oral",
+ indications:[
+  {label:"Defisiensi Folat / Anemia Megaloblastik",dose:"5 mg/hari × 4 bulan",mult:null,cap:5,interval:24,days:120,tag:"warning",note:"Dosis tinggi untuk defisiensi. Setelah 4 bulan: 1 mg/hari maintenance."},
+  {label:"Profilaksis Anemia Hemolitik (MTX, Hemolisis)",dose:"1 mg/hari",mult:null,cap:1,interval:24,days:0,tag:"info",note:"Dosis profilaksis pada pasien metotreksat (berikan hari selain MTX) atau anemia hemolitik kronik."},
+ ]},
+
+{slug:"vit-a",name:"Vitamin A",cat:"Suplementasi",route:"oral",
+ indications:[
+  {label:"Suplementasi Rutin (Program Nasional)",dose:"< 6 bln: 50.000 IU; 6–11 bln: 100.000 IU; 1–5 thn: 200.000 IU (tiap 6 bln)",mult:null,cap:200000,interval:0,days:1,tag:"info",note:"Berikan tiap 6 bulan (Februari dan Agustus). Dosis tunggal oral. Jangan berikan 2× dalam 1 bulan."},
+  {label:"Campak — Terapi",dose:"< 6 bln: 50.000 IU; 6–11 bln: 100.000 IU; ≥ 1 thn: 200.000 IU (× 2 hari)",mult:null,cap:200000,interval:24,days:2,tag:"warning",note:"Berikan hari 1 dan hari 2. Bila ada defisiensi: tambah dosis ke-3 setelah 2–4 minggu."},
+  {label:"Gizi Buruk (SAM)",dose:"< 6 bln: 50.000 IU; 6–11 bln: 100.000 IU; ≥ 12 bln: 200.000 IU (1× hari pertama)",mult:null,cap:200000,interval:0,days:1,tag:"danger",note:"1× di hari pertama rawat inap. JANGAN berikan 2× dalam 1 bulan (toksisitas)."},
+ ]},
+
+{slug:"vit-d",name:"Vitamin D3",cat:"Suplementasi",route:"oral",
+ indications:[
+  {label:"Profilaksis Rakhitis",dose:"400 IU/hari (bayi ASI) — 600 IU/hari (balita)",mult:null,cap:1000,interval:24,days:0,tag:"info",note:"Semua bayi ASI mulai hari pertama. Berlanjut selama ASI atau sampai cukup dari makanan/paparan sinar."},
+  {label:"Defisiensi Vitamin D",dose:"2000–4000 IU/hari × 3 bulan",mult:null,cap:4000,interval:24,days:90,tag:"warning",note:"Kadar 25(OH)D target > 30 ng/mL. Pantau kadar setelah 3 bulan. Dosis loading: 50.000 IU/minggu × 8 minggu (> 1 tahun)."},
+  {label:"Rakhitis Aktif",dose:"2000 IU/hari × 3 bulan (minimum)",mult:null,cap:4000,interval:24,days:90,tag:"danger",note:"Atau dosis Stoss (100.000–600.000 IU dosis tunggal/dibagi). Monitoring kalsium, fosfor, ALP tiap bulan."},
+ ]},
+
+// ══════════════════════════════════════════
+// ENDOKRIN
+// ══════════════════════════════════════════
+{slug:"levotiroksin",name:"Levotiroksin",cat:"Endokrin",route:"oral",
+ indications:[
+  {label:"Hipotiroid Kongenital (0–3 bulan)",dose:"10–15 mcg/kg/hari 1× pagi",mult:12,cap:50,interval:24,days:0,tag:"danger",note:"Pagi 30 mnt sebelum makan/minum. Gerus tablet, larutkan dalam ASI/air. Jangan bersamaan kalsium/besi."},
+  {label:"Hipotiroid Anak (1–5 tahun)",dose:"5–6 mcg/kg/hari 1× pagi",mult:5,cap:75,interval:24,days:0,tag:"warning",note:"Monitor TSH + FT4 tiap 3 bulan. Target TSH 0.5–2 mIU/L. Dosis meningkat seiring pertumbuhan."},
+  {label:"Hipotiroid Anak (6–12 tahun)",dose:"4–5 mcg/kg/hari 1× pagi",mult:4,cap:100,interval:24,days:0,tag:"info",note:"Target TSH 0.5–4 mIU/L. Monitor tiap 6 bulan. Jangan over-supresi TSH (percepat bone age)."},
+ ]},
+
+{slug:"metformin",name:"Metformin",cat:"Endokrin",route:"oral",
+ indications:[
+  {label:"DM Tipe 2 (≥ 10 tahun)",dose:"Mulai 500 mg/hari, naik 500 mg tiap 1–2 minggu",mult:null,cap:2000,interval:24,days:0,tag:"warning",note:"Target maks 2000 mg/hari ÷ 2 dosis. Berikan dengan makan. Cek LFT dan kreatinin sebelum mulai."},
+  {label:"Prediabetes / PCOS (Remaja)",dose:"Mulai 500 mg/hari, target 1000–1500 mg/hari",mult:null,cap:1500,interval:24,days:0,tag:"info",note:"Efek mual meningkat bila dosis naik cepat. Berikan dengan makan. Evaluasi setelah 3 bulan."},
+ ]},
+
+{slug:"ivig",name:"IVIG (Imunoglobulin IV)",cat:"Imunologi",route:"IV",
+ indications:[
+  {label:"Kawasaki Disease",dose:"2 g/kg dosis tunggal",mult:2000,cap:70000,interval:0,days:1,tag:"danger",note:"Infus 10–12 jam. Bersamaan aspirin tinggi. Efektif bila diberikan hari 5–10 sakit. Maks 70g (2 kg × 35 kg BB)."},
+  {label:"ITP Akut",dose:"1 g/kg dosis tunggal, ulangi bila perlu",mult:1000,cap:70000,interval:24,days:1,tag:"warning",note:"Respons dalam 24–48 jam. Dapat diulang bila perlu. Alternatif: anti-D (Rh positif)."},
+  {label:"Sindrom Guillain-Barré",dose:"2 g/kg total ÷ 2–5 hari",mult:400,cap:null,interval:24,days:5,tag:"danger",note:"0.4 g/kgBB/hari × 5 hari. Setara dengan plasmapheresis. Monitor IVIG sebelum pemberian (IgA defisiensi → risiko anafilaksis)."},
+  {label:"Imunodefisiensi Primer",dose:"0.4–0.6 g/kg tiap 3–4 minggu",mult:400,cap:null,interval:0,days:0,tag:"info",note:"Maintenance untuk agammaglobulinemia/CVID. Target kadar IgG trough > 500 mg/dL."},
+ ]},
+
+{slug:"aspirin-kawasaki",name:"Aspirin",cat:"Kardiovaskular",route:"oral",
+ indications:[
+  {label:"Kawasaki — Fase Akut (Antiinflamasi)",dose:"80–100 mg/kg/hari ÷ 4 dosis",mult:80/4,cap:1000,interval:6,days:14,tag:"danger",note:"Maks 1g/dosis. Lanjutkan hingga 48–72 jam bebas demam ATAU hari ke-14. Pantau toksisitas salisikat."},
+  {label:"Kawasaki — Fase Pemeliharaan (Antiplatelet)",dose:"3–5 mg/kg/hari 1× sehari",mult:3,cap:100,interval:24,days:365,tag:"warning",note:"Maks 100 mg/hari. Lanjutkan minimal 6–8 minggu. Bila ada aneurisma: hingga resolved atau seumur hidup. Hentikan bila varisela/influenza aktif."},
+ ]},
+
+{slug:"hidroksiklorokuin",name:"Hidroksiklorokuin",cat:"Reumatologi",route:"oral",
+ indications:[
+  {label:"SLE — Terapi Dasar (Semua Pasien)",dose:"5 mg/kg/hari 1× sehari",mult:5,cap:400,interval:24,days:0,tag:"warning",note:"Maks 400 mg/hari atau 5 mg/kgBB berat badan aktual (mana lebih rendah). Skrining retina tahunan setelah 5 tahun."},
+  {label:"JIA — Anti-Inflamasi",dose:"5–7 mg/kg/hari 1× sehari",mult:5,cap:400,interval:24,days:0,tag:"info",note:"Onset 3–6 bulan. Maks 400 mg/hari. Lebih aman dari MTX untuk keterlibatan kulit/sendi ringan."},
+ ]},
+
+{slug:"metotreksat",name:"Metotreksat",cat:"Reumatologi",route:"SC/oral",
+ indications:[
+  {label:"JIA — DMARD",dose:"0.5–1 mg/kg/minggu SC",mult:0.5,cap:25,interval:168,days:0,tag:"warning",note:"SC lebih efektif dari oral. Maks 25 mg/minggu. Asam folat 1 mg/hari (hari selain MTX). Monitor LFT + CBC tiap 4–8 minggu."},
+  {label:"Psoriasis Anak",dose:"0.2–0.4 mg/kg/minggu",mult:0.3,cap:25,interval:168,days:0,tag:"info",note:"Mulai dosis rendah. Respons dalam 6–12 minggu. Fotosensitivitas — hindari paparan sinar matahari berlebih."},
+ ]},
+
+{slug:"ddavp",name:"Desmopressin (DDAVP)",cat:"Endokrin",route:"intranasal/oral/IV",
+ indications:[
+  {label:"Diabetes Insipidus Sentral (Intranasal)",dose:"5–30 mcg/hari ÷ 1–2 dosis intranasal",mult:null,cap:30,interval:24,days:0,tag:"warning",note:"Mulai 5 mcg/hari, titrasi sesuai diuresis. Monitor Na serum tiap minggu. Izinkan 'escape period'."},
+  {label:"Enuresis Nokturnal (≥ 5 tahun)",dose:"0.2 mg malam hari oral",mult:null,cap:0.4,interval:24,days:0,tag:"info",note:"Maks 0.4 mg/malam. Batasi cairan 1 jam sebelum sampai 8 jam setelah. TIDAK untuk enuresis diurnal."},
+  {label:"Perdarahan Hemofilia A Ringan",dose:"0.3 mcg/kg IV dalam 30 mnt",mult:0.3,cap:20,interval:0,days:0,tag:"warning",note:"Maks 20 mcg. Respons dalam 1 jam. Hanya Hemofilia A ringan-sedang yang respons. Tachyphylaxis terjadi."},
+ ]},
+
+// ══════════════════════════════════════════
+// NEONATOLOGI KHUSUS
+// ══════════════════════════════════════════
+{slug:"kafein-sitrat",name:"Kafein Sitrat",cat:"Neonatologi",route:"oral/IV",
+ indications:[
+  {label:"Apnea Prematuritas — Loading",dose:"20 mg/kg kafein sitrat IV/oral",mult:20,cap:null,interval:0,days:1,tag:"warning",note:"1 mL = 20 mg kafein sitrat. Berikan lambat 30 menit. Mulai hari pertama pada GA < 30 minggu."},
+  {label:"Apnea Prematuritas — Maintenance",dose:"5–10 mg/kg/hari kafein sitrat 1× sehari",mult:5,cap:null,interval:24,days:0,tag:"info",note:"Lanjutkan hingga 36 minggu PMA atau bebas apnea. Terbukti menurunkan BPD dan outcome neurologi buruk."},
+ ]},
+
+{slug:"surfaktan",name:"Surfaktan (Poractant alfa/Beractant)",cat:"Neonatologi",route:"intratrakeal",
+ indications:[
+  {label:"RDS Neonatus — Terapi (Poractant)",dose:"100–200 mg/kg intratrakeal",mult:150,cap:null,interval:0,days:0,tag:"danger",note:"Poractant: 100 mg/kgBB. Dosis ke-2 dan 3: 100 mg/kgBB bila masih membutuhkan ventilasi. Beractant: 100 mg/kgBB tiap 6 jam, maks 4 dosis."},
+  {label:"RDS — Profilaksis (< 28 minggu)",dose:"100–200 mg/kg segera setelah lahir",mult:200,cap:null,interval:0,days:0,tag:"danger",note:"Berikan dalam 15–30 menit setelah lahir pada GA < 28 minggu atau terbukti distres napas."},
+ ]},
+
+];
+
+var drugBB = 0;
+var drugSearch = '';
+var drugActiveCat = 'Semua';
+var drugInitDone = false;
+
+function getDrugCats() {
+  var cats = ['Semua'];
+  var seen = {};
+  for (var i = 0; i < DRUG_DB.length; i++) {
+    if (!seen[DRUG_DB[i].cat]) { cats.push(DRUG_DB[i].cat); seen[DRUG_DB[i].cat] = true; }
+  }
+  return cats;
+}
+
+function initDrugCalculator() {
+  if (!drugInitDone) {
+    // Sinkron BB dengan yang sudah diisi di kalkulator Blood Pressure (jika ada)
+    var saved = parseFloat(sessionStorage.getItem('ppds_weight')) || (typeof state !== 'undefined' ? state.heightCm && drugBB : 0) || 0;
+    if (saved > 0) {
+      drugBB = saved;
+      var inp = document.getElementById('drug-bb-input');
+      if (inp) inp.value = saved;
+      var clr = document.getElementById('drug-bb-clear');
+      if (clr) clr.style.display = 'flex';
+    }
+    var countEl = document.getElementById('drugCount');
+    if (countEl) countEl.textContent = DRUG_DB.length + ' obat pediatri — cari, masukkan BB, hitung dosis';
+    drugInitDone = true;
+  }
+  renderDrugCats();
+  renderDrugList();
+}
+
+function onDrugBBChange(val) {
+  drugBB = parseFloat(val) || 0;
+  if (drugBB > 0) {
+    sessionStorage.setItem('ppds_weight', drugBB);
+    document.getElementById('drug-bb-clear').style.display = 'flex';
+  } else {
+    sessionStorage.removeItem('ppds_weight');
+    document.getElementById('drug-bb-clear').style.display = 'none';
+  }
+  renderDrugList();
+}
+
+function setDrugBB(w) {
+  drugBB = w;
+  sessionStorage.setItem('ppds_weight', w);
+  var inp = document.getElementById('drug-bb-input');
+  if (inp) inp.value = w;
+  document.getElementById('drug-bb-clear').style.display = 'flex';
+  renderDrugList();
+}
+
+function clearDrugBB() {
+  drugBB = 0;
+  sessionStorage.removeItem('ppds_weight');
+  var inp = document.getElementById('drug-bb-input');
+  if (inp) inp.value = '';
+  document.getElementById('drug-bb-clear').style.display = 'none';
+  renderDrugList();
+}
+
+function onDrugSearch(val) {
+  drugSearch = val.toLowerCase().trim();
+  var clr = document.getElementById('drug-search-clear');
+  if (clr) clr.style.display = val ? 'flex' : 'none';
+  renderDrugList();
+}
+
+function clearDrugSearch() {
+  drugSearch = '';
+  var inp = document.getElementById('drug-search-input');
+  if (inp) inp.value = '';
+  var clr = document.getElementById('drug-search-clear');
+  if (clr) clr.style.display = 'none';
+  renderDrugList();
+}
+
+function setDrugCat(cat) {
+  drugActiveCat = cat;
+  renderDrugCats();
+  renderDrugList();
+}
+
+function renderDrugCats() {
+  var el = document.getElementById('drug-cats');
+  if (!el) return;
+  var cats = getDrugCats();
+  var catColors = {
+    'Antibiotik':'#0369a1','Antiviral':'#7c3aed','Antiparasit':'#16a34a',
+    'Antijamur':'#d97706','Analgesik/Antipiretik':'#dc2626','Analgesik':'#dc2626',
+    'Analgesik Opioid':'#7f1d1d','Antidot':'#7f1d1d',
+    'Kortikosteroid':'#b45309','Kortikosteroid Inhaler':'#b45309',
+    'Bronkodilator':'#0891b2','Antihistamin':'#9333ea',
+    'Antiemetik':'#0f766e','Diuretik':'#1d4ed8','Antiepilepsi':'#7c3aed',
+    'Antikonvulsan':'#7c3aed','Kardiovaskular':'#dc2626',
+    'GI — PPI':'#f59e0b','GI — H2RA':'#f59e0b','GI — Laksatif':'#f59e0b',
+    'Suplementasi':'#16a34a','Endokrin':'#0d9488','Neurologi':'#7c3aed',
+    'Elektrolit':'#0369a1','Reumatologi':'#dc2626','Imunologi':'#6366f1',
+    'Neonatologi':'#0f7b6c','Semua':'#C62828'
+  };
+  var html = '';
+  for (var i = 0; i < cats.length; i++) {
+    var cat = cats[i];
+    var active = cat === drugActiveCat;
+    var col = catColors[cat] || '#475569';
+    var style = active ? 'background:' + col + ';color:#fff;border-color:' + col : '';
+    html += '<button data-cat="' + cat + '" class="drug-cat-chip' + (active ? ' drug-cat-active' : '') + '" style="' + style + '">' + cat + '</button>';
+  }
+  el.innerHTML = html;
+  var chips = el.querySelectorAll('[data-cat]');
+  for (var j = 0; j < chips.length; j++) {
+    chips[j].addEventListener('click', (function(catVal) {
+      return function() { setDrugCat(catVal); };
+    })(chips[j].getAttribute('data-cat')));
+  }
+}
+
+function calcIndicationDose(ind, bb) {
+  if (!ind.mult || !bb || bb <= 0) return null;
+  var raw    = ind.mult * bb;
+  var capped = ind.cap ? Math.min(raw, ind.cap) : raw;
+  var isMaxed= !!(ind.cap && raw > ind.cap * 0.999);
+  var rounded;
+  if (capped >= 500)      rounded = Math.round(capped / 50) * 50;
+  else if (capped >= 100) rounded = Math.round(capped);
+  else if (capped >= 10)  rounded = Math.round(capped * 2) / 2;
+  else                    rounded = Math.round(capped * 100) / 100;
+  return { dose: rounded, raw: raw, isMaxed: isMaxed, cap: ind.cap };
+}
+
+function renderDrugList() {
+  var el    = document.getElementById('drug-list');
+  var empty = document.getElementById('drug-empty');
+  if (!el) return;
+
+  var filtered = DRUG_DB.filter(function(d) {
+    var matchCat = drugActiveCat === 'Semua' || d.cat === drugActiveCat;
+    if (!matchCat) return false;
+    if (!drugSearch) return true;
+    var q = drugSearch;
+    if (d.name.toLowerCase().indexOf(q) >= 0) return true;
+    if (d.cat.toLowerCase().indexOf(q) >= 0) return true;
+    if (d.slug.toLowerCase().indexOf(q) >= 0) return true;
+    for (var ii = 0; ii < (d.indications||[]).length; ii++) {
+      var ind = d.indications[ii];
+      if (ind.label.toLowerCase().indexOf(q) >= 0) return true;
+      if (ind.note.toLowerCase().indexOf(q) >= 0) return true;
+    }
+    return false;
+  });
+
+  if (filtered.length === 0) {
+    el.innerHTML = '';
+    if (empty) empty.style.display = 'flex';
+    return;
+  }
+  if (empty) empty.style.display = 'none';
+
+  var tagColors = { danger:'#dc2626', warning:'#d97706', success:'#16a34a', info:'#0369a1' };
+  var tagBgs    = { danger:'#fff1f2', warning:'#fffbeb', success:'#f0fdf4', info:'#eff6ff' };
+  var catColors = {
+    'Antibiotik':'#0369a1','Antiviral':'#7c3aed','Antiparasit':'#16a34a',
+    'Antijamur':'#d97706','Analgesik/Antipiretik':'#dc2626','Analgesik':'#dc2626',
+    'Analgesik Opioid':'#7f1d1d','Antidot':'#7f1d1d',
+    'Kortikosteroid':'#b45309','Kortikosteroid Inhaler':'#b45309',
+    'Bronkodilator':'#0891b2','Antihistamin':'#9333ea',
+    'Antiemetik':'#0f766e','Diuretik':'#1d4ed8','Antiepilepsi':'#7c3aed',
+    'Antikonvulsan':'#7c3aed','Kardiovaskular':'#dc2626',
+    'GI — PPI':'#f59e0b','GI — H2RA':'#f59e0b','GI — Laksatif':'#f59e0b',
+    'Suplementasi':'#16a34a','Endokrin':'#0d9488','Neurologi':'#7c3aed',
+    'Elektrolit':'#0369a1','Reumatologi':'#dc2626','Imunologi':'#6366f1',
+    'Neonatologi':'#0f7b6c'
+  };
+
+  var html = '';
+  for (var i = 0; i < filtered.length; i++) {
+    var d   = filtered[i];
+    var col = catColors[d.cat] || '#475569';
+    var inds = d.indications || [];
+
+    html += '<div class="drug-card">';
+    html += '<div class="drug-card-header">'
+      + '<div class="drug-name-wrap">'
+      + '<div class="drug-name">' + d.name + '</div>'
+      + '<div class="drug-cat-tag" style="background:' + col + '1a;color:' + col + ';border-color:' + col + '30">' + d.cat + '</div>'
+      + '</div>'
+      + '<div class="drug-route-badge">' + d.route + '</div>'
+      + '</div>';
+
+    if (inds.length > 0) {
+      var multiInd = inds.length > 1;
+      html += '<div class="drug-indications' + (multiInd ? ' drug-multi' : '') + '">';
+
+      for (var j = 0; j < inds.length; j++) {
+        var ind = inds[j];
+        var tc  = tagColors[ind.tag || 'info'] || '#0369a1';
+        var tb  = tagBgs[ind.tag || 'info']    || '#eff6ff';
+        var result = calcIndicationDose(ind, drugBB);
+
+        html += '<div class="drug-indication-item">';
+
+        if (multiInd) {
+          html += '<div class="drug-ind-label-wrap">'
+            + '<div class="drug-ind-label" style="background:' + tb + ';color:' + tc + ';border-color:' + tc + '40">'
+            + '<span class="drug-ind-dot" style="background:' + tc + '"></span>'
+            + ind.label
+            + (ind.days > 0 ? '<span class="drug-ind-days">× ' + ind.days + ' hari</span>' : '')
+            + '</div></div>';
+        } else {
+          if (ind.days > 0) {
+            html += '<div class="drug-ind-label-wrap">'
+              + '<div class="drug-ind-label drug-ind-solo" style="background:' + tb + ';color:' + tc + ';border-color:' + tc + '40">'
+              + ind.label
+              + '<span class="drug-ind-days">× ' + ind.days + ' hari</span>'
+              + '</div></div>';
+          }
+        }
+
+        html += '<div class="drug-formula-row">'
+          + '<div class="drug-formula-label">📐 Formula</div>'
+          + '<div class="drug-formula-val">' + ind.dose + '</div>'
+          + '</div>';
+
+        if (result) {
+          var doseColor = result.isMaxed ? '#dc2626' : '#0a5a4e';
+          var doseBg    = result.isMaxed ? '#fff1f2' : 'var(--info-bg)';
+          var doseBdr   = result.isMaxed ? '#fecaca' : 'var(--border)';
+          var unit      = ind.unit || 'mg';
+          html += '<div class="drug-result-row" style="background:' + doseBg + ';border-color:' + doseBdr + '">';
+          if (result.isMaxed) {
+            html += '<div class="drug-result-maxed-label">⚠ DOSIS MAKSIMAL — dibatasi ' + result.cap + ' ' + unit + '</div>';
+          }
+          html += '<div class="drug-result-dose" style="color:' + doseColor + '">'
+            + result.dose + ' <span class="drug-result-unit">' + unit + '</span>'
+            + '</div>';
+          if (ind.interval > 0) {
+            var freqLabel = ind.interval === 24 ? '1× sehari'
+              : ind.interval === 12 ? '2× sehari (tiap 12 jam)'
+              : ind.interval === 8  ? '3× sehari (tiap 8 jam)'
+              : ind.interval === 6  ? '4× sehari (tiap 6 jam)'
+              : ind.interval === 168 ? '1× seminggu'
+              : 'tiap ' + ind.interval + ' jam';
+            html += '<div class="drug-result-freq">' + freqLabel + (ind.days > 0 ? ' × ' + ind.days + ' hari' : '') + '</div>';
+          }
+          html += '</div>';
+        } else if (drugBB > 0 && !ind.mult) {
+          html += '<div class="drug-result-row drug-result-fixed"><div class="drug-result-fixed-label">ℹ Dosis tetap — lihat formula di atas</div></div>';
+        } else if (!drugBB) {
+          html += '<div class="drug-result-row drug-result-nobbw"><div class="drug-nobb-label">← Masukkan BB untuk hitung dosis</div></div>';
+        }
+
+        html += '<div class="drug-note">' + ind.note + '</div>';
+        html += '</div>';
+
+        if (j < inds.length - 1) {
+          html += '<div class="drug-ind-sep"></div>';
+        }
+      }
+      html += '</div>';
+    }
+
+    html += '</div>';
+  }
+
+  el.innerHTML = html;
+}
+
+
+/* =====================================================================
+   TINDAKAN MEDIS — Prosedur klinis PPDS Ilmu Kesehatan Anak
+   Format SOAP-ringkas: Indikasi → Persiapan Alat → Langkah Kerja →
+   Komplikasi. Konten ditulis sebagai ringkasan edukasi umum berbasis
+   praktik klinis standar (NRP, PALS, WHO), BUKAN pengganti SPO resmi
+   institusi — selalu sesuaikan dengan protokol rumah sakit setempat.
+   ===================================================================== */
+
+const TINDAKAN_CATS = [
+  { key:"resusitasi", label:"Resusitasi & Napas", icon:"🆘" },
+  { key:"respirasi",  label:"Dukungan Respirasi", icon:"🫁" },
+  { key:"vaskular",   label:"Akses Vaskular",     icon:"💉" },
+  { key:"nutrisi",    label:"Nutrisi & Cairan",   icon:"🍼" },
+  { key:"minor",      label:"Prosedur Minor",     icon:"🩹" },
+  { key:"monitoring", label:"Monitoring/Skrining",icon:"📊" },
+  { key:"gadar",      label:"Kegawatdaruratan",   icon:"🚨" },
+];
+
+const TINDAKAN_DB = [
+
+// ═══════════ RESUSITASI & JALAN NAPAS ═══════════
+{ slug:"et", title:"Intubasi Endotrakeal (ET)", icon:"🫁", cat:"resusitasi",
+  indikasi:["Apnea / gasping / VTP tidak efektif","Gagal CPAP dengan distres napas berat","Kebutuhan surfaktan (teknik INSURE)","Kompresi dada memerlukan koordinasi ventilasi","Hernia diafragmatika kongenital, kebutuhan ventilasi lama"],
+  alat:["Laringoskop + blade (0 prematur, 1 aterm)","Pipa ET sesuai ukuran (+0.5 di atas & bawah)","Stilet, plester fiksasi, gunting","Sungkup & bag resusitasi, sumber O₂","Detektor CO₂ kolorimetrik / kapnograf","Suction + kateter"],
+  langkah:["Pilih ukuran ET: GA<28mgg→2.5, 28–36mgg→3.0, 37–40mgg→3.5, >40mgg→4.0 (mm ID)","Preoksigenasi bila memungkinkan, posisikan kepala sedikit ekstensi (sniffing position)","Masukkan laringoskop dari kanan mulut, sisihkan lidah ke kiri, visualisasi epiglotis & pita suara","Masukkan ET melewati pita suara, kedalaman = BB(kg) + 6 cm dari bibir","Konfirmasi posisi: gerak dada simetris, suara napas bilateral, kabut pada pipa, CO₂ terdeteksi","Fiksasi pipa, foto toraks untuk konfirmasi ujung ET di atas karina"],
+  komplikasi:["Intubasi esofagus / bronkus kanan (terlalu dalam)","Trauma jalan napas, perdarahan","Bradikardia refleks vagal saat laringoskopi","Pneumotoraks akibat ventilasi berlebih","Ekstubasi tidak sengaja"],
+  catatan:"Batasi upaya intubasi maksimal 30 detik per percobaan. Bila gagal 2× oleh operator berpengalaman → pertimbangkan LMA sebagai alternatif." },
+
+{ slug:"vtp", title:"Ventilasi Tekanan Positif (VTP)", icon:"💨", cat:"resusitasi",
+  indikasi:["Apnea atau gasping saat lahir","Laju denyut jantung < 100×/menit meski stimulasi","Usaha napas tidak adekuat setelah langkah awal resusitasi"],
+  alat:["Bag & mask (self-inflating / T-piece resuscitator)","Sungkup ukuran sesuai wajah bayi","Sumber oksigen & blender FiO₂","Pulse oximeter"],
+  langkah:["Posisikan kepala netral/sedikit ekstensi, sungkup menutup hidung+mulut rapat","Ventilasi dengan frekuensi 40–60×/menit","PIP awal 20–25 cmH₂O (prematur mulai 20 cmH₂O)","Nilai kenaikan dada & LDJ setiap 15 detik","Bila dada tidak mengembang → lakukan koreksi SRIBTA (Sungkup, Reposisi, Isap, Buka mulut, Tekanan naik, Airway alternatif)"],
+  komplikasi:["Distensi lambung (pertimbangkan OGT dekompresi)","Pneumotoraks bila tekanan berlebihan","Ventilasi tidak efektif akibat kebocoran sungkup"],
+  catatan:"VTP efektif ditandai kenaikan LDJ dalam 15 detik pertama — indikator keberhasilan resusitasi paling penting." },
+
+{ slug:"suction-jalan-napas", title:"Suction Jalan Napas", icon:"🌬️", cat:"resusitasi",
+  indikasi:["Sekret/mekonium menyumbat jalan napas","Bayi tidak bugar dengan mekonium (tonus lemah/apnea)","Sebelum & sesudah intubasi bila banyak sekret"],
+  alat:["Bulb syringe atau kateter suction 8–10 Fr","Suction mekanik (tekanan 80–100 mmHg)"],
+  langkah:["Suction mulut dulu, baru hidung (mulut-sebelum-hidung — mencegah aspirasi)","Batasi durasi tiap suction ≤5 detik","Monitor LDJ selama suction — stop bila bradikardia"],
+  komplikasi:["Bradikardia vagal","Trauma mukosa","Laringospasme bila suction dalam & agresif"],
+  catatan:"Suction rutin TIDAK direkomendasikan pada bayi bugar dengan mekonium — hanya bila jalan napas tersumbat." },
+
+{ slug:"lma", title:"LMA (Laryngeal Mask Airway)", icon:"🎭", cat:"resusitasi",
+  indikasi:["Intubasi ET gagal atau sulit","Kelainan wajah/jalan napas yang mempersulit laringoskopi","VTP dengan sungkup tidak efektif"],
+  alat:["LMA ukuran sesuai BB (umumnya ukuran 1 untuk neonatus)","Bag resusitasi, sumber O₂"],
+  langkah:["Kempeskan cuff LMA, lumasi bagian belakang","Masukkan menyusuri palatum durum hingga terasa tahanan di hipofaring","Kembangkan cuff sesuai volume yang direkomendasikan","Sambungkan ke bag, konfirmasi ventilasi adekuat"],
+  komplikasi:["Kebocoran udara bila ukuran/posisi tidak tepat","Tidak melindungi jalan napas dari aspirasi","Distensi lambung"],
+  catatan:"LMA tidak direkomendasikan untuk BB < 1500 g atau usia gestasi < 34 minggu (NRP)." },
+
+{ slug:"needle-thoracostomy", title:"Needle Thoracostomy (Pneumotoraks)", icon:"🫁", cat:"resusitasi",
+  indikasi:["Pneumotoraks tension dengan distres respirasi berat & hemodinamik tidak stabil","Deviasi trakea, suara napas asimetris, distensi hemitoraks"],
+  alat:["Jarum/kateter IV 18–20G","Antiseptik","Three-way stopcock / syringe (opsional)"],
+  langkah:["Identifikasi sela iga 2 linea midklavikula (atau sela iga 4–5 linea aksilaris anterior)","Antisepsis area","Insersi jarum tegak lurus di atas tepi atas iga bawah (hindari bundel neurovaskular)","Dengar suara udara keluar → konfirmasi dekompresi","Stabilisasi jarum, siapkan chest tube definitif segera"],
+  komplikasi:["Laserasi paru/pembuluh darah","Pneumotoraks berulang bila jarum tercabut","Infeksi"],
+  catatan:"Tindakan penyelamatan sementara — WAJIB diikuti pemasangan chest tube definitif secepatnya." },
+
+// ═══════════ DUKUNGAN RESPIRASI ═══════════
+{ slug:"cpap", title:"CPAP Konvensional", icon:"🫧", cat:"respirasi",
+  indikasi:["Distres napas ringan-sedang dengan napas spontan adekuat","Pasca ekstubasi (weaning)","Apnea prematuritas"],
+  alat:["CPAP device (ventilator/bubble/variable flow)","Nasal prong/mask sesuai ukuran","Sumber gas blended (udara+O₂), humidifier"],
+  langkah:["Set tekanan awal 5–7 cmH₂O (naikkan ke 8 bila gagal)","Sesuaikan FiO₂ untuk target SpO₂ preduktal","Pasang prong pas di lubang hidung tanpa bocor berlebih","Monitor distres napas, retraksi, dan SpO₂ berkala"],
+  komplikasi:["Distensi abdomen (pertimbangkan OGT dekompresi)","Trauma septum nasal akibat prong","Pneumotoraks (jarang)"],
+  catatan:"Evaluasi ulang dalam 1–2 jam; bila distres menetap/memburuk → pertimbangkan intubasi & surfaktan." },
+
+{ slug:"bubble-cpap", title:"Bubble CPAP / CPAP Botol (DIY)", icon:"🍾", cat:"respirasi",
+  indikasi:["Fasilitas dengan sumber daya terbatas tanpa CPAP device standar","Distres napas ringan-sedang neonatus di RS tanpa NICU lengkap"],
+  alat:["Sumber gas oksigen+udara (blender bila ada)","Sirkuit CPAP / selang oksigen","Botol berisi air steril (kedalaman ujung selang = tekanan cmH₂O)","Nasal prong binasal","Humidifier"],
+  langkah:["Isi botol air steril, tandai kedalaman sesuai tekanan target (mis. 5 cm air = tekanan ~5 cmH₂O)","Sambungkan selang ekspirasi ke dalam botol pada kedalaman yang ditentukan","Pasang prong binasal pas di hidung bayi, sirkuit inspirasi tersambung sumber gas","Nyalakan flow gas hingga terbentuk gelembung kontinu ('bubbling') di botol","Sesuaikan FiO₂ manual (campuran O₂:udara) untuk target SpO₂"],
+  komplikasi:["Tekanan tidak stabil bila flow tidak konsisten","Risiko infeksi bila air/sirkuit tidak steril & tidak rutin diganti","Trauma nasal akibat prong"],
+  catatan:"Merupakan solusi adaptasi resource-limited setting — bukan pengganti CPAP standar bila tersedia. Ganti air botol tiap hari, jaga sterilitas sirkuit." },
+
+{ slug:"hfnc", title:"HFNC (High Flow Nasal Cannula)", icon:"🌬️", cat:"respirasi",
+  indikasi:["Distres napas ringan-sedang sebagai alternatif CPAP","Bronkiolitis, pneumonia dengan hipoksemia ringan-sedang"],
+  alat:["HFNC device + sirkuit terhumidifikasi", "Nasal cannula ukuran sesuai (diameter <50% lubang hidung)"],
+  langkah:["Pilih ukuran kanul sesuai usia/BB","Set flow awal 1–2 L/kg/menit (maks sesuai usia)","Set FiO₂ untuk target SpO₂","Monitor work of breathing & SpO₂ tiap 1–2 jam"],
+  komplikasi:["Distensi lambung pada flow tinggi","Kegagalan terapi bila distres memburuk → eskalasi ke CPAP/intubasi"],
+  catatan:"Bukan alat bantu napas invasif — tetap butuh napas spontan adekuat dari pasien." },
+
+{ slug:"surfaktan", title:"Terapi Surfaktan (INSURE/LISA)", icon:"💧", cat:"respirasi",
+  indikasi:["RDS (Respiratory Distress Syndrome) neonatus prematur","Kebutuhan FiO₂ >30–40% pada CPAP adekuat"],
+  alat:["Surfaktan (poractant/beractant) sesuai dosis","Pipa ET / kateter tipis (teknik LISA)","Alat monitor SpO₂ & LDJ"],
+  langkah:["Konfirmasi posisi ET (bila teknik INSURE) di atas karina","Berikan surfaktan intratrakeal sesuai dosis (100–200 mg/kg tergantung sediaan)","INSURE: ekstubasi segera setelah pemberian bila stabil, lanjut CPAP","LISA: berikan via kateter tipis dengan bayi tetap bernapas spontan di CPAP"],
+  komplikasi:["Desaturasi/bradikardia transien saat pemberian","Refluks surfaktan keluar ET","Perdarahan paru (jarang)"],
+  catatan:"Semakin dini pemberian (idealnya <2 jam kehidupan pada RDS berat) semakin baik luaran." },
+
+// ═══════════ AKSES VASKULAR & PROSEDUR NEONATAL ═══════════
+{ slug:"uvc", title:"Kateterisasi Vena Umbilikal (UVC)", icon:"🩸", cat:"vaskular",
+  indikasi:["Akses vaskular darurat resusitasi neonatus","Pemberian cairan/obat pada neonatus sakit kritis","Exchange transfusion","Pemantauan tekanan vena sentral"],
+  alat:["Kateter umbilikal (3.5–5 Fr sesuai BB)","Set kateterisasi umbilikal steril, benang jahit/tali umbilikal","Antiseptik, kassa steril","NS untuk flushing"],
+  langkah:["Antisepsis tali pusat & area sekitar, pasang duk steril","Potong tali pusat ~1–2 cm dari kulit, identifikasi 1 vena (lumen besar, dinding tipis) & 2 arteri","Insersi kateter ke vena, aspirasi darah lancar sebagai konfirmasi","Kedalaman insersi diperkirakan dengan rumus BB atau jarak bahu-umbilikus, konfirmasi foto rontgen (ujung di vena cava inferior/atrium kanan)","Fiksasi kateter, sambungkan ke cairan infus"],
+  komplikasi:["Infeksi/sepsis kateter","Trombosis vena porta/hepatik","Perforasi vaskular, ekstravasasi ke hati","Aritmia bila kateter terlalu dalam (di atrium/ventrikel)"],
+  catatan:"Gunakan sesegera mungkin setelah lahir (idealnya <7 hari); akses ini bersifat sementara/darurat." },
+
+{ slug:"uac", title:"Kateterisasi Arteri Umbilikal (UAC)", icon:"🩸", cat:"vaskular",
+  indikasi:["Pemantauan tekanan darah invasif kontinu","Pengambilan sampel darah arteri berulang (analisis gas darah)","Neonatus sakit kritis membutuhkan akses arteri"],
+  alat:["Kateter umbilikal arteri (3.5–5 Fr)","Set kateterisasi steril","NS heparinized untuk flushing"],
+  langkah:["Identifikasi salah satu dari 2 arteri umbilikal (lumen kecil, dinding tebal)","Insersi kateter dengan teknik dilatasi lembut","Posisi 'high' (T6-T9) atau 'low' (L3-L5) sesuai kebutuhan, konfirmasi foto rontgen","Fiksasi, sambungkan ke transduser tekanan/infus heparinized"],
+  komplikasi:["Vasospasme, iskemia ekstremitas bawah (blanching/sianosis kaki)","Trombosis arteri, emboli","Perdarahan bila diskoneksi tidak sengaja","Hipertensi renovaskular (kateter dekat arteri renalis)"],
+  catatan:"Monitor perfusi ekstremitas bawah & bokong secara berkala selama kateter terpasang." },
+
+{ slug:"iv-perifer", title:"Akses IV Perifer Neonatus/Bayi", icon:"💉", cat:"vaskular",
+  indikasi:["Pemberian cairan, obat, atau transfusi darah standar","Akses vaskular non-darurat pada bayi"],
+  alat:["Kateter IV 22–24G (neonatus), tourniquet kecil/karet","Antiseptik, plester transparan, spalk fiksasi"],
+  langkah:["Pilih vena (dorsum tangan/kaki, vena kulit kepala pada neonatus)","Antisepsis, pasang tourniquet ringan","Insersi dengan sudut 15–30°, konfirmasi flashback darah","Fiksasi kateter dengan spalk untuk mencegah pergerakan sendi"],
+  komplikasi:["Infiltrasi/ekstravasasi cairan ke jaringan sekitar","Flebitis","Infeksi lokal"],
+  catatan:"Vena kulit kepala sering menjadi pilihan pada neonatus bila akses ekstremitas sulit." },
+
+{ slug:"io", title:"Intraosseous (IO) Access", icon:"🦴", cat:"vaskular",
+  indikasi:["Akses vaskular darurat gagal setelah 2 kali percobaan IV atau >90 detik pada kondisi kritis","Henti jantung, syok berat"],
+  alat:["Jarum IO manual atau IO gun (device otomatis)","Antiseptik, spuit NS untuk flushing"],
+  langkah:["Lokasi: tibia proksimal anteromedial (2 cm di bawah tuberositas tibia) — lokasi tersering pada anak","Antisepsis area","Insersi jarum tegak lurus tulang hingga terasa 'give'/hilang tahanan (masuk rongga sumsum)","Aspirasi sumsum tulang untuk konfirmasi, flush NS, sambungkan cairan/obat"],
+  komplikasi:["Ekstravasasi ke jaringan sekitar (kompartemen sindrom)","Fraktur iatrogenik","Infeksi/osteomielitis (jarang)","Emboli lemak (sangat jarang)"],
+  catatan:"Semua obat & cairan resusitasi (termasuk vasopresor) dapat diberikan lewat IO. Lepas segera setelah akses vena definitif tersedia (maks 24 jam)." },
+
+{ slug:"lp", title:"Pungsi Lumbal (LP)", icon:"💉", cat:"vaskular",
+  indikasi:["Kecurigaan meningitis / infeksi SSP","Evaluasi perdarahan subarachnoid","Pemberian obat intratekal (kemoterapi tertentu)"],
+  alat:["Jarum spinal ukuran sesuai usia (22–25G)","Set LP steril, 3 tabung penampung CSF","Antiseptik, anestesi lokal (bila kooperatif)"],
+  langkah:["Posisikan pasien lateral dekubitus fleksi maksimal (fetal position) atau duduk membungkuk","Identifikasi ruang L3-L4 atau L4-L5 (setinggi krista iliaka)","Antisepsis luas, anestesi lokal bila perlu","Insersi jarum tegak lurus punggung, arah sedikit ke umbilikus, hingga terasa 'pop' menembus dura","Tampung CSF pada 3 tabung (rutin, kimia, kultur), ukur tekanan bila perlu","Cabut jarum, tekan area insersi"],
+  komplikasi:["Nyeri kepala pasca-LP","Perdarahan epidural/subdural (jarang)","Herniasi otak bila ada peningkatan TIK signifikan — WAJIB fundoskopi/CT sebelumnya bila curiga","Infeksi"],
+  catatan:"Kontraindikasi relatif: peningkatan TIK dengan tanda herniasi, koagulopati berat, infeksi kulit di area insersi." },
+
+{ slug:"exchange-transfusion", title:"Exchange Transfusion (Transfusi Tukar)", icon:"🔄", cat:"vaskular",
+  indikasi:["Hiperbilirubinemia berat/ensefalopati bilirubin akut","Bilirubin melebihi ambang exchange transfusion sesuai kurva usia gestasi/faktor risiko","Anemia berat + hiperbilirubinemia pada penyakit hemolitik (inkompatibilitas Rh/ABO)"],
+  alat:["Kateter UVC/UAC ganda (double volume exchange)","Darah donor sesuai golongan & crossmatch, dihangatkan","Set exchange transfusion, monitor tanda vital kontinu"],
+  langkah:["Pasang akses UVC (dan UAC bila teknik isovolumetrik)","Hitung volume tukar = 2× volume darah bayi (~160 mL/kg)","Lakukan aliquot kecil bertahap (push-pull atau isovolumetrik) — keluarkan darah bayi, masukkan darah donor bergantian","Monitor tanda vital, glukosa, kalsium setiap beberapa siklus","Periksa bilirubin pasca-prosedur"],
+  komplikasi:["Gangguan elektrolit (hipokalsemia, hiperkalemia)","Trombositopenia, koagulopati","Infeksi, NEC","Instabilitas hemodinamik"],
+  catatan:"Prosedur berisiko tinggi — dilakukan di NICU dengan monitoring ketat dan tim berpengalaman." },
+
+// ═══════════ NUTRISI & CAIRAN ═══════════
+{ slug:"ogt", title:"Pemasangan OGT/NGT", icon:"🧴", cat:"nutrisi",
+  indikasi:["Pemberian nutrisi enteral pada bayi tidak bisa menyusu/minum langsung","Dekompresi lambung (distensi, obstruksi, pasca-VTP/CPAP)","Pemberian obat enteral"],
+  alat:["Selang OGT/NGT ukuran sesuai (5–8 Fr neonatus)","Plester fiksasi, spuit untuk aspirasi & tes posisi","Stetoskop"],
+  langkah:["Ukur panjang insersi: dari hidung/mulut → daun telinga → prosesus xifoideus (metode NEMU)","Lubrikasi ujung selang, insersi perlahan melalui mulut (OGT) atau hidung (NGT)","Konfirmasi posisi: aspirasi isi lambung DAN/ATAU auskultasi suara udara saat insuflasi (bukan patokan tunggal — idealnya cek pH aspirat atau rontgen)","Fiksasi selang ke wajah"],
+  komplikasi:["Malposisi ke jalur napas (risiko aspirasi bila tidak dikonfirmasi)","Trauma mukosa nasal/faring","Perforasi esofagus (jarang, teknik kasar)"],
+  catatan:"Konfirmasi posisi WAJIB sebelum tiap pemberian nutrisi/obat — jangan hanya andalkan auskultasi." },
+
+{ slug:"resomal", title:"Pembuatan ReSoMal", icon:"🥤", cat:"nutrisi",
+  indikasi:["Rehidrasi oral pada anak gizi buruk (severe acute malnutrition) dengan dehidrasi","BUKAN untuk syok — gunakan cairan IV pada kondisi syok"],
+  alat:["1 sachet oralit WHO standar (untuk 1 liter)","Gula pasir 50 gram","Larutan elektrolit-mineral (mineral mix) 40 mL — atau KCl bila mineral mix tidak tersedia","Air matang hingga volume 2 liter"],
+  langkah:["Larutkan 1 sachet oralit WHO ke dalam 2 liter air (setengah konsentrasi standar oralit biasa)","Tambahkan 50 gram gula pasir, aduk rata","Tambahkan 40 mL larutan mineral mix (elektrolit-mineral WHO)","Aduk hingga larut sempurna — total volume akhir 2 liter","Berikan per oral/OGT 5 mL/kgBB tiap 30 menit untuk 2 jam pertama, lalu 5–10 mL/kgBB/jam bergantian dengan F-75"],
+  komplikasi:["Overhidrasi/gagal jantung bila diberikan terlalu cepat/berlebih pada anak gizi buruk","Hiponatremia bila mineral mix tidak tepat"],
+  catatan:"ReSoMal punya kadar natrium lebih rendah & kalium lebih tinggi dari oralit standar — khusus untuk fisiologi anak gizi buruk. Pantau tanda overhidrasi (napas cepat, nadi cepat, edema) tiap pemberian." },
+
+{ slug:"oralit", title:"Pembuatan Larutan Oralit Standar", icon:"🥤", cat:"nutrisi",
+  indikasi:["Rehidrasi oral pada diare akut dengan dehidrasi ringan-sedang (anak gizi normal)","Pencegahan dehidrasi pada diare tanpa tanda dehidrasi"],
+  alat:["1 sachet oralit formula WHO (osmolaritas rendah)","Air matang sesuai takaran pada kemasan (umumnya 200 mL per sachet kecil)"],
+  langkah:["Cuci tangan, siapkan air matang/masak sesuai volume pada label sachet","Larutkan 1 sachet oralit ke dalam volume air yang ditentukan, aduk hingga larut","Berikan sedikit-sedikit dengan sendok/cangkir, tidak menggunakan botol dot","Dosis rehidrasi: rencana terapi B — 75 mL/kgBB dalam 3–4 jam pertama; rencana terapi A — sesuai kehilangan cairan tiap kali BAB"],
+  komplikasi:["Muntah bila diberikan terlalu cepat — beri sedikit-sedikit, tunggu 10 menit bila muntah lalu lanjutkan lebih lambat"],
+  catatan:"Larutan yang sudah dicampur hanya bertahan aman ~24 jam pada suhu ruang — buat larutan baru tiap hari." },
+
+{ slug:"f75", title:"Pembuatan Formula F-75", icon:"🍼", cat:"nutrisi",
+  indikasi:["Fase stabilisasi gizi buruk (minggu 1–2 tata laksana WHO)","Energi rendah untuk mencegah refeeding syndrome pada anak gizi buruk"],
+  alat:["Susu skim bubuk / susu penuh, gula pasir, minyak sayur/margarin","Mineral mix (larutan elektrolit-mineral WHO)","Air matang"],
+  langkah:["Campurkan susu, gula, minyak sesuai resep standar WHO (menghasilkan ~75 kkal & 0.9 g protein per 100 mL)","Tambahkan mineral mix sesuai takaran","Larutkan dengan air matang hingga volume akhir sesuai resep, aduk rata","Berikan porsi kecil sering (tiap 2–3 jam) sesuai kebutuhan kalori 80–100 kkal/kgBB/hari fase stabilisasi"],
+  komplikasi:["Refeeding syndrome bila kalori dinaikkan terlalu cepat","Hipoglikemia bila interval pemberian terlalu jarang"],
+  catatan:"Setelah fase stabilisasi stabil (nafsu makan membaik, edema berkurang) → transisi ke F-100 (kalori lebih tinggi) untuk fase rehabilitasi." },
+
+{ slug:"cairan-rumatan", title:"Cairan Rumatan (Holliday-Segar)", icon:"💧", cat:"nutrisi",
+  indikasi:["Perhitungan kebutuhan cairan rumatan harian pada anak rawat inap"],
+  alat:["Timbangan BB akurat", "Kalkulator"],
+  langkah:["10 kg pertama: 100 mL/kgBB/hari","10 kg kedua (11–20 kg): tambahkan 50 mL/kgBB/hari","Setiap kg di atas 20 kg: tambahkan 20 mL/kgBB/hari","Jumlahkan ketiga komponen untuk total kebutuhan cairan/24 jam, bagi rata per jam bila infus kontinu"],
+  komplikasi:["Overhidrasi bila diterapkan tanpa penyesuaian pada gagal jantung/ginjal/SIADH","Dehidrasi bila kebutuhan tambahan (demam, diare berlangsung) tidak diperhitungkan"],
+  catatan:"Contoh BB 24 kg: (10×100)+(10×50)+(4×20) = 1000+500+80 = 1580 mL/24 jam ≈ 66 mL/jam. Sesuaikan dengan kondisi klinis (demam +12%/°C di atas normal, dsb)." },
+
+// ═══════════ PROSEDUR MINOR ═══════════
+{ slug:"kateter-urin", title:"Pemasangan Kateter Urin", icon:"🚽", cat:"minor",
+  indikasi:["Retensi urin akut","Pemantauan produksi urin ketat pada pasien kritis","Pengambilan sampel urin steril (bila kateter langsung tidak memungkinkan)"],
+  alat:["Kateter Foley ukuran sesuai usia","Set kateterisasi steril, jelly anestesi lokal","Spuit untuk mengembangkan balon"],
+  langkah:["Antisepsis area genital, pasang duk steril","Lubrikasi kateter dengan jelly anestesi","Insersi kateter perlahan hingga urin keluar, masukkan sedikit lebih dalam","Kembangkan balon fiksasi sesuai volume yang tertera","Sambungkan ke urine bag, fiksasi selang ke paha"],
+  komplikasi:["Trauma uretra","Infeksi saluran kemih terkait kateter (CAUTI)","False passage pada insersi paksa"],
+  catatan:"Lepas kateter sesegera mungkin bila indikasi sudah tidak ada — kateter lama meningkatkan risiko infeksi." },
+
+{ slug:"insisi-abses", title:"Insisi Abses (I&D)", icon:"🔪", cat:"minor",
+  indikasi:["Abses kulit/jaringan lunak yang sudah berfluktuasi (matang)"],
+  alat:["Skalpel no.11, kassa steril, antiseptik","Anestesi lokal (lidokain), spuit","Pinset, kassa tampon/drain bila perlu"],
+  langkah:["Antisepsis area, anestesi lokal infiltrasi di sekitar abses (bukan di dalam pus)","Insisi pada titik fluktuasi maksimal, arah sejajar lipatan kulit","Evakuasi pus, eksplorasi & pecahkan lokulasi dengan pinset/jari bersarung tangan","Irigasi rongga dengan NS","Pasang tampon kassa bila rongga besar, balut terbuka untuk drainase lanjutan"],
+  komplikasi:["Perdarahan","Kerusakan struktur di sekitarnya (saraf, pembuluh darah) bila lokasi berisiko","Rekurensi bila drainase tidak adekuat"],
+  catatan:"Kirim sampel pus untuk kultur bila curiga infeksi berat/resisten (mis. MRSA)." },
+
+{ slug:"jahit-luka", title:"Jahit Luka Sederhana", icon:"🧵", cat:"minor",
+  indikasi:["Laserasi kulit bersih, tepi tidak beraturan luas, usia luka <6–8 jam (wajah bisa lebih lama)"],
+  alat:["Set jahit minor (needle holder, gunting, pinset)","Benang jahit sesuai lokasi (nonabsorbable untuk kulit, mis. nylon 4-0/5-0)","Anestesi lokal, antiseptik, kassa"],
+  langkah:["Bersihkan luka, irigasi dengan NS untuk membuang debris","Anestesi lokal infiltrasi di tepi luka","Eksplorasi kedalaman luka, pastikan tidak ada benda asing/cedera struktur dalam","Jahit lapis demi lapis bila dalam, jahit kulit dengan simpul interuptus","Tutup dengan kassa, edukasi perawatan luka & waktu lepas jahitan (wajah 5 hari, badan/ekstremitas 7–10 hari)"],
+  komplikasi:["Infeksi luka","Skar hipertrofik/keloid","Dehiscence bila tegangan luka berlebih"],
+  catatan:"Pertimbangkan profilaksis tetanus sesuai status imunisasi pasien." },
+
+// ═══════════ MONITORING & SKRINING ═══════════
+{ slug:"ballard", title:"Ballard Score (Usia Gestasi)", icon:"👶", cat:"monitoring",
+  indikasi:["Estimasi usia gestasi neonatus bila HPHT/USG tidak tersedia atau meragukan"],
+  alat:["Formulir New Ballard Score"],
+  langkah:["Nilai 6 kriteria maturitas neuromuskular: postur, square window, arm recoil, popliteal angle, scarf sign, heel to ear","Nilai 6 kriteria maturitas fisik: kulit, lanugo, permukaan plantar, payudara, mata/telinga, genitalia","Jumlahkan skor total (−10 hingga 50)","Konversi skor total ke usia gestasi (minggu) menggunakan tabel referensi Ballard"],
+  komplikasi:[],
+  catatan:"Paling akurat dilakukan dalam 12–24 jam pertama kehidupan (idealnya <42 jam)." },
+
+{ slug:"apgar", title:"APGAR Score", icon:"📋", cat:"monitoring",
+  indikasi:["Penilaian kondisi bayi baru lahir pada menit ke-1 dan ke-5 (dan tiap 5 menit bila skor <7 hingga membaik atau 20 menit)"],
+  alat:["Stetoskop, stopwatch"],
+  langkah:["Nilai 5 komponen (0-1-2): Appearance (warna kulit), Pulse (LDJ), Grimace (refleks), Activity (tonus otot), Respiration (usaha napas)","Jumlahkan skor total (0–10)","Interpretasi: 7–10 normal, 4–6 asfiksia sedang, 0–3 asfiksia berat"],
+  komplikasi:[],
+  catatan:"APGAR TIDAK digunakan untuk memandu langkah resusitasi secara real-time — keputusan resusitasi didasarkan pada usaha napas & LDJ, dinilai lebih cepat dari skor APGAR lengkap." },
+
+{ slug:"gds", title:"Skrining Hipoglikemia (GDS/Heelstick)", icon:"🩸", cat:"monitoring",
+  indikasi:["Neonatus berisiko (BBLR, bayi ibu DM, prematur, sepsis, asfiksia)","Bayi dengan gejala hipoglikemia (letargi, jitteriness, apnea, kejang)","Skrining rutin sesuai protokol pada populasi berisiko"],
+  alat:["Lancet/autoclick, kapas alkohol, glukometer/strip GDS", "Kassa"],
+  langkah:["Hangatkan tumit bayi (meningkatkan aliran darah kapiler)","Antisepsis area lateral tumit (hindari area sentral yang berisiko cedera tulang)","Tusuk dengan lancet, buang tetes darah pertama, ambil sampel kedua untuk strip GDS","Tekan area tusukan dengan kassa hingga perdarahan berhenti"],
+  komplikasi:["Infeksi lokal","Osteomielitis kalkaneus bila tusukan terlalu dalam/sentral","Nyeri/bruising"],
+  catatan:"Ambang hipoglikemia neonatus umumnya GDS <45–50 mg/dL — konfirmasi dengan pemeriksaan laboratorium bila hasil meragukan." },
+
+// ═══════════ KEGAWATDARURATAN ═══════════
+{ slug:"rjp-anak", title:"RJP Anak (PALS)", icon:"❤️‍🩹", cat:"gadar",
+  indikasi:["Henti jantung / tidak ada nadi teraba / nadi <60×/menit dengan perfusi buruk"],
+  alat:["Papan resusitasi, bag-mask + O₂","Defibrilator/AED (bila tersedia)","Akses IV/IO, obat resusitasi (epinefrin)"],
+  langkah:["Kompresi dada: rasio 30:2 (1 penolong) atau 15:2 (2 penolong), kedalaman ⅓ diameter AP dada","Kecepatan kompresi 100–120×/menit, biarkan dada rekoil penuh","Ventilasi bergantian dengan kompresi, hindari hiperventilasi","Nilai irama tiap 2 menit: shockable (VF/VT) → defibrilasi 2 J/kg (naik ke 4 J/kg bila berulang); non-shockable → lanjut RJP + epinefrin","Epinefrin IV/IO 0.01 mg/kg (1:10.000) tiap 3–5 menit"],
+  komplikasi:["Fraktur iga/sternum akibat kompresi","Cedera organ dalam bila teknik tidak tepat","Pneumotoraks akibat ventilasi berlebih"],
+  catatan:"Prioritas: kompresi berkualitas tinggi & minimal interupsi — lebih penting daripada kecepatan intervensi lain." },
+
+{ slug:"status-epileptikus", title:"Status Epileptikus", icon:"⚡", cat:"gadar",
+  indikasi:["Kejang berlangsung >5 menit, atau kejang berulang tanpa pulih kesadaran di antaranya"],
+  alat:["Akses IV/IO, oksigen, monitor tanda vital","Obat antikonvulsan lini pertama & kedua"],
+  langkah:["0–5 menit: stabilisasi ABC, oksigen, cek GDS (koreksi bila hipoglikemia), akses IV","5–10 menit (lini pertama): benzodiazepin — diazepam rektal/IV 0.3–0.5 mg/kg ATAU midazolam IV/IM/intranasal 0.15–0.2 mg/kg (ulang 1× bila belum berhenti)","10–20 menit (lini kedua, bila kejang menetap): fenitoin IV 20 mg/kg (infus lambat, monitor EKG) ATAU asam valproat/levetiracetam IV sesuai ketersediaan","Bila menetap >20–30 menit (refrakter): pertimbangkan intubasi + anestesi umum (midazolam/propofol/tiopental infus kontinu) di ICU"],
+  komplikasi:["Depresi napas akibat benzodiazepin dosis tinggi","Hipotensi/aritmia akibat fenitoin infus cepat","Cedera hipoksik-iskemik akibat kejang berkepanjangan"],
+  catatan:"Selalu cari & atasi penyebab reversibel: hipoglikemia, hiponatremia, demam tinggi, meningitis/ensefalitis." },
+
+{ slug:"anafilaksis", title:"Anafilaksis", icon:"🐝", cat:"gadar",
+  indikasi:["Reaksi alergi berat multi-sistem (kulit + respirasi/kardiovaskular/GI) onset akut setelah pajanan alergen"],
+  alat:["Epinefrin 1:1000 (IM)", "Akses IV, cairan kristaloid","O₂, alat jalan napas darurat"],
+  langkah:["Epinefrin IM 0.01 mg/kg (maks 0.3–0.5 mg) di paha anterolateral — SEGERA, jangan ditunda","Posisikan terlentang dengan kaki elevasi (bila tidak ada distres napas), atau posisi nyaman bila muntah/distres napas","Oksigen aliran tinggi, siapkan alat jalan napas bila edema laring","Akses IV, bolus cairan kristaloid bila hipotensi","Epinefrin dapat diulang tiap 5–15 menit bila belum membaik","Antihistamin (difenhidramin) & kortikosteroid sebagai terapi tambahan (BUKAN pengganti epinefrin)"],
+  komplikasi:["Reaksi bifasik (gejala berulang 4–12 jam kemudian) — observasi minimal 4–6 jam","Syok refrakter memerlukan epinefrin infus kontinu"],
+  catatan:"Epinefrin IM adalah terapi lini pertama & paling penting — jangan menunggu/mengganti dengan antihistamin dulu." },
+
+{ slug:"syok", title:"Algoritma Tata Laksana Syok", icon:"🚨", cat:"gadar",
+  indikasi:["Tanda syok: takikardia, perfusi perifer buruk (CRT>3 detik), akral dingin/hangat, perubahan status mental, hipotensi (tanda lanjut)"],
+  alat:["Akses IV/IO ganda","Cairan kristaloid (NS/RL)","Vasopresor sesuai jenis syok (epinefrin/norepinefrin/dopamin)"],
+  langkah:["Identifikasi jenis syok: hipovolemik, septik, kardiogenik, distributif/anafilaksis, obstruktif","Syok hipovolemik/septik: bolus kristaloid 10–20 mL/kg dalam 5–10 menit, evaluasi ulang, dapat diulang bertahap","Syok septik: mulai antibiotik empirik secepatnya (dalam 1 jam), pertimbangkan vasopresor bila tidak respons cairan","Syok kardiogenik: HATI-HATI pemberian cairan (bolus kecil 5–10 mL/kg), pertimbangkan inotropik lebih awal","Monitor: nadi, tekanan darah, produksi urin, laktat, kesadaran sebagai penanda respons terapi"],
+  komplikasi:["Overload cairan pada syok kardiogenik bila resusitasi cairan agresif","Sindrom kompartemen abdomen pada resusitasi cairan masif","Cedera organ akibat syok berkepanjangan (AKI, gagal hati)"],
+  catatan:"Reevaluasi setelah tiap bolus cairan — tanda overload (ronki, hepatomegali, gallop) adalah sinyal untuk menghentikan/melambatkan resusitasi cairan." },
+
+];
+
+/* ── State ── */
+var tindakanActiveCat = 'semua';
+var tindakanSearch = '';
+var tindakanInitDone = false;
+var tindakanOpenSlugs = {};
+
+function initTindakanTool(){
+  if(!tindakanInitDone){
+    renderTindakanCats();
+    tindakanInitDone = true;
+  }
+  renderTindakanList();
+}
+
+function setTindakanCat(key){
+  tindakanActiveCat = key;
+  renderTindakanCats();
+  renderTindakanList();
+}
+
+function renderTindakanCats(){
+  var el = document.getElementById('tindakan-cats');
+  if(!el) return;
+  var html = '<button class="tindakan-cat-chip' + (tindakanActiveCat==='semua'?' active':'') + '" data-key="semua">📋 Semua</button>';
+  TINDAKAN_CATS.forEach(function(c){
+    html += '<button class="tindakan-cat-chip' + (tindakanActiveCat===c.key?' active':'') + '" data-key="' + c.key + '">' + c.icon + ' ' + c.label + '</button>';
+  });
+  el.innerHTML = html;
+  el.querySelectorAll('[data-key]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setTindakanCat(btn.getAttribute('data-key')); });
+  });
+}
+
+function onTindakanSearch(val){
+  tindakanSearch = val.toLowerCase().trim();
+  var clr = document.getElementById('tindakan-search-clear');
+  if(clr) clr.style.display = val ? 'flex' : 'none';
+  renderTindakanList();
+}
+function clearTindakanSearch(){
+  tindakanSearch = '';
+  var inp = document.getElementById('tindakan-search-input');
+  if(inp) inp.value = '';
+  var clr = document.getElementById('tindakan-search-clear');
+  if(clr) clr.style.display = 'none';
+  renderTindakanList();
+}
+
+function toggleTindakanCard(slug){
+  tindakanOpenSlugs[slug] = !tindakanOpenSlugs[slug];
+  renderTindakanList();
+}
+
+function renderTindakanList(){
+  var el = document.getElementById('tindakan-list');
+  var empty = document.getElementById('tindakan-empty');
+  if(!el) return;
+
+  var filtered = TINDAKAN_DB.filter(function(t){
+    var matchCat = tindakanActiveCat === 'semua' || t.cat === tindakanActiveCat;
+    if(!matchCat) return false;
+    if(!tindakanSearch) return true;
+    var q = tindakanSearch;
+    if(t.title.toLowerCase().indexOf(q) >= 0) return true;
+    if(t.slug.toLowerCase().indexOf(q) >= 0) return true;
+    return false;
+  });
+
+  var countEl = document.getElementById('tindakanCount');
+  if(countEl) countEl.textContent = TINDAKAN_DB.length + ' tindakan · ' + filtered.length + ' ditampilkan';
+
+  if(filtered.length === 0){
+    el.innerHTML = '';
+    if(empty) empty.style.display = 'flex';
+    return;
+  }
+  if(empty) empty.style.display = 'none';
+
+  var catLabel = {};
+  TINDAKAN_CATS.forEach(function(c){ catLabel[c.key] = c.icon + ' ' + c.label; });
+
+  var html = '';
+  filtered.forEach(function(t){
+    var open = !!tindakanOpenSlugs[t.slug];
+    html += '<div class="tindakan-card' + (open?' open':'') + '">';
+    html += '<div class="tindakan-card-header" onclick="toggleTindakanCard(\'' + t.slug + '\')">';
+    html += '<div class="tindakan-ico">' + t.icon + '</div>';
+    html += '<div class="tindakan-title-wrap"><div class="tindakan-title">' + t.title + '</div>';
+    html += '<div class="tindakan-cat-tag">' + (catLabel[t.cat]||'') + '</div></div>';
+    html += '<div class="tindakan-chevron">▾</div>';
+    html += '</div>';
+
+    html += '<div class="tindakan-body">';
+
+    if(t.indikasi && t.indikasi.length){
+      html += '<div class="soap-section"><div class="soap-head">🎯 Indikasi</div><div class="soap-box"><ul>';
+      t.indikasi.forEach(function(x){ html += '<li>' + x + '</li>'; });
+      html += '</ul></div></div>';
+    }
+    if(t.alat && t.alat.length){
+      html += '<div class="soap-section"><div class="soap-head">🧰 Persiapan Alat</div><div class="soap-box"><ul>';
+      t.alat.forEach(function(x){ html += '<li>' + x + '</li>'; });
+      html += '</ul></div></div>';
+    }
+    if(t.langkah && t.langkah.length){
+      html += '<div class="soap-section"><div class="soap-head">📝 Langkah Kerja</div><div class="soap-box langkah"><ol>';
+      t.langkah.forEach(function(x){ html += '<li>' + x + '</li>'; });
+      html += '</ol></div></div>';
+    }
+    if(t.komplikasi && t.komplikasi.length){
+      html += '<div class="soap-section"><div class="soap-head">⚠️ Komplikasi</div><div class="soap-box komplikasi"><ul>';
+      t.komplikasi.forEach(function(x){ html += '<li>' + x + '</li>'; });
+      html += '</ul></div></div>';
+    }
+    if(t.catatan){
+      html += '<div class="soap-note">💡 ' + t.catatan + '</div>';
+    }
+
+    html += '</div>'; // tindakan-body
+    html += '</div>'; // tindakan-card
+  });
+
+  el.innerHTML = html;
+}
 
 /* ===== PWA: daftarkan Service Worker + auto-update tanpa uninstall manual ===== */
 if ('serviceWorker' in navigator) {

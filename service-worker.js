@@ -11,7 +11,7 @@
 // CACHE_NAME (mis. v2 -> v3). Ini memicu Service Worker baru ter-install,
 // cache lama dibersihkan, dan halaman otomatis reload ke versi terbaru.
 
-const CACHE_NAME = "ppds-tools-v2";
+const CACHE_NAME = "ppds-tools-v5";
 const CORE_ASSETS = [
   "./",
   "./index.html",
