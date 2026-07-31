@@ -245,6 +245,56 @@ body.dark a.link-btn{color:#F3EDEC}
 /* ── TINDAKAN MEDIS TOOL (kartu SOAP: Indikasi/Alat/Langkah/Komplikasi) ── */
 #screen-tindakan{ background:var(--bg); min-height:100vh; max-width:430px; margin:0 auto; color:var(--text); }
 .tindakan-topbar{ background:linear-gradient(135deg,#8A1E1E,#C62828); padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px; display:flex; align-items:center; gap:12px; }
+#screen-tpn{background:var(--bg);min-height:100vh;max-width:430px;margin:0 auto;color:var(--text)}
+.tpn-topbar{background:linear-gradient(135deg,#0D9488,#0F766E);padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;display:flex;align-items:center;gap:12px}
+.tpn-topbar .back-btn{background:rgba(255,255,255,.18);color:#fff;border:none;width:32px;height:32px;border-radius:10px;font-size:16px;flex-shrink:0}
+.tpn-topbar .title{font-size:15px;font-weight:800;color:#fff}
+.tpn-topbar .sub{font-size:10.5px;color:rgba(255,255,255,.85);margin-top:2px}
+.tpn-body{padding:14px 16px 0}
+.tpn-card{background:var(--card);border-radius:16px;padding:14px 15px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.tpn-card h4{font-size:13px;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.tpn-hint{font-size:10px;font-weight:500;color:var(--text-faint)}
+.tpn-label{display:block;font-size:12px;font-weight:700;color:var(--text-soft);margin-bottom:5px;margin-top:12px}
+.tpn-label:first-of-type{margin-top:0}
+.tpn-input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:14px}
+.tpn-seg{display:flex;gap:6px;flex-wrap:wrap}
+.tpn-seg-btn{flex:1;min-width:90px;padding:8px 6px;border-radius:10px;border:1.5px solid var(--border);background:var(--input-bg);color:var(--text-soft);font-size:11.5px;font-weight:700;cursor:pointer;transition:all .15s}
+.tpn-seg-btn.active{background:#0D9488;border-color:#0D9488;color:#fff}
+.tpn-result{border:1.5px solid #0D9488}
+.tpn-row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--border);font-size:12.5px}
+.tpn-row:last-child{border-bottom:none}
+.tpn-row .k{color:var(--text-soft);font-weight:600}
+.tpn-row .v{color:var(--text);font-weight:800;font-size:14px}
+.tpn-row .v small{font-weight:600;font-size:10.5px;color:var(--text-faint)}
+.tpn-section-title{font-size:10.5px;font-weight:800;color:#0D9488;text-transform:uppercase;letter-spacing:.05em;margin:12px 0 4px}
+.tpn-section-title:first-child{margin-top:0}
+.tpn-warn{background:#FEF2F2;border-left:3px solid #DC2626;border-radius:0 10px 10px 0;padding:9px 12px;font-size:11.5px;color:#991B1B;font-weight:600;margin-bottom:6px;line-height:1.5}
+.tpn-ok{background:#ECFDF5;border-left:3px solid #0D9488;border-radius:0 10px 10px 0;padding:9px 12px;font-size:11.5px;color:#065F46;font-weight:600;margin-bottom:6px;line-height:1.5}
+.tpn-disclaimer{font-size:10px;color:var(--text-faint);line-height:1.6;padding:0 2px 8px}
+.tpn-tabs{display:flex;background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+.tpn-tab-btn{flex:1;padding:11px 4px;background:transparent;border:none;font-size:11.5px;font-weight:700;color:var(--text-faint);cursor:pointer;border-bottom:2.5px solid transparent}
+.tpn-tab-btn.active{color:#0D9488;border-bottom-color:#0D9488}
+.tpn-tabpane{display:none}
+.tpn-tabpane.active{display:block}
+.tpn-list{list-style:none;padding:0;margin:0}
+.tpn-list li{padding:5px 0 5px 16px;position:relative;font-size:12px;line-height:1.55;color:var(--text);border-bottom:1px solid var(--border)}
+.tpn-list li:last-child{border-bottom:none}
+.tpn-list li::before{content:'›';position:absolute;left:0;color:#0D9488;font-weight:800}
+.tpn-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px}
+.tpn-table th{background:#0D9488;color:#fff;padding:6px 6px;text-align:left;font-weight:600;font-size:10.5px}
+.tpn-table td{padding:6px 6px;border-bottom:1px solid var(--border);color:var(--text)}
+.tpn-table tr:last-child td{border-bottom:none}
+.step-flow-tpn{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.step-tpn{background:var(--input-bg);border-left:3px solid #0D9488;border-radius:0 10px 10px 0;padding:8px 11px;font-size:11.5px;line-height:1.55;color:var(--text)}
+.tpn-analisis-item{border-radius:0 10px 10px 0;padding:9px 12px;font-size:12px;line-height:1.6;margin-bottom:8px;border-left:3px solid}
+.tpn-analisis-ok{background:#ECFDF5;border-color:#0D9488;color:#065F46}
+.tpn-analisis-warn{background:#FFF7ED;border-color:#F97316;color:#9A3412}
+.tpn-analisis-bad{background:#FEF2F2;border-color:#DC2626;color:#991B1B}
+.tpn-tabledoc-toggle{width:100%;background:var(--input-bg);border:1.5px solid var(--border);color:#0D9488;font-size:11.5px;font-weight:700;padding:8px 10px;border-radius:10px;cursor:pointer;margin-bottom:8px}
+.tpn-tabledoc{margin-bottom:10px}
+.hlb-tpn{background:var(--bll,#EEF4FF);border-left:3px solid #2563A8;border-radius:0 10px 10px 0;padding:9px 12px;font-size:11.5px;line-height:1.6;color:var(--text)}
+.hlg-tpn{background:#ECFDF5;border-left:3px solid #0D9488;border-radius:0 10px 10px 0;padding:9px 12px;font-size:11.5px;line-height:1.6;color:var(--text)}
+.tpn-formula{background:rgba(255,255,255,.6);border:1px dashed currentColor;border-radius:8px;padding:6px 9px;font-size:11px;font-weight:700;margin-top:6px;font-family:monospace}
 .tindakan-topbar .back-btn{ background:rgba(255,255,255,.2); border:none; color:#fff; width:32px;height:32px; border-radius:50%; font-size:16px; cursor:pointer; display:flex;align-items:center;justify-content:center; flex-shrink:0; }
 .tindakan-topbar .title{ font-weight:800; font-size:17px; color:#fff; }
 .tindakan-topbar .sub{ font-size:10.5px; color:rgba(255,255,255,.75); margin-top:3px; line-height:1.4; }
@@ -355,10 +405,10 @@ body.dark a.link-btn{color:#F3EDEC}
       <div class="lbl">Dosis Obat</div>
       <div class="sub">Farmakologi</div>
     </div>
-    <div class="box" onclick="comingSoon('Growth Chart')">
-      <div class="ico" style="background:#ECFEFF">📈</div>
-      <div class="lbl">Growth Chart</div>
-      <div class="sub">Status Gizi</div>
+    <div class="box featured" onclick="openTool('tpn')">
+      <div class="ico" style="background:#ECFEFF">🍼</div>
+      <div class="lbl">TPN Neonatus</div>
+      <div class="sub">Nutrisi Parenteral</div>
     </div>
     <div class="box" onclick="comingSoon('APGAR Score')">
       <div class="ico" style="background:#FFF7ED">👶</div>
@@ -678,6 +728,297 @@ body.dark a.link-btn{color:#F3EDEC}
   <div style="height:24px"></div>
 </div>
 
+<!-- ═══════════════ SCREEN: TPN NEONATUS ═══════════════ -->
+<div id="screen-tpn" class="hidden">
+  <div class="tpn-topbar">
+    <button class="back-btn" onclick="closeTpnTool()">←</button>
+    <div>
+      <div class="title">🍼 TPN Neonatus</div>
+      <div class="sub">Total Parenteral Nutrition · alat bantu, bukan pengganti keputusan DPJP</div>
+    </div>
+  </div>
+
+  <div class="tpn-tabs">
+    <button class="tpn-tab-btn active" data-t="materi" onclick="tpnTab('materi',this)">📖 Materi</button>
+    <button class="tpn-tab-btn" data-t="kalkulator" onclick="tpnTab('kalkulator',this)">🧮 Kalkulator</button>
+    <button class="tpn-tab-btn" data-t="analisis" onclick="tpnTab('analisis',this)">📊 Analisis</button>
+  </div>
+
+  <div class="tpn-body">
+
+    <!-- ═══ TAB 1: MATERI ═══ -->
+    <div class="tpn-tabpane active" id="tpn-tab-materi">
+
+      <div class="tpn-card">
+        <h4>🎯 Indikasi TPN Neonatus</h4>
+        <ul class="tpn-list">
+          <li>Bayi tidak dapat mencapai kebutuhan nutrisi enteral penuh dalam beberapa hari (mis. BBLSR, NEC, pasca bedah GI)</li>
+          <li>Intoleransi minum / kontraindikasi enteral (ileus, NEC, atresia GI)</li>
+          <li>Bayi sakit kritis yang enteralnya harus ditunda/dibatasi</li>
+        </ul>
+      </div>
+
+      <div class="tpn-card">
+        <h4>💧 Kebutuhan Cairan Rumatan (mL/kg/hari)</h4>
+        <table class="tpn-table">
+          <tr><th>DOL</th><th>BBLR &lt;1500g</th><th>1500–2500g</th><th>Aterm</th></tr>
+          <tr><td>1</td><td>80–90</td><td>80</td><td>60–80</td></tr>
+          <tr><td>2</td><td>100–110</td><td>100</td><td>80–100</td></tr>
+          <tr><td>3</td><td>120–130</td><td>120</td><td>100–120</td></tr>
+          <tr><td>4</td><td>130–150</td><td>140</td><td>120–140</td></tr>
+          <tr><td>5+</td><td>150–160</td><td>150</td><td>140–150</td></tr>
+        </table>
+        <div class="tpn-hint" style="margin-top:6px">Naikkan lebih lambat pada bayi dengan edema, gagal jantung, atau oliguria. Naikkan lebih cepat bila di bawah pemanas radian/fototerapi (IWL meningkat).</div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>⚖️ BB Acuan: Cairan vs Kalori</h4>
+        <div class="hlb-tpn">
+          <b>Kebutuhan Cairan → pakai BB Aktual (BB hari ini).</b><br>
+          Kebutuhan cairan dihitung dari berat badan yang sedang berjalan saat ini, karena mencerminkan status hidrasi dan komposisi tubuh terkini. Bila BB naik/turun, kebutuhan cairan (mL/hari) ikut disesuaikan setiap hari.
+          <div class="tpn-formula">Total Kebutuhan Cairan (mL/hari) = Kebutuhan Cairan (mL/kg/hari) × BB Aktual (kg)</div>
+        </div>
+        <div class="hlg-tpn" style="margin-top:8px">
+          <b>Kebutuhan Kalori → pakai BB Tertinggi (BB maksimal yang pernah dicapai, termasuk BB lahir bila belum melewati BB lahir).</b><br>
+          Kalori dihitung dari BB tertinggi karena kebutuhan energi mengikuti massa tubuh yang harus "dipelihara" (termasuk jaringan yang sudah terbentuk), bukan BB yang sedang turun akibat kehilangan cairan/edema. Ini mencegah underestimasi kalori saat bayi mengalami penurunan BB fisiologis atau diuresis.
+          <div class="tpn-formula">Total Kebutuhan Kalori (kkal/hari) = Target Kalori (kkal/kg/hari) × BB Tertinggi (kg)</div>
+        </div>
+        <div class="tpn-hint" style="margin-top:8px">Contoh: BB lahir 1,20 kg → turun ke 1,10 kg di DOL3 (penurunan fisiologis) → naik lagi ke 1,25 kg di DOL10 (BB tertinggi baru). Di DOL3, cairan dihitung dari 1,10 kg (BB aktual), tapi kalori tetap dihitung dari 1,20 kg (BB tertinggi saat itu, yaitu BB lahir).</div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>🧮 Faktor Koreksi Kebutuhan Cairan (Fx)</h4>
+        <div class="tpn-hint">Kebutuhan cairan rumatan dasar (tabel di atas) perlu dikoreksi naik/turun sesuai kondisi klinis. Ini nantinya jadi pilihan Fx di kalkulator (Tahap 1).</div>
+
+        <div class="tpn-section-title" style="margin-top:12px">🔻 Faktor yang MENGURANGI Kebutuhan Cairan</div>
+        <table class="tpn-table">
+          <tr><th>Kondisi</th><th>Alasan</th><th>Koreksi</th></tr>
+          <tr><td>Penyakit jantung kongenital / gagal jantung</td><td>Risiko overload volume, kongesti paru</td><td>↓ 10–25% dari rumatan</td></tr>
+          <tr><td>Gangguan ginjal akut (AKI) / oliguria-anuria</td><td>Ekskresi cairan menurun, risiko overload</td><td>↓ sesuai output urin + IWL (restriksi ketat)</td></tr>
+          <tr><td>Edema / hidrops fetalis</td><td>Kelebihan cairan interstisial sudah ada</td><td>↓ 10–20% dari rumatan</td></tr>
+          <tr><td>SIADH (sekresi ADH tidak sesuai)</td><td>Retensi cairan bebas, risiko hiponatremia</td><td>↓ 50–75% dari rumatan (restriksi cairan)</td></tr>
+          <tr><td>Ventilasi mekanik dengan humidifikasi baik</td><td>IWL respiratorik berkurang drastis</td><td>↓ 10–20 mL/kg/hari</td></tr>
+          <tr><td>Suhu lingkungan/inkubator dengan kelembapan tinggi</td><td>IWL evaporatif kulit menurun</td><td>↓ 10–20% (terutama BBLSR)</td></tr>
+          <tr><td>NEC / pasca bedah GI dengan third-spacing terkontrol</td><td>Perlu individualisasi ketat sesuai balans</td><td>Sesuaikan per balans cairan harian</td></tr>
+        </table>
+
+        <div class="tpn-section-title" style="margin-top:14px">🔺 Faktor yang MENAMBAH Kebutuhan Cairan</div>
+        <table class="tpn-table">
+          <tr><th>Kondisi</th><th>Alasan</th><th>Koreksi</th></tr>
+          <tr><td>Fototerapi</td><td>IWL evaporatif kulit meningkat</td><td>↑ 10–20 mL/kg/hari</td></tr>
+          <tr><td>Radiant warmer (pemanas radian) tanpa humidifikasi</td><td>IWL meningkat signifikan, terutama BBLSR</td><td>↑ 20–40% dari rumatan</td></tr>
+          <tr><td>Prematuritas ekstrem (&lt;28 minggu / &lt;1000g)</td><td>Kulit imatur, permeabilitas tinggi → IWL sangat tinggi</td><td>↑ sesuai derajat prematuritas, bisa 2–3× rumatan aterm</td></tr>
+          <tr><td>Demam</td><td>IWL meningkat ~10–12% per 1°C di atas normal</td><td>↑ 10–12%/°C</td></tr>
+          <tr><td>Diare / muntah / output stoma tinggi</td><td>Kehilangan cairan gastrointestinal</td><td>↑ sesuai volume kehilangan (ganti mL per mL)</td></tr>
+          <tr><td>Poliuria / diabetes insipidus</td><td>Kehilangan cairan renal berlebih</td><td>↑ sesuai output urin berlebih</td></tr>
+          <tr><td>Takipnea berat tanpa humidifikasi</td><td>IWL respiratorik meningkat</td><td>↑ 10–20 mL/kg/hari</td></tr>
+        </table>
+
+        <div class="tpn-hint" style="margin-top:8px">Prinsip: beberapa faktor bisa terjadi bersamaan (mis. fototerapi + prematuritas ekstrem menambah, sementara PJB menahan penambahan) — evaluasi ulang balans cairan, berat badan harian, elektrolit, dan diuresis untuk menentukan koreksi akhir bersama DPJP.</div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>🧬 Alur Perhitungan TPN (4 Tahap)</h4>
+        <div class="step-flow-tpn">
+          <div class="step-tpn"><b>Tahap 1 — Kebutuhan Cairan.</b> Total kebutuhan cairan (mL/kg/hari × BB) dikurangi intake ASI/cairan enteral dan cairan obat-obatan → sisa cairan untuk TPN.</div>
+          <div class="step-tpn"><b>Tahap 2 — Makronutrien.</b> Input volume Aminosteril 10% dan SMOFlipid 20% → sisa cairan untuk elektrolit + dekstrosa.</div>
+          <div class="step-tpn"><b>Tahap 3 — Elektrolit.</b> Natrium (NaCl 3% atau 0,9%), Kalium (KCl 1 mEq/mL), Kalsium (Ca glukonas 10%) → sisa cairan untuk dekstrosa.</div>
+          <div class="step-tpn"><b>Tahap 4 — Dekstrosa (GIR).</b> Dari sisa volume dan target GIR, hitung %dekstrosa yang dibutuhkan, lalu campur D5¼NS (5%) + D40% untuk mencapainya.</div>
+        </div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>🍽️ Kebutuhan Makronutrien — Protein & Lipid (dengan Alasan)</h4>
+        <table class="tpn-table">
+          <tr><th>Komponen</th><th>Mulai</th><th>Kenaikan/hari</th><th>Target/Maks</th></tr>
+          <tr><td>GIR (mg/kg/menit)</td><td>4–6</td><td>1–2</td><td>10–12 (maks 14–16)</td></tr>
+          <tr><td>Protein (g/kg/hari)</td><td>1,5–2</td><td>0,5–1</td><td>3–3,5</td></tr>
+          <tr><td>Lipid (g/kg/hari)</td><td>1–2</td><td>0,5–1</td><td>3–3,5</td></tr>
+        </table>
+
+        <div class="tpn-section-title" style="margin-top:12px">Alasan Target Protein</div>
+        <table class="tpn-table">
+          <tr><th>Target</th><th>Alasan</th></tr>
+          <tr><td>Mulai 1,5–2 g/kg/hari sejak DOL1 (dini)</td><td>Mencegah katabolisme protein endogen & keseimbangan nitrogen negatif yang terjadi cepat pada neonatus, terutama preterm dengan cadangan protein minimal</td></tr>
+          <tr><td>Naik bertahap 0,5–1 g/kg/hari</td><td>Kenaikan cepat berisiko azotemia/uremia bila fungsi ginjal belum matang; kenaikan bertahap memberi waktu adaptasi metabolik</td></tr>
+          <tr><td>Target 3–3,5 g/kg/hari (preterm), 2,5–3 (aterm)</td><td>Preterm butuh lebih tinggi untuk mengejar laju pertumbuhan intrauterin (fetal accretion rate); melebihi 3,5 berisiko asidosis metabolik & uremia</td></tr>
+        </table>
+
+        <div class="tpn-section-title" style="margin-top:12px">Alasan Target Lipid</div>
+        <table class="tpn-table">
+          <tr><th>Target</th><th>Alasan</th></tr>
+          <tr><td>Mulai 1–2 g/kg/hari</td><td>Mencegah defisiensi asam lemak esensial (essential fatty acid deficiency) yang bisa terjadi dalam 3-7 hari tanpa lipid; sumber kalori padat non-karbohidrat</td></tr>
+          <tr><td>Naik bertahap 0,5–1 g/kg/hari</td><td>Kenaikan cepat berisiko hipertrigliseridemia & gangguan clearance lipid, terutama pada BBLSR/sepsis</td></tr>
+          <tr><td>Maks 3–3,5 g/kg/hari</td><td>Di atas ini risiko overload lipid, gangguan fungsi imun, dan interferensi pemeriksaan bilirubin/lab lain meningkat</td></tr>
+        </table>
+      </div>
+
+      <div class="tpn-card">
+        <h4>🧂 Kebutuhan Elektrolit Rumatan (dengan Alasan)</h4>
+        <table class="tpn-table">
+          <tr><th>Elektrolit</th><th>Dosis Rumatan</th><th>Alasan</th></tr>
+          <tr><td>Natrium</td><td>2–3 mEq/kg/hari<br><span class="tpn-hint">mulai DOL2–3</span></td><td>DOL1 biasanya tidak perlu Na karena masih ada cadangan & diuresis natriuresis fisiologis pasca lahir; pemberian dini berisiko hipernatremia. Preterm ekstrem bisa butuh lebih awal karena "late natriuresis" dan kehilangan Na tubular tinggi (ginjal imatur)</td></tr>
+          <tr><td>Kalium</td><td>1–2 mEq/kg/hari<br><span class="tpn-hint">mulai setelah diuresis adekuat</span></td><td>Pemberian sebelum diuresis adekuat/fungsi ginjal jelas berisiko hiperkalemia berat, terutama pada BBLSR dengan non-oliguric hyperkalemia fisiologis di hari-hari awal</td></tr>
+          <tr><td>Kalsium</td><td>40–80 mg/kg/hari<br>(≈1–2 mL/kg/hari Ca glukonas 10%)</td><td>Neonatus (terutama preterm) rentan hipokalsemia dini akibat terputusnya suplai Ca transplasental & imaturitas kelenjar paratiroid; diberikan sejak awal TPN meski Na/K belum</td></tr>
+        </table>
+        <div class="tpn-hint" style="margin-top:6px">Dosis rumatan berlaku bila tidak ada gangguan elektrolit spesifik — pada kondisi hipo/hipernatremia, hipo/hiperkalemia, atau hipokalsemia simtomatik, dosis koreksi mengikuti protokol tersendiri (di luar rumatan TPN).</div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>⚠️ Kontraindikasi & Perhatian Lipid</h4>
+        <ul class="tpn-list">
+          <li>Hiperbilirubinemia berat / mendekati batas fototerapi-transfusi tukar</li>
+          <li>Sepsis akut berat, trombositopenia berat</li>
+          <li>Hipertrigliseridemia — cek kadar trigliserida berkala bila lipid dinaikkan cepat</li>
+        </ul>
+      </div>
+
+      <div class="tpn-card">
+        <h4>🔬 Monitoring</h4>
+        <ul class="tpn-list">
+          <li>Gula darah berkala saat menaikkan GIR</li>
+          <li>Elektrolit (Na, K, Ca) tiap 24–48 jam pada fase inisiasi</li>
+          <li>Trigliserida bila lipid >2–3 g/kg/hari</li>
+          <li>Balans cairan, diuresis, berat badan harian</li>
+          <li>Bilirubin, fungsi hati bila TPN berlangsung lama (>1–2 minggu)</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- ═══ TAB 2: KALKULATOR ═══ -->
+    <div class="tpn-tabpane" id="tpn-tab-kalkulator">
+
+      <div class="tpn-card">
+        <div class="tpn-section-title">Tahap 1 — Kebutuhan Cairan</div>
+        <label class="tpn-label">Berat Badan (kg)</label>
+        <input type="number" id="tpn-bb" class="tpn-input" inputmode="decimal" step="0.01" min="0.1" placeholder="mis. 1.20" oninput="tpnCalc()">
+
+        <label class="tpn-label">Kategori Berat / Gestasi</label>
+        <div class="tpn-seg" id="tpn-gestasi">
+          <button class="tpn-seg-btn active" data-v="bblr" onclick="tpnSetSeg('gestasi',this)">BBLR &lt;1500g</button>
+          <button class="tpn-seg-btn" data-v="lbw" onclick="tpnSetSeg('gestasi',this)">1500–2500g</button>
+          <button class="tpn-seg-btn" data-v="aterm" onclick="tpnSetSeg('gestasi',this)">Aterm</button>
+        </div>
+
+        <label class="tpn-label">Hari Pemberian TPN (DOL ke-)</label>
+        <input type="number" id="tpn-dol" class="tpn-input" inputmode="numeric" min="1" max="14" value="1" oninput="tpnApplyDefaults();tpnCalc()">
+
+        <label class="tpn-label">Kebutuhan Cairan <span class="tpn-hint">(mL/kg/hari, otomatis sesuai DOL — boleh diedit)</span></label>
+        <input type="number" id="tpn-cairan" class="tpn-input" inputmode="decimal" step="1" oninput="tpnCalc()">
+
+        <label class="tpn-label">Intake ASI / Cairan Enteral (mL/hari)</label>
+        <input type="number" id="tpn-intake-asi" class="tpn-input" inputmode="decimal" step="1" value="0" oninput="tpnCalc()">
+
+        <label class="tpn-label">Cairan Obat-obatan (mL/hari)</label>
+        <input type="number" id="tpn-intake-obat" class="tpn-input" inputmode="decimal" step="1" value="0" oninput="tpnCalc()">
+
+        <div class="tpn-row" style="margin-top:8px"><span class="k">Total Kebutuhan Cairan</span><span class="v" id="o-total-cairan">-</span></div>
+        <div class="tpn-row"><span class="k">Sisa Cairan untuk TPN</span><span class="v" id="o-sisa1">-</span></div>
+      </div>
+
+      <div class="tpn-card">
+        <div class="tpn-section-title">Tahap 2 — Makronutrien <span class="tpn-hint">(otomatis dari BB & DOL, boleh diedit)</span></div>
+
+        <label class="tpn-label">Target Protein — Aminosteril 10% (g/kg/hari)</label>
+        <input type="number" id="tpn-protein-target" class="tpn-input" inputmode="decimal" step="0.5" oninput="tpnCalc()">
+        <div class="tpn-hint">Rumus: mL Aminosteril = (Target g/kg × BB) ÷ 0,10</div>
+
+        <label class="tpn-label" style="margin-top:14px">Target Lipid — SMOFlipid 20% (g/kg/hari)</label>
+        <input type="number" id="tpn-lipid-target" class="tpn-input" inputmode="decimal" step="0.5" oninput="tpnCalc()">
+        <div class="tpn-hint">Rumus: mL SMOFlipid = (Target g/kg × BB) ÷ 0,20</div>
+
+        <div class="tpn-row" style="margin-top:8px"><span class="k">Volume Aminosteril 10%</span><span class="v" id="o-vol-aminosteril">-</span></div>
+        <div class="tpn-row"><span class="k">Volume SMOFlipid 20%</span><span class="v" id="o-vol-smoflipid">-</span></div>
+        <div class="tpn-row"><span class="k">Gram Protein</span><span class="v" id="o-gram-protein">-</span></div>
+        <div class="tpn-row"><span class="k">Gram Lipid</span><span class="v" id="o-gram-lipid">-</span></div>
+        <div class="tpn-row"><span class="k">Sisa Cairan (elektrolit+dekstrosa)</span><span class="v" id="o-sisa2">-</span></div>
+      </div>
+
+      <div class="tpn-card">
+        <div class="tpn-section-title">Tahap 3 — Elektrolit Maintenance</div>
+        <button type="button" class="tpn-tabledoc-toggle" onclick="tpnToggleDoseTable()">📋 Lihat/Sembunyikan Tabel Dosis Elektrolit</button>
+        <div class="tpn-tabledoc" id="tpn-dose-table" style="display:none">
+          <table class="tpn-table">
+            <tr><th>Elektrolit</th><th>Dosis Rumatan</th><th>Sumber</th></tr>
+            <tr><td>Natrium</td><td>2 / 2,5 / 3 mEq/kg/hari</td><td>NaCl 3% (0,5 mEq/mL) atau NaCl 0,9% (0,15 mEq/mL)</td></tr>
+            <tr><td>Kalium</td><td>1 / 1,5 / 2 mEq/kg/hari</td><td>KCl (1 mEq/mL)</td></tr>
+            <tr><td>Kalsium</td><td>1 / 1,5 / 2 mL/kg/hari</td><td>Ca Glukonas 10% (≈40-80 mg/kg/hari)</td></tr>
+          </table>
+          <div class="tpn-hint" style="margin-top:6px">Dosis rumatan bila tidak ada gangguan elektrolit. Sesuaikan dengan hasil elektrolit serum pasien.</div>
+        </div>
+
+        <label class="tpn-label">Natrium — sumber cairan</label>
+        <div class="tpn-seg" id="tpn-na-src">
+          <button class="tpn-seg-btn active" data-v="0.5" onclick="tpnSetSeg('na-src',this)">NaCl 3% (0,5 mEq/mL)</button>
+          <button class="tpn-seg-btn" data-v="0.15" onclick="tpnSetSeg('na-src',this)">NaCl 0,9% (0,15 mEq/mL)</button>
+        </div>
+        <label class="tpn-label">Target Natrium (mEq/kg/hari)</label>
+        <div class="tpn-seg" id="tpn-na-target">
+          <button class="tpn-seg-btn active" data-v="2" onclick="tpnSetSeg('na-target',this)">2</button>
+          <button class="tpn-seg-btn" data-v="2.5" onclick="tpnSetSeg('na-target',this)">2,5</button>
+          <button class="tpn-seg-btn" data-v="3" onclick="tpnSetSeg('na-target',this)">3</button>
+        </div>
+
+        <label class="tpn-label">Target Kalium (mEq/kg/hari) <span class="tpn-hint">— KCl 1 mEq/mL</span></label>
+        <div class="tpn-seg" id="tpn-k-target">
+          <button class="tpn-seg-btn active" data-v="1" onclick="tpnSetSeg('k-target',this)">1</button>
+          <button class="tpn-seg-btn" data-v="1.5" onclick="tpnSetSeg('k-target',this)">1,5</button>
+          <button class="tpn-seg-btn" data-v="2" onclick="tpnSetSeg('k-target',this)">2</button>
+        </div>
+
+        <label class="tpn-label">Kalsium Glukonas 10% (mL/kg/hari)</label>
+        <div class="tpn-seg" id="tpn-ca-target">
+          <button class="tpn-seg-btn active" data-v="1" onclick="tpnSetSeg('ca-target',this)">1</button>
+          <button class="tpn-seg-btn" data-v="1.5" onclick="tpnSetSeg('ca-target',this)">1,5</button>
+          <button class="tpn-seg-btn" data-v="2" onclick="tpnSetSeg('ca-target',this)">2</button>
+        </div>
+
+        <div class="tpn-row" style="margin-top:8px"><span class="k">Volume Natrium</span><span class="v" id="o-vol-na">-</span></div>
+        <div class="tpn-row"><span class="k">Volume Kalium</span><span class="v" id="o-vol-k">-</span></div>
+        <div class="tpn-row"><span class="k">Volume Kalsium</span><span class="v" id="o-vol-ca">-</span></div>
+        <div class="tpn-row"><span class="k">Sisa Cairan untuk Dekstrosa</span><span class="v" id="o-sisa3">-</span></div>
+      </div>
+
+      <div class="tpn-card">
+        <div class="tpn-section-title">Tahap 4 — Dekstrosa (GIR)</div>
+        <label class="tpn-label">Target GIR <span class="tpn-hint">(mg/kg/menit, otomatis sesuai DOL — boleh diedit)</span></label>
+        <input type="number" id="tpn-gir" class="tpn-input" inputmode="decimal" step="0.5" oninput="tpnCalc()">
+
+        <div class="tpn-row" style="margin-top:8px"><span class="k">%Dekstrosa Dibutuhkan</span><span class="v" id="o-persen-dex">-</span></div>
+        <div class="tpn-row"><span class="k">D5¼NS (5%) dibutuhkan</span><span class="v" id="o-vol-d5">-</span></div>
+        <div class="tpn-row"><span class="k">D40% dibutuhkan</span><span class="v" id="o-vol-d40">-</span></div>
+        <div class="tpn-row"><span class="k">GIR Aktual Tercapai</span><span class="v" id="o-gir-aktual">-</span></div>
+      </div>
+
+      <div class="tpn-card" id="tpn-warncard" style="display:none">
+        <div id="tpn-warnbox"></div>
+      </div>
+
+      <div class="tpn-card tpn-result">
+        <h4>📋 Ringkasan Volume Total</h4>
+        <div id="tpn-result"></div>
+      </div>
+
+      <div class="tpn-disclaimer">
+        ⚠️ Hasil ini adalah alat bantu interpretasi awal. Konsentrasi dan volume akhir tetap harus dikonfirmasi dengan DPJP/supervisor serta protokol RS setempat.
+      </div>
+    </div>
+
+    <!-- ═══ TAB 3: ANALISIS ═══ -->
+    <div class="tpn-tabpane" id="tpn-tab-analisis">
+      <div class="tpn-card">
+        <h4>📊 Analisis Perhitungan</h4>
+        <div id="tpn-analisis-result">
+          <div class="tpn-hint">Isi data di tab Kalkulator terlebih dahulu untuk melihat analisis.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:24px"></div>
+  </div>
+</div>
+
 <!-- ═══════════════ BOTTOM NAV (screen Home) ═══════════════ -->
 <nav class="bnav" id="mainNav">
   <div class="bnav-item active" data-page="home" onclick="navHome(this)">
@@ -725,6 +1066,20 @@ function openTool(id){
     window.scrollTo(0,0);
     initTindakanTool();
   }
+  if(id==='tpn'){
+    document.getElementById('screen-home').classList.add('hidden');
+    document.getElementById('screen-tpn').classList.remove('hidden');
+    document.getElementById('mainNav').classList.add('hidden');
+    window.scrollTo(0,0);
+    tpnApplyDefaults();
+    tpnCalc();
+  }
+}
+function closeTpnTool(){
+  document.getElementById('screen-tpn').classList.add('hidden');
+  document.getElementById('screen-home').classList.remove('hidden');
+  document.getElementById('mainNav').classList.remove('hidden');
+  window.scrollTo(0,0);
 }
 function closeTindakanTool(){
   document.getElementById('screen-tindakan').classList.add('hidden');
@@ -756,6 +1111,245 @@ function closeSettings(){
   document.getElementById('mainNav').classList.remove('hidden');
   window.scrollTo(0,0);
 }
+/* ═══════════════ TPN NEONATUS: TAB SWITCH ═══════════════ */
+function tpnTab(id,el){
+  document.querySelectorAll('.tpn-tab-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.tpn-tabpane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tpn-tab-'+id).classList.add('active');
+  window.scrollTo(0,0);
+  if(id==='analisis') tpnCalc();
+}
+
+/* ═══════════════ KALKULATOR TPN NEONATUS — LOGIKA 4 TAHAP ═══════════════ */
+/* Tabel default kebutuhan cairan & GIR per DOL — acuan umum, EDITABLE oleh user */
+const TPN_DEFAULTS = {
+  bblr:  {1:{cairan:85, gir:6, protein:1.5, lipid:1}, 2:{cairan:105,gir:8, protein:2,   lipid:1.5}, 3:{cairan:125,gir:10,protein:2.5, lipid:2}, 4:{cairan:140,gir:11,protein:3,   lipid:2.5}, 5:{cairan:155,gir:12,protein:3.5, lipid:3}},
+  lbw:   {1:{cairan:80, gir:6, protein:1.5, lipid:1}, 2:{cairan:100,gir:8, protein:2,   lipid:1.5}, 3:{cairan:120,gir:10,protein:2.5, lipid:2}, 4:{cairan:140,gir:11,protein:3,   lipid:2.5}, 5:{cairan:150,gir:12,protein:3,   lipid:3}},
+  aterm: {1:{cairan:70, gir:6, protein:1.5, lipid:1}, 2:{cairan:90, gir:8, protein:2,   lipid:1.5}, 3:{cairan:110,gir:10,protein:2.5, lipid:2}, 4:{cairan:130,gir:11,protein:3,   lipid:2.5}, 5:{cairan:145,gir:12,protein:3,   lipid:3}}
+};
+function tpnGetDefaults(gestasi,dol){
+  const d=Math.min(Math.max(parseInt(dol)||1,1),5);
+  return TPN_DEFAULTS[gestasi][d];
+}
+function tpnSetSeg(group,el){
+  document.getElementById('tpn-'+group).querySelectorAll('.tpn-seg-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  if(group==='gestasi') tpnApplyDefaults();
+  tpnCalc();
+}
+function tpnGetSeg(group){
+  const active=document.getElementById('tpn-'+group).querySelector('.tpn-seg-btn.active');
+  return active?active.dataset.v:null;
+}
+function tpnApplyDefaults(){
+  const gestasi=tpnGetSeg('gestasi')||'bblr';
+  const dol=document.getElementById('tpn-dol').value||1;
+  const def=tpnGetDefaults(gestasi,dol);
+  document.getElementById('tpn-cairan').value=def.cairan;
+  document.getElementById('tpn-gir').value=def.gir;
+  document.getElementById('tpn-protein-target').value=def.protein;
+  document.getElementById('tpn-lipid-target').value=def.lipid;
+}
+function tpnToggleDoseTable(){
+  const el=document.getElementById('tpn-dose-table');
+  el.style.display = el.style.display==='none' ? 'block' : 'none';
+}
+function tpnFmt(n,unit){ return isFinite(n) ? n.toFixed(unit==='mL'?1:2)+' '+(unit?('<small>'+unit+'</small>'):'') : '-'; }
+
+function tpnCalc(){
+  const bb=parseFloat(document.getElementById('tpn-bb').value);
+  const warnCard=document.getElementById('tpn-warncard');
+  const warnBox=document.getElementById('tpn-warnbox');
+  const out=document.getElementById('tpn-result');
+  const analisisOut=document.getElementById('tpn-analisis-result');
+
+  if(!bb||bb<=0){
+    ['o-total-cairan','o-sisa1','o-vol-aminosteril','o-vol-smoflipid','o-gram-protein','o-gram-lipid','o-sisa2','o-vol-na','o-vol-k','o-vol-ca','o-sisa3','o-persen-dex','o-vol-d5','o-vol-d40','o-gir-aktual']
+      .forEach(id=>{const e=document.getElementById(id); if(e) e.innerHTML='-';});
+    out.innerHTML='<div class="tpn-hint">Masukkan berat badan untuk melihat hasil perhitungan.</div>';
+    warnCard.style.display='none';
+    if(analisisOut) analisisOut.innerHTML='<div class="tpn-hint">Isi data di tab Kalkulator terlebih dahulu untuk melihat analisis.</div>';
+    return;
+  }
+
+  const warnings=[];
+
+  /* ── TAHAP 1: KEBUTUHAN CAIRAN ── */
+  const cairanPerKg = parseFloat(document.getElementById('tpn-cairan').value)||0;
+  const totalCairan = cairanPerKg*bb;                     // mL/hari
+  const intakeAsi = parseFloat(document.getElementById('tpn-intake-asi').value)||0;
+  const intakeObat = parseFloat(document.getElementById('tpn-intake-obat').value)||0;
+  const sisa1 = totalCairan - intakeAsi - intakeObat;      // sisa untuk TPN
+  if(sisa1<0) warnings.push('Intake ASI + cairan obat melebihi total kebutuhan cairan. Cek kembali input Tahap 1.');
+
+  /* ── TAHAP 2: MAKRONUTRIEN (rumus otomatis dari target g/kg × BB) ── */
+  const proteinTarget = parseFloat(document.getElementById('tpn-protein-target').value)||0;
+  const lipidTarget = parseFloat(document.getElementById('tpn-lipid-target').value)||0;
+  const gramProtein = proteinTarget*bb;
+  const gramLipid = lipidTarget*bb;
+  const volAminosteril = gramProtein/0.10;
+  const volSmoflipid = gramLipid/0.20;
+  const proteinPerKg = proteinTarget;
+  const lipidPerKg = lipidTarget;
+  const sisa2 = sisa1 - volAminosteril - volSmoflipid;
+  if(sisa2<0) warnings.push('Volume Aminosteril + SMOFlipid (hasil rumus) melebihi sisa cairan Tahap 1. Turunkan target protein/lipid atau naikkan cairan total.');
+
+  /* ── TAHAP 3: ELEKTROLIT (pilihan klik) ── */
+  const naKonsentrasi = parseFloat(tpnGetSeg('na-src'))||0.5;
+  const naTarget = parseFloat(tpnGetSeg('na-target'))||0;
+  const kTarget = parseFloat(tpnGetSeg('k-target'))||0;
+  const caTarget = parseFloat(tpnGetSeg('ca-target'))||0;
+  const volNa = (naTarget*bb)/naKonsentrasi;
+  const volK = (kTarget*bb)/1;
+  const volCa = caTarget*bb;
+  const volElektrolitTotal = volNa+volK+volCa;
+  const sisa3 = sisa2 - volElektrolitTotal;
+  if(sisa3<0) warnings.push('Volume elektrolit melebihi sisa cairan Tahap 2. Kurangi target elektrolit atau naikkan cairan total.');
+
+  /* ── TAHAP 4: DEKSTROSA (GIR) — campuran D5¼NS (5%) + D40% ── */
+  const girTarget = parseFloat(document.getElementById('tpn-gir').value)||0;
+  let persenDex=null, volD5=0, volD40=0, girAktual=null, gramDekstrosa=0;
+  const sisaDex = Math.max(sisa3,0);
+  if(sisaDex>0 && girTarget>0){
+    persenDex = (girTarget*bb*1440)/(10*sisaDex);
+    if(persenDex<5){
+      // cukup D5¼NS saja, GIR tercapai lebih rendah dari target jika dipaksa 5%
+      volD5=sisaDex; volD40=0;
+      gramDekstrosa = sisaDex*0.05;
+      girAktual = (gramDekstrosa*1000)/(bb*1440);
+      warnings.push(`%Dekstrosa yang dibutuhkan (${persenDex.toFixed(1)}%) di bawah 5%. Volume sisa terlalu besar untuk GIR ini — pertimbangkan naikkan target GIR atau turunkan sisa cairan.`);
+    } else if(persenDex>40){
+      volD5=0; volD40=sisaDex;
+      gramDekstrosa = sisaDex*0.40;
+      girAktual = (gramDekstrosa*1000)/(bb*1440);
+      warnings.push(`%Dekstrosa yang dibutuhkan (${persenDex.toFixed(1)}%) melebihi 40% — tidak bisa dicapai hanya dengan campuran D5¼NS + D40%. Pertimbangkan turunkan target GIR, tambah sisa cairan, atau kurangi volume protein/lipid/elektrolit.`);
+    } else {
+      volD40 = sisaDex*(persenDex-5)/(40-5);
+      volD5 = sisaDex - volD40;
+      gramDekstrosa = sisaDex*(persenDex/100);
+      girAktual = girTarget;
+    }
+  }
+  if(girTarget>14) warnings.push('Target GIR di atas 14 mg/kg/menit — pastikan sesuai indikasi klinis (umumnya maksimal 12–16 mg/kg/menit).');
+
+  /* ── KALORI ── */
+  const kkalKarbo = gramDekstrosa*3.4;
+  const kkalProtein = gramProtein*4;
+  const kkalLipid = gramLipid*9;
+  const kkalTotal = kkalKarbo+kkalProtein+kkalLipid;
+  const kkalNonProtein = kkalKarbo+kkalLipid;
+  const kkalPerKg = kkalTotal/bb;
+
+  /* ── RENDER TAB KALKULATOR: output tiap tahap ── */
+  document.getElementById('o-total-cairan').innerHTML = totalCairan.toFixed(0)+' <small>mL/hari</small>';
+  document.getElementById('o-sisa1').innerHTML = sisa1.toFixed(0)+' <small>mL/hari</small>';
+  document.getElementById('o-vol-aminosteril').innerHTML = volAminosteril.toFixed(1)+' <small>mL</small>';
+  document.getElementById('o-vol-smoflipid').innerHTML = volSmoflipid.toFixed(1)+' <small>mL</small>';
+  document.getElementById('o-gram-protein').innerHTML = gramProtein.toFixed(1)+' <small>g ('+proteinPerKg.toFixed(2)+' g/kg)</small>';
+  document.getElementById('o-gram-lipid').innerHTML = gramLipid.toFixed(1)+' <small>g ('+lipidPerKg.toFixed(2)+' g/kg)</small>';
+  document.getElementById('o-sisa2').innerHTML = sisa2.toFixed(0)+' <small>mL/hari</small>';
+  document.getElementById('o-vol-na').innerHTML = volNa.toFixed(1)+' <small>mL</small>';
+  document.getElementById('o-vol-k').innerHTML = volK.toFixed(1)+' <small>mL</small>';
+  document.getElementById('o-vol-ca').innerHTML = volCa.toFixed(1)+' <small>mL</small>';
+  document.getElementById('o-sisa3').innerHTML = sisa3.toFixed(0)+' <small>mL/hari</small>';
+  document.getElementById('o-persen-dex').innerHTML = persenDex!==null?('D'+persenDex.toFixed(1)+'%'):'-';
+  document.getElementById('o-vol-d5').innerHTML = volD5.toFixed(0)+' <small>mL</small>';
+  document.getElementById('o-vol-d40').innerHTML = volD40.toFixed(0)+' <small>mL</small>';
+  document.getElementById('o-gir-aktual').innerHTML = girAktual!==null?(girAktual.toFixed(2)+' <small>mg/kg/menit</small>'):'-';
+
+  if(warnings.length){
+    warnCard.style.display='block';
+    warnBox.innerHTML=warnings.map(w=>`<div class="tpn-warn">⚠️ ${w}</div>`).join('');
+  } else {
+    warnCard.style.display='block';
+    warnBox.innerHTML='<div class="tpn-ok">✅ Semua tahap konsisten dan berada dalam rentang aman umum.</div>';
+  }
+
+  out.innerHTML=`
+    <div class="tpn-row"><span class="k">Aminosteril 10%</span><span class="v">${volAminosteril.toFixed(0)} <small>mL</small></span></div>
+    <div class="tpn-row"><span class="k">SMOFlipid 20%</span><span class="v">${volSmoflipid.toFixed(0)} <small>mL</small></span></div>
+    <div class="tpn-row"><span class="k">Elektrolit (Na+K+Ca)</span><span class="v">${volElektrolitTotal.toFixed(1)} <small>mL</small></span></div>
+    <div class="tpn-row"><span class="k">D5¼NS</span><span class="v">${volD5.toFixed(0)} <small>mL</small></span></div>
+    <div class="tpn-row"><span class="k">D40%</span><span class="v">${volD40.toFixed(0)} <small>mL</small></span></div>
+    <div class="tpn-row"><span class="k">Total Volume TPN</span><span class="v">${(volAminosteril+volSmoflipid+volElektrolitTotal+volD5+volD40).toFixed(0)} <small>mL/hari</small></span></div>
+    <div class="tpn-row"><span class="k">Total Kalori</span><span class="v">${kkalTotal.toFixed(0)} <small>kkal (${kkalPerKg.toFixed(0)} kkal/kg)</small></span></div>
+  `;
+
+  /* ── TAB ANALISIS ── */
+  if(analisisOut){
+    const items=[];
+    const cairanOk = sisa3>=0;
+    const girOk = girAktual!==null && girAktual>=4 && girAktual<=14;
+    const protOk = proteinPerKg>=1.5 && proteinPerKg<=3.5;
+    const lipidOk = lipidPerKg>0 && lipidPerKg<=3.5;
+    const kkalOk = kkalPerKg>=90 && kkalPerKg<=120;
+    const naOk = naTarget>=2 && naTarget<=3;
+    const kOk = kTarget>=1 && kTarget<=2;
+    const caOk = caTarget>=1 && caTarget<=2;
+    const elektrolitOk = naOk && kOk && caOk;
+    const dexFeasible = persenDex!==null && persenDex>=5 && persenDex<=40;
+
+    // Badge status keseluruhan — berubah sesuai hasil kalkulator saat ini
+    const okCount=[cairanOk,girOk,protOk,lipidOk,kkalOk,elektrolitOk,dexFeasible].filter(Boolean).length;
+    let statusCls='tpn-analisis-ok', statusLabel='✅ BAIK — Rencana TPN Sesuai Target', statusDetail='Seluruh komponen (cairan, GIR, protein, lipid, elektrolit, kalori) berada dalam rentang aman berdasarkan input saat ini.';
+    if(!cairanOk || !dexFeasible || warnings.some(w=>w.includes('melebihi')&&(w.includes('sisa')||w.includes('40%')))){
+      statusCls='tpn-analisis-bad'; statusLabel='🚫 PERLU REVISI — Volume/Konsentrasi Tidak Feasible'; statusDetail='Ada tahap dengan volume negatif atau %dekstrosa di luar rentang campuran D5¼NS–D40%. Input perlu direvisi sebelum diresepkan.';
+    } else if(okCount<7){
+      statusCls='tpn-analisis-warn'; statusLabel='⚠️ PERLU PERHATIAN — Sebagian Target Belum Optimal'; statusDetail=`${7-okCount} dari 7 komponen berada di luar rentang target umum. Lihat rincian di bawah.`;
+    }
+    items.push(`<div class="tpn-analisis-item ${statusCls}" style="font-size:13px"><b>${statusLabel}</b><br>${statusDetail}</div>`);
+
+    // Analisis cairan
+    items.push(`<div class="tpn-analisis-item ${cairanOk?'tpn-analisis-ok':'tpn-analisis-bad'}"><b>Keseimbangan Cairan.</b> Total kebutuhan cairan ${totalCairan.toFixed(0)} mL/hari, terpakai untuk enteral+obat ${(intakeAsi+intakeObat).toFixed(0)} mL, sisa untuk TPN ${sisa1.toFixed(0)} mL. ${!cairanOk?'⚠️ Volume komponen TPN melebihi sisa yang tersedia — perlu penyesuaian.':'Alokasi tiap tahap konsisten dengan volume yang tersedia (sisa akhir untuk dekstrosa: '+sisa3.toFixed(0)+' mL).'}</div>`);
+
+    // Analisis GIR
+    let girNote='';
+    if(girAktual===null) girNote='GIR belum dapat dihitung (sisa cairan untuk dekstrosa tidak mencukupi atau target GIR belum diisi).';
+    else if(girAktual<4) girNote=`GIR aktual ${girAktual.toFixed(2)} mg/kg/menit tergolong rendah (<4) — risiko hipoglikemia, pertimbangkan naikkan GIR bertahap.`;
+    else if(girAktual>14) girNote=`GIR aktual ${girAktual.toFixed(2)} mg/kg/menit melebihi batas aman umum (>14) — risiko hiperglikemia, pertimbangkan turunkan.`;
+    else girNote=`GIR aktual ${girAktual.toFixed(2)} mg/kg/menit berada dalam rentang aman (4–14 mg/kg/menit).`;
+    if(!dexFeasible && persenDex!==null) girNote+=` Catatan: %dekstrosa yang dibutuhkan (${persenDex.toFixed(1)}%) di luar rentang campuran D5¼NS–D40% (5–40%).`;
+    items.push(`<div class="tpn-analisis-item ${girOk&&dexFeasible?'tpn-analisis-ok':'tpn-analisis-warn'}"><b>Glucose Infusion Rate (GIR).</b> ${girNote}</div>`);
+
+    // Analisis protein
+    let protNote='';
+    if(proteinPerKg===0) protNote='Belum ada asupan protein — pastikan target protein Tahap 2 sudah diisi bila TPN sudah berjalan >24 jam.';
+    else if(proteinPerKg<1.5) protNote=`Asupan protein ${proteinPerKg.toFixed(2)} g/kg/hari masih di bawah rentang optimal (1,5–3,5 g/kg/hari).`;
+    else if(proteinPerKg>3.5) protNote=`Asupan protein ${proteinPerKg.toFixed(2)} g/kg/hari melebihi batas maksimal umum (3,5 g/kg/hari).`;
+    else protNote=`Asupan protein ${proteinPerKg.toFixed(2)} g/kg/hari (${volAminosteril.toFixed(1)} mL Aminosteril 10%) berada dalam rentang target (1,5–3,5 g/kg/hari).`;
+    items.push(`<div class="tpn-analisis-item ${protOk?'tpn-analisis-ok':'tpn-analisis-warn'}"><b>Protein / Asam Amino.</b> ${protNote}</div>`);
+
+    // Analisis lipid
+    let lipidNote='';
+    if(lipidPerKg===0) lipidNote='Belum ada asupan lipid — pertimbangkan mulai SMOFlipid bila tidak ada kontraindikasi (hiperbilirubinemia berat, sepsis akut, trombositopenia berat).';
+    else if(lipidPerKg>3.5) lipidNote=`Asupan lipid ${lipidPerKg.toFixed(2)} g/kg/hari melebihi batas maksimal umum (3,5 g/kg/hari) — pantau trigliserida.`;
+    else lipidNote=`Asupan lipid ${lipidPerKg.toFixed(2)} g/kg/hari (${volSmoflipid.toFixed(1)} mL SMOFlipid 20%) berada dalam rentang target (1–3,5 g/kg/hari).`;
+    items.push(`<div class="tpn-analisis-item ${lipidOk?'tpn-analisis-ok':'tpn-analisis-warn'}"><b>Lipid.</b> ${lipidNote}</div>`);
+
+    // Analisis elektrolit — dinamis sesuai pilihan Fx pengguna
+    let elektrolitNote=`Natrium ${naTarget} mEq/kg/hari (${volNa.toFixed(1)} mL), Kalium ${kTarget} mEq/kg/hari (${volK.toFixed(1)} mL), Kalsium glukonas ${caTarget} mL/kg/hari (${volCa.toFixed(1)} mL).`;
+    if(!naOk) elektrolitNote+=' Target natrium di luar rentang rumatan umum (2–3 mEq/kg/hari).';
+    if(!kOk) elektrolitNote+=' Target kalium di luar rentang rumatan umum (1–2 mEq/kg/hari).';
+    if(!caOk) elektrolitNote+=' Target kalsium di luar rentang rumatan umum (1–2 mL/kg/hari).';
+    elektrolitNote += elektrolitOk?' Sesuai dosis rumatan bila tidak ada gangguan elektrolit — tetap sesuaikan dengan hasil elektrolit serum terbaru.':' Pastikan ada indikasi klinis untuk dosis di luar rumatan (mis. gangguan elektrolit spesifik).';
+    items.push(`<div class="tpn-analisis-item ${elektrolitOk?'tpn-analisis-ok':'tpn-analisis-warn'}"><b>Elektrolit.</b> ${elektrolitNote}</div>`);
+
+    // Analisis kalori
+    let kkalNote='';
+    if(kkalPerKg<80) kkalNote=`Total kalori ${kkalPerKg.toFixed(0)} kkal/kg/hari masih di bawah target rumatan (90–120 kkal/kg/hari) — pertimbangkan naikkan komponen makronutrien bertahap.`;
+    else if(kkalPerKg>130) kkalNote=`Total kalori ${kkalPerKg.toFixed(0)} kkal/kg/hari cukup tinggi, pastikan sesuai kebutuhan klinis pasien.`;
+    else kkalNote=`Total kalori ${kkalPerKg.toFixed(0)} kkal/kg/hari berada dalam rentang target rumatan (90–120 kkal/kg/hari).`;
+    items.push(`<div class="tpn-analisis-item ${kkalOk?'tpn-analisis-ok':'tpn-analisis-warn'}"><b>Kecukupan Kalori.</b> ${kkalNote} (Karbohidrat ${kkalKarbo.toFixed(0)} kkal, Protein ${kkalProtein.toFixed(0)} kkal, Lipid ${kkalLipid.toFixed(0)} kkal; Non-protein ${kkalNonProtein.toFixed(0)} kkal)</div>`);
+
+    if(warnings.length){
+      items.push(`<div class="tpn-analisis-item tpn-analisis-bad"><b>Perhatian Khusus.</b><br>${warnings.join('<br>')}</div>`);
+    }
+
+    analisisOut.innerHTML=items.join('');
+  }
+}
+
 function comingSoon(name){
   alert(`"${name}" akan segera tersedia. Untuk saat ini, silakan gunakan alat "Blood Pressure Pediatri".`);
 }
