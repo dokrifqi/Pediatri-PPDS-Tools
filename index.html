@@ -248,6 +248,14 @@ body.dark a.link-btn{color:#F3EDEC}
 #screen-tindakan{ background:var(--bg); min-height:100vh; max-width:430px; margin:0 auto; color:var(--text); }
 .tindakan-topbar{ background:linear-gradient(135deg,#8A1E1E,#C62828); padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px; display:flex; align-items:center; gap:12px; }
 #screen-tpn{background:var(--bg);min-height:100vh;max-width:430px;margin:0 auto;color:var(--text)}
+/* Warna aksen tiap tool — dipakai oleh tpn-section-title, tpn-tab-btn.active, tpn-save-btn, tpn-group-header, tpn-seg-btn.active, tpn-table th, dll (biar tidak monoton teal semua) */
+#screen-tpn{--accent:#0D9488;--accent2:#0F766E}
+#screen-denver{--accent:#7C3AED;--accent2:#6D28D9}
+#screen-gizi{--accent:#059669;--accent2:#047857}
+#screen-cairan{--accent:#0369A1;--accent2:#075985}
+#screen-transfusi{--accent:#B91C1C;--accent2:#991B1B}
+#screen-bcd{--accent:#0E7490;--accent2:#155E75}
+#screen-drug{--accent:#B91C1C;--accent2:#7F1D1D}
 .tpn-topbar{background:linear-gradient(135deg,#0D9488,#0F766E);padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;display:flex;align-items:center;gap:12px}
 .tpn-topbar .back-btn{background:rgba(255,255,255,.18);color:#fff;border:none;width:32px;height:32px;border-radius:10px;font-size:16px;flex-shrink:0}
 .tpn-topbar .title{font-size:15px;font-weight:800;color:#fff}
@@ -261,45 +269,45 @@ body.dark a.link-btn{color:#F3EDEC}
 .tpn-input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:14px}
 .tpn-seg{display:flex;gap:6px;flex-wrap:wrap}
 .tpn-seg-btn{flex:1;min-width:90px;padding:8px 6px;border-radius:10px;border:1.5px solid var(--border);background:var(--input-bg);color:var(--text-soft);font-size:11.5px;font-weight:700;cursor:pointer;transition:all .15s}
-.tpn-seg-btn.active{background:#0D9488;border-color:#0D9488;color:#fff}
-.tpn-result{border:1.5px solid #0D9488}
+.tpn-seg-btn.active{background:var(--accent,#0D9488);border-color:var(--accent,#0D9488);color:#fff}
+.tpn-result{border:1.5px solid var(--accent,#0D9488)}
 .tpn-row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--border);font-size:12.5px}
 .tpn-row:last-child{border-bottom:none}
 .tpn-row .k{color:var(--text-soft);font-weight:600}
 .tpn-row .v{color:var(--text);font-weight:800;font-size:14px}
 .tpn-row .v small{font-weight:600;font-size:10.5px;color:var(--text-faint)}
-.tpn-section-title{font-size:10.5px;font-weight:800;color:#0D9488;text-transform:uppercase;letter-spacing:.05em;margin:12px 0 4px}
+.tpn-section-title{font-size:10.5px;font-weight:800;color:var(--accent,#0D9488);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 4px}
 .tpn-section-title:first-child{margin-top:0}
 .tpn-warn{background:#FEF2F2;border-left:3px solid #DC2626;border-radius:0 10px 10px 0;padding:9px 12px;font-size:11.5px;color:#991B1B;font-weight:600;margin-bottom:6px;line-height:1.5}
 .tpn-ok{background:#ECFDF5;border-left:3px solid #0D9488;border-radius:0 10px 10px 0;padding:9px 12px;font-size:11.5px;color:#065F46;font-weight:600;margin-bottom:6px;line-height:1.5}
 .tpn-disclaimer{font-size:10px;color:var(--text-faint);line-height:1.6;padding:0 2px 8px}
 .tpn-tabs{display:flex;background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
 .tpn-tab-btn{flex:1;padding:11px 4px;background:transparent;border:none;font-size:11.5px;font-weight:700;color:var(--text-faint);cursor:pointer;border-bottom:2.5px solid transparent}
-.tpn-tab-btn.active{color:#0D9488;border-bottom-color:#0D9488}
+.tpn-tab-btn.active{color:var(--accent,#0D9488);border-bottom-color:var(--accent,#0D9488)}
 .tpn-tabpane{display:none}
 .tpn-tabpane.active{display:block}
 .tpn-list{list-style:none;padding:0;margin:0}
 .tpn-list li{padding:5px 0 5px 16px;position:relative;font-size:12px;line-height:1.55;color:var(--text);border-bottom:1px solid var(--border)}
 .tpn-list li:last-child{border-bottom:none}
-.tpn-list li::before{content:'›';position:absolute;left:0;color:#0D9488;font-weight:800}
+.tpn-list li::before{content:'›';position:absolute;left:0;color:var(--accent,#0D9488);font-weight:800}
 .tpn-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px}
-.tpn-table th{background:#0D9488;color:#fff;padding:6px 6px;text-align:left;font-weight:600;font-size:10.5px}
+.tpn-table th{background:var(--accent,#0D9488);color:#fff;padding:6px 6px;text-align:left;font-weight:600;font-size:10.5px}
 .tpn-table td{padding:6px 6px;border-bottom:1px solid var(--border);color:var(--text)}
 .tpn-table tr:last-child td{border-bottom:none}
 .step-flow-tpn{display:flex;flex-direction:column;gap:8px;margin-top:4px}
-.step-tpn{background:var(--input-bg);border-left:3px solid #0D9488;border-radius:0 10px 10px 0;padding:8px 11px;font-size:11.5px;line-height:1.55;color:var(--text)}
+.step-tpn{background:var(--input-bg);border-left:3px solid var(--accent,#0D9488);border-radius:0 10px 10px 0;padding:8px 11px;font-size:11.5px;line-height:1.55;color:var(--text)}
 .tpn-analisis-item{border-radius:0 10px 10px 0;padding:9px 12px;font-size:12px;line-height:1.6;margin-bottom:8px;border-left:3px solid}
 .tpn-analisis-ok{background:#ECFDF5;border-color:#0D9488;color:#065F46}
 .tpn-analisis-warn{background:#FFF7ED;border-color:#F97316;color:#9A3412}
 .tpn-analisis-bad{background:#FEF2F2;border-color:#DC2626;color:#991B1B}
-.tpn-tabledoc-toggle{width:100%;background:var(--input-bg);border:1.5px solid var(--border);color:#0D9488;font-size:11.5px;font-weight:700;padding:8px 10px;border-radius:10px;cursor:pointer;margin-bottom:8px}
+.tpn-tabledoc-toggle{width:100%;background:var(--input-bg);border:1.5px solid var(--border);color:var(--accent,#0D9488);font-size:11.5px;font-weight:700;padding:8px 10px;border-radius:10px;cursor:pointer;margin-bottom:8px}
 .tpn-tabledoc{margin-bottom:10px}
 .tpn-subtabs{display:flex;gap:8px;padding:12px 16px 0}
 .tpn-subtab-btn{flex:1;padding:8px 6px;background:var(--card);border:1.5px solid var(--border);border-radius:10px;font-size:11.5px;font-weight:700;color:var(--text-soft);cursor:pointer}
-.tpn-subtab-btn.active{background:#0D9488;border-color:#0D9488;color:#fff}
+.tpn-subtab-btn.active{background:var(--accent,#0D9488);border-color:var(--accent,#0D9488);color:#fff}
 .tpn-subpane{display:none}
 .tpn-subpane.active{display:block}
-.tpn-save-btn{width:100%;background:#0D9488;color:#fff;border:none;padding:13px;border-radius:12px;font-size:13.5px;font-weight:800;cursor:pointer;margin-top:4px}
+.tpn-save-btn{width:100%;background:var(--accent,#0D9488);color:#fff;border:none;padding:13px;border-radius:12px;font-size:13.5px;font-weight:800;cursor:pointer;margin-top:4px}
 .tpn-save-btn:active{background:#0F766E}
 .tpn-riwayat-card{background:var(--card);border-radius:14px;padding:12px 14px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid var(--border);cursor:pointer}
 .tpn-riwayat-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
@@ -371,7 +379,11 @@ body.dark a.link-btn{color:#F3EDEC}
 .bcd-patient-meta{font-size:11px;color:var(--text-faint);margin-top:2px}
 .bcd-patient-del{background:#FEF2F2;color:#DC2626;border:none;width:30px;height:30px;border-radius:8px;font-size:14px;cursor:pointer;flex-shrink:0;margin-left:8px}
 .bcd-shift-grid{display:flex;flex-direction:column;gap:10px;margin:12px 0}
-.bcd-shift-card{background:var(--card);border-radius:14px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.bcd-shift-card{background:var(--card);border-radius:14px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-left:4px solid var(--border)}
+.bcd-shift-card-0{background:#EFF6FF;border-left-color:#3B82F6}
+.bcd-shift-card-1{background:#FAF5FF;border-left-color:#A855F7}
+.bcd-shift-card-2{background:#FFF7ED;border-left-color:#F97316}
+.bcd-helper-panel{background:#ECFEFF;border-radius:10px;padding:10px 12px;margin-top:10px !important;border:1px solid #A5F3FC;border-top:1px dashed #67E8F9}
 .bcd-shift-title{font-size:12.5px;font-weight:800;color:#0E7490;margin-bottom:8px}
 .bcd-shift-row{display:flex;gap:8px}
 .bcd-shift-row .tpn-input{flex:1}
@@ -379,7 +391,9 @@ body.dark a.link-btn{color:#F3EDEC}
 .bcd-riwayat-day{background:var(--card);border-radius:12px;padding:12px 14px;margin-bottom:8px;border:1px solid var(--border);cursor:pointer}
 .bcd-riwayat-day-date{font-size:13px;font-weight:800;color:var(--text)}
 .bcd-riwayat-day-stat{font-size:11px;color:var(--text-faint);margin-top:2px}
-.tpn-group-header{font-size:12.5px;font-weight:800;color:#fff;background:linear-gradient(135deg,#0D9488,#0F766E);padding:9px 14px;border-radius:10px;margin:18px 0 10px;letter-spacing:.02em}
+.bcd-preset-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.bcd-preset-row button{flex:1;min-width:110px;padding:7px 6px;border-radius:8px;border:1.5px solid var(--border);background:var(--input-bg);color:#0E7490;font-size:10.5px;font-weight:700;cursor:pointer}
+.tpn-group-header{font-size:12.5px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent,#0D9488),var(--accent2,#0F766E));padding:9px 14px;border-radius:10px;margin:18px 0 10px;letter-spacing:.02em}
 .tpn-group-header:first-child{margin-top:2px}
 .tpn-scrolltable{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;border:1px solid var(--border)}
 .tpn-infus-table{margin-top:0;min-width:620px;font-size:10px}
@@ -2418,6 +2432,111 @@ body.dark a.link-btn{color:#F3EDEC}
     </div>
   </div>
 
+  <div class="tpn-tabs" id="bcd-toptabs">
+    <button class="tpn-tab-btn active" data-t="materi" onclick="bcdTopTab('materi',this)">📖 Materi</button>
+    <button class="tpn-tab-btn" data-t="pasien" onclick="bcdTopTab('pasien',this)">📋 Pasien</button>
+  </div>
+
+  <div class="tpn-tabpane active" id="bcd-toptab-materi">
+    <div class="tpn-body" style="padding:14px 16px 0">
+
+      <div class="tpn-card">
+        <h4>🍼 KUVS Anak — Panduan Umum</h4>
+        <ul class="tpn-list">
+          <li>Pasien yang dihitung BCD: tanyakan <b>BB dan usia (dalam tahun)</b></li>
+          <li>Cara menulis nadi: <b>Pulse/SpO2</b></li>
+          <li>Pasien yang biasa ditensi (tergantung instruksi): Nefro, Neuro, Alergi</li>
+        </ul>
+      </div>
+
+      <div class="tpn-card">
+        <h4>🥛 Oral (Intake Minum 8 Jam Terakhir)</h4>
+        <table class="tpn-table">
+          <tr><th>Wadah</th><th>Volume</th></tr>
+          <tr><td>1 gelas plastik Aqua</td><td>240 mL</td></tr>
+          <tr><td>1 gelas plastik juice</td><td>400 mL</td></tr>
+          <tr><td>Aqua botol</td><td>Lihat kemasan</td></tr>
+          <tr><td>ASI</td><td>Anggap 250 cc</td></tr>
+        </table>
+      </div>
+
+      <div class="tpn-card">
+        <h4>🚽 Urin</h4>
+        <div class="tpn-section-title">Kalau Pakai Popok (Ditimbang)</div>
+        <div class="tpn-hint">Timbang di rak depan lift, beratnya dikurangi berat popok bersih.</div>
+        <table class="tpn-table" style="margin-top:6px">
+          <tr><th>Ukuran</th><th>Berat Popok Bersih</th></tr>
+          <tr><td>S</td><td>20 g</td></tr>
+          <tr><td>M</td><td>30 g</td></tr>
+          <tr><td>L</td><td>40 g</td></tr>
+        </table>
+        <div class="tpn-hint" style="margin-top:6px">Banyak pup (BAB): kurangi tambahan -100 g dari berat kotor.</div>
+        <div class="tpn-section-title" style="margin-top:12px">Kalau Tidak Ditimbang (Perkiraan)</div>
+        <table class="tpn-table">
+          <tr><th>Ukuran</th><th>Perkiraan</th></tr>
+          <tr><td>XL</td><td>250 gram/pampers</td></tr>
+          <tr><td>L, M, S</td><td>100 gram/pampers</td></tr>
+        </table>
+      </div>
+
+      <div class="tpn-card">
+        <h4>💉 Infus</h4>
+        <ul class="tpn-list">
+          <li>Lihat angka di monitor (cc/jam) × 8 jam</li>
+          <li>Kalau ada ganti transfusi atau infus dilepas dan bingung, tanya residen</li>
+          <li>Lihat kecepatan infus paling aman di MAP HITAM di rak-rak depan lift (biasanya dalam X cc/jam, dikali 8 dulu)</li>
+        </ul>
+      </div>
+
+      <div class="tpn-group-header">🧮 Rumus Perhitungan</div>
+
+      <div class="tpn-card">
+        <h4>1️⃣ Balance Cairan (BC)</h4>
+        <div class="tpn-formula">BC = (Oral + Infus) − (Urin + IWL + Muntah/Diare)</div>
+        <div class="tpn-hint">Tanyakan juga ada muntah/diare (berapa gelas Aqua?) — 1 gelas Aqua = 240 mL.</div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>2️⃣ Persentase Balance Cairan</h4>
+        <div class="tpn-formula">% = (BC ÷ Darrow) × 100%</div>
+        <div class="tpn-hint" style="padding:10px 12px;background:#FEF2F2;border-left:3px solid #DC2626;border-radius:0 8px 8px 0">⚠️ Laporkan di kertas lapor apabila &gt;20% (hipervolemia)</div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>3️⃣ Diuresis (D)</h4>
+        <div class="tpn-formula">D = Urin ÷ BB ÷ 8 jam</div>
+        <div class="tpn-hint" style="padding:10px 12px;background:#FEF2F2;border-left:3px solid #DC2626;border-radius:0 8px 8px 0">⚠️ Laporkan di kertas lapor apabila &lt;1,0 mL/kg/jam</div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>4️⃣ IWL (Insensible Water Loss)</h4>
+        <div class="tpn-formula">IWL (cc/8 jam) = BB (kg) × Konstanta ÷ 3</div>
+        <table class="tpn-table" style="margin-top:8px">
+          <tr><th>Usia</th><th>Konstanta</th></tr>
+          <tr><td>0-1 bulan</td><td>50 cc</td></tr>
+          <tr><td>1 bulan-1 tahun</td><td>40 cc</td></tr>
+          <tr><td>1-5 tahun</td><td>30 cc</td></tr>
+          <tr><td>&gt;5 tahun</td><td>20 cc</td></tr>
+        </table>
+        <div class="tpn-hint" style="margin-top:6px">IWL = jumlah cairan keluar yang tidak disadari dan sulit dihitung — keringat, uap napas.</div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>5️⃣ Darrow (Kebutuhan Cairan Harian)</h4>
+        <div class="tpn-formula">Darrow = (100 × 10 kg pertama) + (50 × 10 kg kedua) + (20 × BB sisa)</div>
+        <div class="tpn-hint">Sama dengan rumus Holliday-Segar yang dipakai untuk "Kebutuhan Cairan/24 jam" di data pasien — otomatis terisi saat tambah pasien.</div>
+      </div>
+
+      <div class="tpn-card">
+        <h4>📌 Kalkulator Bantu BC</h4>
+        <div class="tpn-hint">Di tab Pasien → buka pasien → tiap kotak shift ada tombol "🧮 Hitung Bantu BC" untuk hitung Balance dari komponen Oral/Infus/Urin/IWL/Muntah secara otomatis, tidak perlu hitung manual di kertas.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tpn-tabpane" id="bcd-toptab-pasien">
+
   <!-- ═══ VIEW: DAFTAR PASIEN ═══ -->
   <div id="bcd-view-list">
     <div class="tpn-body" style="padding:14px 16px 0">
@@ -2490,6 +2609,8 @@ body.dark a.link-btn{color:#F3EDEC}
       <div style="height:24px"></div>
     </div>
   </div>
+
+  </div><!-- /bcd-toptab-pasien -->
 
 </div>
 
@@ -4996,6 +5117,13 @@ function bcdTodayStr(){
 }
 
 /* ═══ VIEW SWITCHING ═══ */
+function bcdTopTab(id, el){
+  document.querySelectorAll('#bcd-toptabs .tpn-tab-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#screen-bcd > .tpn-tabpane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('bcd-toptab-'+id).classList.add('active');
+  window.scrollTo(0,0);
+}
 function bcdShowListView(){
   bcdCurrentPatientId = null;
   document.getElementById('bcd-view-detail').classList.add('hidden');
@@ -5166,7 +5294,7 @@ function bcdRenderShiftGrid(dayData){
   grid.innerHTML = BCD_SHIFT_LABELS.map((label,i)=>{
     const s = dayData.shifts[i] || {balance:'',diuresis:''};
     return `
-    <div class="bcd-shift-card">
+    <div class="bcd-shift-card bcd-shift-card-${i}">
       <div class="bcd-shift-title">Shift ${label}</div>
       <div class="bcd-shift-row">
         <div>
@@ -5182,8 +5310,181 @@ function bcdRenderShiftGrid(dayData){
         <span>% dari target shift: -</span>
         <span>Rate: - mL/kg/jam</span>
       </div>
+
+      <button type="button" class="tpn-tabledoc-toggle" style="margin-top:10px" onclick="bcdToggleHelper(${i})">🧮 Hitung Bantu BC (dari Oral/Infus/Urin/IWL/Muntah)</button>
+      <div class="bcd-helper-panel" id="bcd-helper-${i}" style="display:none">
+
+        <div class="tpn-section-title" style="margin-top:8px">🥛 Oral (mL)</div>
+        <div class="bcd-preset-row">
+          <button type="button" onclick="bcdAddOral(${i},240)">+1 Gelas Air (240)</button>
+          <button type="button" onclick="bcdAddOral(${i},400)">+1 Gelas Jus (400)</button>
+          <button type="button" onclick="bcdAddOral(${i},250)">+ASI (250)</button>
+        </div>
+        <input type="number" class="tpn-input" id="bcd-h-oral-${i}" inputmode="decimal" step="1" placeholder="Total oral (mL)" value="0" oninput="bcdCalcHelper(${i})">
+
+        <div class="tpn-section-title" style="margin-top:10px">💉 Infus</div>
+        <label class="tpn-label" style="margin-top:0">Rate (mL/jam) — otomatis ×8 jam</label>
+        <input type="number" class="tpn-input" id="bcd-h-infusrate-${i}" inputmode="decimal" step="0.1" placeholder="mis. 15" oninput="bcdCalcHelper(${i})">
+
+        <div class="tpn-section-title" style="margin-top:10px">🚽 Urin</div>
+        <div class="bcd-preset-row">
+          <button type="button" onclick="bcdSetUrin(${i},250)">Perkiraan XL (250g)</button>
+          <button type="button" onclick="bcdSetUrin(${i},100)">Perkiraan L/M/S (100g)</button>
+        </div>
+        <label class="tpn-label" style="margin-top:6px">Atau timbang: Berat Kotor (g)</label>
+        <input type="number" class="tpn-input" id="bcd-h-kotor-${i}" inputmode="decimal" step="1" placeholder="mis. 145" oninput="bcdCalcHelper(${i})">
+        <label class="tpn-label">Berat Popok Bersih (g) <span class="tpn-hint">S=20, M=30, L=40</span></label>
+        <input type="number" class="tpn-input" id="bcd-h-bersih-${i}" inputmode="decimal" step="1" placeholder="mis. 30" oninput="bcdCalcHelper(${i})">
+        <label class="tpn-check-row"><input type="checkbox" id="bcd-h-pup-${i}" onchange="bcdCalcHelper(${i})"> Ada BAB banyak (−100 g)</label>
+        <label class="tpn-label">Atau isi Urin langsung (mL)</label>
+        <input type="number" class="tpn-input" id="bcd-h-urin-${i}" inputmode="decimal" step="1" placeholder="Total urin (mL)" value="0" oninput="bcdCalcHelper(${i})">
+
+        <div class="tpn-section-title" style="margin-top:10px">💧 IWL</div>
+        <div class="tpn-seg" id="bcd-h-iwlkonstanta-${i}">
+          <button class="tpn-seg-btn" data-v="50" onclick="bcdSetIwlSeg(${i},this)">0-1bln (50)</button>
+          <button class="tpn-seg-btn" data-v="40" onclick="bcdSetIwlSeg(${i},this)">1bln-1th (40)</button>
+          <button class="tpn-seg-btn active" data-v="30" onclick="bcdSetIwlSeg(${i},this)">1-5th (30)</button>
+          <button class="tpn-seg-btn" data-v="20" onclick="bcdSetIwlSeg(${i},this)">&gt;5th (20)</button>
+        </div>
+
+        <div class="tpn-section-title" style="margin-top:10px">🤮 Muntah (mL)</div>
+        <div class="bcd-preset-row">
+          <button type="button" onclick="bcdAddMuntah(${i},240)">+1 Gelas Aqua (240)</button>
+        </div>
+        <input type="number" class="tpn-input" id="bcd-h-muntah-${i}" inputmode="decimal" step="1" placeholder="Total muntah (mL)" value="0" oninput="bcdCalcHelper(${i})">
+
+        <div class="tpn-section-title" style="margin-top:10px">💩 BAB / Diare (mL)</div>
+        <div class="bcd-preset-row">
+          <button type="button" onclick="bcdAddBab(${i},240)">+1 Gelas Aqua (240)</button>
+        </div>
+        <input type="number" class="tpn-input" id="bcd-h-bab-${i}" inputmode="decimal" step="1" placeholder="Total BAB/diare (mL)" value="0" oninput="bcdCalcHelper(${i})">
+
+        <div class="tpn-group-header" style="margin-top:14px">1️⃣ Balance Cairan = Input − Output</div>
+        <div class="tpn-section-title">Input</div>
+        <div class="tpn-row"><span class="k">Infus</span><span class="v" id="bcd-h-out-infus-${i}">0 mL</span></div>
+        <div class="tpn-row"><span class="k">Cairan (Oral)</span><span class="v" id="bcd-h-out-oral-${i}">0 mL</span></div>
+        <div class="tpn-row" style="font-weight:800"><span class="k">Total Input</span><span class="v" id="bcd-h-out-totalin-${i}">0 mL</span></div>
+
+        <div class="tpn-section-title" style="margin-top:10px">Output</div>
+        <div class="tpn-row"><span class="k">IWL</span><span class="v" id="bcd-h-out-iwl-${i}">0 mL</span></div>
+        <div class="tpn-row"><span class="k">Muntah</span><span class="v" id="bcd-h-out-muntah-${i}">0 mL</span></div>
+        <div class="tpn-row"><span class="k">Urin</span><span class="v" id="bcd-h-out-urin-${i}">0 mL</span></div>
+        <div class="tpn-row"><span class="k">BAB</span><span class="v" id="bcd-h-out-bab-${i}">0 mL</span></div>
+        <div class="tpn-row" style="font-weight:800"><span class="k">Total Output</span><span class="v" id="bcd-h-out-totalout-${i}">0 mL</span></div>
+
+        <div class="tpn-row" style="margin-top:8px;font-weight:800;font-size:14px"><span class="k">BC = Input − Output</span><span class="v" id="bcd-h-out-bc-${i}">0 mL</span></div>
+
+        <div class="tpn-group-header" style="margin-top:14px">2️⃣ Darrow (Kebutuhan Cairan)</div>
+        <div class="tpn-hint">Darrow = (100×10kg pertama) + (50×10kg kedua) + (20×BB sisa)</div>
+        <div class="tpn-row"><span class="k">Hasil Darrow (pasien ini)</span><span class="v" id="bcd-h-out-darrow-${i}">0 mL</span></div>
+
+        <div class="tpn-group-header" style="margin-top:14px">3️⃣ Persentase BC</div>
+        <div class="tpn-hint">% = (BC ÷ Darrow) × 100%</div>
+        <div class="tpn-row"><span class="k">Hasil %BC</span><span class="v" id="bcd-h-out-pct-${i}">0%</span></div>
+        <div id="bcd-h-furosemide-${i}"></div>
+
+        <div class="tpn-group-header" style="margin-top:14px">4️⃣ Diuresis</div>
+        <div class="tpn-hint">D = Urin ÷ BB ÷ 8 jam</div>
+        <div class="tpn-row"><span class="k">Hasil Diuresis</span><span class="v" id="bcd-h-out-diuresis-${i}">0 mL/kg/jam</span></div>
+
+        <button type="button" class="tpn-save-btn" style="margin-top:14px" onclick="bcdApplyHelper(${i})">✅ Isi ke Balance Shift Ini</button>
+      </div>
     </div>`;
   }).join('');
+  bcdRenderTotal();
+}
+function bcdToggleHelper(i){
+  const panel = document.getElementById('bcd-helper-'+i);
+  panel.style.display = panel.style.display==='none' ? 'block' : 'none';
+  if(panel.style.display==='block') bcdCalcHelper(i);
+}
+function bcdAddOral(i, val){
+  const el = document.getElementById('bcd-h-oral-'+i);
+  el.value = (parseFloat(el.value)||0) + val;
+  bcdCalcHelper(i);
+}
+function bcdAddMuntah(i, val){
+  const el = document.getElementById('bcd-h-muntah-'+i);
+  el.value = (parseFloat(el.value)||0) + val;
+  bcdCalcHelper(i);
+}
+function bcdAddBab(i, val){
+  const el = document.getElementById('bcd-h-bab-'+i);
+  el.value = (parseFloat(el.value)||0) + val;
+  bcdCalcHelper(i);
+}
+function bcdSetUrin(i, val){
+  document.getElementById('bcd-h-urin-'+i).value = val;
+  document.getElementById('bcd-h-kotor-'+i).value = '';
+  document.getElementById('bcd-h-bersih-'+i).value = '';
+  bcdCalcHelper(i);
+}
+function bcdSetIwlSeg(i, el){
+  document.getElementById('bcd-h-iwlkonstanta-'+i).querySelectorAll('.tpn-seg-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  bcdCalcHelper(i);
+}
+function bcdCalcHelper(i){
+  const p = bcdGetCurrentPatient();
+  if(!p) return;
+  const oral = parseFloat(document.getElementById('bcd-h-oral-'+i).value) || 0;
+  const infusRate = parseFloat(document.getElementById('bcd-h-infusrate-'+i).value) || 0;
+  const infus8 = infusRate*8;
+
+  const kotor = parseFloat(document.getElementById('bcd-h-kotor-'+i).value);
+  const bersih = parseFloat(document.getElementById('bcd-h-bersih-'+i).value);
+  const pup = document.getElementById('bcd-h-pup-'+i).checked;
+  let urin = parseFloat(document.getElementById('bcd-h-urin-'+i).value) || 0;
+  if(!isNaN(kotor) && !isNaN(bersih)){
+    urin = kotor - bersih - (pup?100:0);
+    document.getElementById('bcd-h-urin-'+i).value = urin.toFixed(0);
+  }
+
+  const konstanta = parseFloat(document.getElementById('bcd-h-iwlkonstanta-'+i).querySelector('.tpn-seg-btn.active').dataset.v);
+  const iwl = (p.bb*konstanta)/3;
+
+  const muntah = parseFloat(document.getElementById('bcd-h-muntah-'+i).value) || 0;
+  const bab = parseFloat(document.getElementById('bcd-h-bab-'+i).value) || 0;
+
+  const totalInput = oral + infus8;
+  const totalOutput = iwl + muntah + urin + bab;
+  const bc = totalInput - totalOutput;
+
+  // 1. Balance Cairan
+  document.getElementById('bcd-h-out-infus-'+i).textContent = infus8.toFixed(0)+' mL';
+  document.getElementById('bcd-h-out-oral-'+i).textContent = oral.toFixed(0)+' mL';
+  document.getElementById('bcd-h-out-totalin-'+i).textContent = totalInput.toFixed(0)+' mL';
+  document.getElementById('bcd-h-out-iwl-'+i).textContent = iwl.toFixed(1)+' mL';
+  document.getElementById('bcd-h-out-muntah-'+i).textContent = muntah.toFixed(0)+' mL';
+  document.getElementById('bcd-h-out-urin-'+i).textContent = urin.toFixed(0)+' mL';
+  document.getElementById('bcd-h-out-bab-'+i).textContent = bab.toFixed(0)+' mL';
+  document.getElementById('bcd-h-out-totalout-'+i).textContent = totalOutput.toFixed(1)+' mL';
+  document.getElementById('bcd-h-out-bc-'+i).textContent = bc.toFixed(1)+' mL';
+
+  // 2. Darrow
+  document.getElementById('bcd-h-out-darrow-'+i).textContent = p.kebutuhan.toFixed(0)+' mL';
+
+  // 3. Persentase BC
+  const pct = (bc/p.kebutuhan)*100;
+  document.getElementById('bcd-h-out-pct-'+i).textContent = pct.toFixed(1)+'%';
+  const furosemideBox = document.getElementById('bcd-h-furosemide-'+i);
+  if(Math.abs(pct) >= 20){
+    const dosis = (0.05*p.bb).toFixed(2);
+    furosemideBox.innerHTML = `<div class="tpn-warn" style="background:#FEF2F2;border-left-color:#DC2626;color:#991B1B;margin-top:6px">🚨 %BC ${pct.toFixed(1)}% (≥20%, ${pct>0?'hipervolemia':'defisit berat'}) — <b>LAPOR!</b> Ingatkan pertimbangan Furosemide ${dosis} mg (0,05 mg/kg) sesuai instruksi DPJP.</div>`;
+  } else {
+    furosemideBox.innerHTML = '';
+  }
+
+  // 4. Diuresis
+  const diuresisRate = urin/(p.bb*8);
+  document.getElementById('bcd-h-out-diuresis-'+i).textContent = diuresisRate.toFixed(2)+' mL/kg/jam';
+
+  return {bc, urin};
+}
+function bcdApplyHelper(i){
+  const res = bcdCalcHelper(i);
+  document.getElementById('bcd-shift-balance-'+i).value = res.bc.toFixed(1);
+  document.getElementById('bcd-shift-diuresis-'+i).value = res.urin.toFixed(0);
   bcdRenderTotal();
 }
 
@@ -5315,27 +5616,31 @@ function bcdComputeDaySummary(p, date){
 
 function bcdDrawPatientBox(ctx, x, y, w, h, no, p, summary){
   ctx.strokeStyle = '#111827';
-  ctx.lineWidth = 1.2;
+  ctx.lineWidth = 1;
   ctx.strokeRect(x, y, w, h);
 
   // header
   ctx.fillStyle = '#111827';
-  ctx.font = 'bold 12px Arial';
-  ctx.fillText(no, x+6, y+16);
-  ctx.font = '600 12px Arial';
-  ctx.fillText(p.nama + ' / ' + p.bb + 'kg / ' + p.kebutuhan.toFixed(0), x+26, y+16);
+  ctx.font = 'bold 11px Arial';
+  ctx.fillText(no, x+5, y+14);
+  ctx.font = '600 10px Arial';
+  let headerText = p.nama + ' / ' + p.bb + 'kg / ' + p.kebutuhan.toFixed(0);
+  if(ctx.measureText(headerText).width > w-24){
+    headerText = p.nama.slice(0, Math.max(3, p.nama.length-4)) + '… / ' + p.bb + 'kg / ' + p.kebutuhan.toFixed(0);
+  }
+  ctx.fillText(headerText, x+20, y+14);
 
-  const tblY = y+24;
-  const col1W = w*0.28, col2W = w*0.42, col3W = w*0.30;
-  const rowH = (h-24-26)/4; // 4 rows: header + 3 shifts
+  const tblY = y+20;
+  const col1W = w*0.24, col2W = w*0.44, col3W = w*0.32;
+  const rowH = (h-20-30)/4; // 4 rows: header + 3 shifts
 
   // table header
   ctx.strokeRect(x, tblY, w, rowH);
   ctx.strokeRect(x+col1W, tblY, col2W, rowH);
-  ctx.font = 'bold 11px Arial';
-  ctx.fillText('Jam', x+6, tblY+rowH/2+4);
-  ctx.fillText('BCD', x+col1W+6, tblY+rowH/2+4);
-  ctx.fillText('D', x+col1W+col2W+6, tblY+rowH/2+4);
+  ctx.font = 'bold 9.5px Arial';
+  ctx.fillText('Jam', x+4, tblY+rowH/2+3);
+  ctx.fillText('BCD', x+col1W+4, tblY+rowH/2+3);
+  ctx.fillText('D', x+col1W+col2W+4, tblY+rowH/2+3);
 
   const timeLabels = ['14.00','21.00','06.00'];
   for(let i=0;i<3;i++){
@@ -5343,24 +5648,24 @@ function bcdDrawPatientBox(ctx, x, y, w, h, no, p, summary){
     ctx.strokeRect(x, ry, col1W, rowH);
     ctx.strokeRect(x+col1W, ry, col2W, rowH);
     ctx.strokeRect(x+col1W+col2W, ry, col3W, rowH);
-    ctx.font = '11px Arial';
+    ctx.font = '9.5px Arial';
     ctx.fillStyle = '#111827';
-    ctx.fillText(timeLabels[i], x+6, ry+rowH/2+4);
+    ctx.fillText(timeLabels[i], x+4, ry+rowH/2+3);
     const s = summary.shifts[i];
-    const balText = (s.balance!==null && s.balance!==undefined) ? s.balance.toFixed(1) : '-';
-    ctx.font = '10px Arial';
-    ctx.fillText(balText+(s.pctText!=='-'?(' ('+s.pctText+')'):''), x+col1W+4, ry+rowH/2+4);
-    ctx.fillText(s.diuText, x+col1W+col2W+6, ry+rowH/2+4);
+    const balText = (s.balance!==null && s.balance!==undefined) ? s.balance.toFixed(0) : '-';
+    ctx.font = '8.5px Arial';
+    ctx.fillText(balText+(s.pctText!=='-'?(' ('+s.pctText+')'):''), x+col1W+3, ry+rowH/2+3);
+    ctx.fillText(s.diuText, x+col1W+col2W+4, ry+rowH/2+3);
   }
 
   // total row (below table)
-  const totY = tblY + rowH*4 + 14;
-  ctx.font = 'bold 11px Arial';
+  const totY = tblY + rowH*4 + 13;
+  ctx.font = 'bold 9.5px Arial';
   ctx.fillStyle = '#0369A1';
-  const totBalText = summary.totalBalance!==null ? summary.totalBalance.toFixed(1)+' ('+summary.totalPct.toFixed(1)+'%)' : '-';
+  const totBalText = summary.totalBalance!==null ? summary.totalBalance.toFixed(0)+' ('+summary.totalPct.toFixed(1)+'%)' : '-';
   const totDiuText = summary.avgRate!==null ? summary.avgRate.toFixed(2)+' mL/kg/j' : '-';
-  ctx.fillText('Total: ' + totBalText, x+6, totY);
-  ctx.fillText('Rerata D: ' + totDiuText, x+6, totY+16);
+  ctx.fillText('Total: ' + totBalText, x+5, totY);
+  ctx.fillText('Rerata D: ' + totDiuText, x+5, totY+14);
 }
 
 function bcdDownloadRekapPDF(){
@@ -5379,15 +5684,16 @@ function bcdDownloadRekapPDF(){
     return;
   }
   const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF({orientation:'portrait', unit:'mm', format:'a4'});
+  const pdf = new jsPDF({orientation:'landscape', unit:'mm', format:'a4'});
 
-  const perPage = 8; // 2 kolom x 4 baris
+  const cols = 4, rows = 3;
+  const perPage = cols*rows; // 12 pasien per halaman
   const pages = Math.ceil(list.length / perPage);
 
   for(let pg=0; pg<pages; pg++){
     const pagePatients = list.slice(pg*perPage, pg*perPage+perPage);
 
-    const W = 900, H = 1273; // rasio A4
+    const W = 1273, H = 900; // rasio A4 landscape
     const canvas = document.createElement('canvas');
     canvas.width = W; canvas.height = H;
     const ctx = canvas.getContext('2d');
@@ -5396,15 +5702,14 @@ function bcdDownloadRekapPDF(){
 
     ctx.fillStyle = '#111827';
     ctx.font = 'bold 20px Arial';
-    ctx.fillText('BCD PICU — Rekap ' + date, 30, 40);
+    ctx.fillText('BCD PICU — Rekap ' + date, 30, 34);
     ctx.font = '12px Arial';
     ctx.fillStyle = '#6B7280';
-    ctx.fillText('Halaman ' + (pg+1) + ' dari ' + pages + ' · Dicetak: ' + new Date().toLocaleString('id-ID'), 30, 60);
+    ctx.fillText('Halaman ' + (pg+1) + ' dari ' + pages + ' · Dicetak: ' + new Date().toLocaleString('id-ID'), 30, 52);
 
-    const marginTop = 80, marginX = 30, gap = 16;
-    const cols = 2, rows = 4;
+    const marginTop = 66, marginX = 24, gap = 14;
     const boxW = (W - marginX*2 - gap*(cols-1))/cols;
-    const boxH = (H - marginTop - 40 - gap*(rows-1))/rows;
+    const boxH = (H - marginTop - 20 - gap*(rows-1))/rows;
 
     pagePatients.forEach((p, idx)=>{
       const col = idx % cols;
@@ -5417,7 +5722,7 @@ function bcdDownloadRekapPDF(){
     });
 
     const imgData = canvas.toDataURL('image/png');
-    const pdfW = 210, pdfH = 297; // A4 mm
+    const pdfW = 297, pdfH = 210; // A4 landscape mm
     if(pg>0) pdf.addPage();
     pdf.addImage(imgData, 'PNG', 0, 0, pdfW, pdfH);
   }
